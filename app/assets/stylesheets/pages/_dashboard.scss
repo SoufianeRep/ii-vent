@@ -1,5 +1,5 @@
 .page-container {
-  background-color: #2A2B2D;
+  background-color: #1F2022;
   height: 100%;
 }
 
@@ -16,7 +16,7 @@
 
 .dashboard-tasks-container {
   height: 400px;
-  background-color: #585859;
+  background-color: #2A2B2D;
 
   .tasks-sections-container {
     height: 400px;
@@ -36,11 +36,11 @@
       }
 
       .task-description {
-        color: #667085;
+        color: #ececec;
       }
 
       .tasks-event-container {
-        background-color: #667085;
+        background-color: #ececec;
       }
     }
   }
