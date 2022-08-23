@@ -5,17 +5,20 @@
   background-color: $dark-gray;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.12), 0 0 4px rgba(0, 0, 0, 0.24);
   z-index: 1;
-  position: relative;
+  position: sticky;
+  top: 0;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
+// .navbar-lewagon .navbar-brand img {
+
+// }
 
 .avatar {
-  border: 1px solid $white;
+  border: 2px solid $white;
+  width: 56px;
+  height: 56px;
 }
