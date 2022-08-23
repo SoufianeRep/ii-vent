@@ -1,1 +1,67 @@
-<h1>THIS IS THE DASHBOARD</h1>
+<div class="page-container">
+  <div class="container justify-content-center">
+    <div class="row dashboard-header">
+      <div class="col-4 dashboard-header-column p-3">
+        <div class="h3">Dashboard</div>
+      </div>
+      <div class="col-4 dashboard-header-column p-3">
+        <div class="h3">Tuesday, August 23rd</div>
+      </div>
+      <div class="col-4 dashboard-header-column p-3">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row dashboard-tasks-container col-12 gx-3 rounded justify-content-between">
+        <div class="container tasks-sections-container col-xs-12 col-sm-4 border rounded">
+          <h5>Tasks</h5>
+          <div class="content-container border rounded">
+            <div class="container m-3">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault">
+                <label for="flexCheckDefault" class="form-check-label" value="">Task name</label>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar task-assignee-avatar", alt: "avatar" %>
+                <p class="task-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              </div>
+            </div>
+            <div class="container m-3">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault">
+                <label for="flexCheckDefault" class="form-check-label" value="">Task name</label>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar task-assignee-avatar", alt: "avatar" %>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar task-assignee-avatar", alt: "avatar" %>
+                <p class="task-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              </div>
+            </div>
+            <div class="container m-3">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault">
+                <label for="flexCheckDefault" class="form-check-label" value="">Task name</label>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar task-assignee-avatar", alt: "avatar" %>
+                <p class="task-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container tasks-sections-container col-xs-12 col-sm-4 border rounded">
+          <h5>Due Date</h5>
+          <div class="content-container border rounded">
+            <div class="container m-3">
+              <p>Wednesday, August 24th, 20:00</p>
+            </div>
+          </div>
+        </div>
+        <div class="container tasks-sections-container col-xs-12 col-sm-4 border rounded">
+          <h5>Event</h5>
+          <div class="content-container border rounded">
+            <div class="container tasks-event-container m-3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row dashboard-events-container col-12 rounded justify-content-center mt-5">
+      <div class="event-container border rounded"></div>
+    </div>
+  </div>
+</div>
