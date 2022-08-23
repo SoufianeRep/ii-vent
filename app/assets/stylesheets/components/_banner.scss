@@ -1,0 +1,14 @@
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 30px;
+  height: 250px;
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position:center center;
+  object-fit: cover;
+  text-shadow: 1px 1px $medium-gray;
+  border-radius: 4px;
+}

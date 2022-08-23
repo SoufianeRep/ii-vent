@@ -6,7 +6,7 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$body-bg:                 $bg-gray;
 $font-size-base: 1rem;
 
 // Colors
@@ -23,3 +23,7 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+$nav-pills-link-active-bg: $medium-gray;
+$nav-link-color: $something;
+$nav-link-hover-color: $white;
+$nav-tabs-link-hover-border-color: $medium-gray;

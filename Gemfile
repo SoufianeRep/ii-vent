@@ -86,3 +86,5 @@ end
 # Added Gems:
 # Pundit
 gem "pundit"
+# Geocoder
+gem "geocoder"
