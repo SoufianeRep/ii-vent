@@ -54,7 +54,6 @@ EventMember.create!(user: (User.all - User.all.first(4)).sample, event: Event.fi
 EventMember.create!(user: (User.all - User.all.first(4)).sample, event: Event.first, permission: "member")
 EventMember.create!(user: (User.all - User.all.first(4)).sample, event: Event.first, permission: "member")
 EventMember.create!(user: (User.all - User.all.first(4)).sample, event: Event.first, permission: "member")
-EventMember.create!(user: (User.all - User.all.first(4)).sample, event: Event.first, permission: "member")
 
 
 puts "Creating task memebr"
