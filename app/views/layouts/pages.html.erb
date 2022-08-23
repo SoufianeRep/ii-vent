@@ -9,16 +9,6 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-2 p-0">
-          <%= render "shared/sidenav" %>
-        </div>
-        <div class="col-10 p-0">
-          <%= render 'shared/navbar' %>
-          <%= yield %>
-        </div>
-      </div>
-    </div>
+    <%= yield %>
   </body>
 </html>
