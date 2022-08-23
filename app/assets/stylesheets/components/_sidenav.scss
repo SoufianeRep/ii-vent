@@ -1,0 +1,31 @@
+.sidenav {
+  background-color: $medium-gray;
+  height: 100vh;
+  color: $light-gray;
+  border-radius: 5px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  // box-shadow: 0 1px 6px rgba(125, 125, 125, 0.12), 0 1px 4px rgba(148, 148, 148, 0.24);
+
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.logo {
+  font-size: 3.5em;
+}
+
+.logo-name {
+  font-size: 2.6em;
+  font-weight: bold;
+}
+
+.side-list-item {
+  padding-left: 32px;
+}
