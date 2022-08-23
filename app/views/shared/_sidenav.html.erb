@@ -1,0 +1,42 @@
+<div class="sidenav d-flex flex-column justify-content-between">
+  <div class="sidenav-top d-flex justify-content-between align-items-center gap-2 px-4 mt-4 text-light">
+    <div class="logo">
+      <i class="fa-brands fa-pied-piper-alt"></i>
+    </div>
+    <h2 class="logo-name">ii-Vent</h2>
+  </div>
+  <div class="container sidenav-main d-flex flex-column justify-content-between flex-grow-2">
+    <ul class="list-unstyled d-flex flex-column gap-4 align-items-start">
+      <li class="side-list-item fs-5">
+        <%= link_to '#', class: 'd-flex gap-2 align-items-center' do %>
+          <i class="fa-solid fa-house"></i>
+          <p>Home</p>
+        <% end %>
+      </li>
+      <li class="side-list-item fs-5">
+        <%= link_to '#', class: 'd-flex gap-2 align-items-center' do %>
+          <i class="fa-solid fa-list-check"></i>
+          <p>Tasks</p>
+        <% end %>
+      </li>
+      <li class="side-list-item fs-5">
+        <%= link_to '#', class: 'd-flex gap-2 align-items-center' do %>
+          <i class="fa-solid fa-calendar-week"></i>
+          <p>My Events</p>
+        <% end %>
+      </li>
+      <li class="side-list-item fs-5">
+        <%= link_to '#', class: 'd-flex gap-2 align-items-center' do %>
+          <i class="fa-solid fa-inbox"></i>
+          <p>Inbox</p>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <div class="sidenav-footer side-list-item mb-4 fs-5">
+    <%= link_to '#', class: 'd-flex gap-2 align-items-center' do %>
+      <i class="fa-solid fa-calendar-plus"></i>
+      <p>Create an Event</p>
+    <% end %>
+  </div>
+</div>
