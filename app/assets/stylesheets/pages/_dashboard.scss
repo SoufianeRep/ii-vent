@@ -7,6 +7,13 @@
     background-color: #2A2B2D;
     overflow: hidden;
 
+    .dashboard-tasks-headers {
+
+      h3 {
+        color: #ECECEC;
+      }
+    }
+
     .dashboard-tasks-inner-container {
       height: 100%;
       overflow: auto;
@@ -17,6 +24,13 @@
     height: 800px;
     background-color: #2A2B2D;
     overflow: hidden;
+
+    .dashboard-events-headers {
+
+      h3 {
+        color: #ECECEC;
+      }
+    }
 
     .dashboard-events-inner-container {
       height: 100%;
