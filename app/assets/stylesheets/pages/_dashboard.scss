@@ -1,58 +1,41 @@
-.page-container {
+.dashboard-page-container {
   background-color: #1F2022;
-  overflow: auto;
+  height: 100%;
 }
 
-.dashboard-header {
-  display: flex;
-  justify-content: space-between;
-
-  .dashboard-header-column {
-    width: auto;
-    height: 100px;
-    color: #FFFFFF;
-  }
-}
-
-.dashboard-tasks-container {
-  height: 400px;
-  background-color: #2A2B2D;
-
-  .tasks-sections-container {
+  .dashboard-tasks-container {
     height: 400px;
-    align-self: center;
+    background-color: #2A2B2D;
+    overflow: hidden;
 
-    h5 {
-      padding-top: 16px;
+    .dashboard-tasks-headers {
+
+      h3 {
+        color: #ECECEC;
+      }
     }
 
-    .content-container {
-      height: 320px;
-      overflow: hidden;
-
-      .task-assignee-avatar {
-        height: 24px;
-        width: 24px;
-      }
-
-      .task-description {
-        color: #ececec;
-      }
-
-      .tasks-event-container {
-        background-color: #ececec;
-      }
+    .dashboard-tasks-inner-container {
+      height: 100%;
+      overflow: auto;
     }
   }
 
+  .dashboard-events-container {
+    height: 800px;
+    background-color: #2A2B2D;
+    overflow: hidden;
 
-}
+    .dashboard-events-headers {
 
-.dashboard-events-container {
-  height: 800px;
-  background-color: #585859;
+      h3 {
+        color: #ECECEC;
+      }
+    }
 
-  .event-container {
-    height: 240px;
+    .dashboard-events-inner-container {
+      height: 100%;
+      overflow: auto;
+    }
   }
 }
