@@ -1,42 +1,46 @@
-<div class="sidenav d-flex flex-column justify-content-between">
-  <div class="sidenav-top d-flex justify-content-between align-items-center gap-2 px-4 mt-4 text-light">
-    <div class="logo">
-      <i class="fa-brands fa-pied-piper-alt"></i>
-    </div>
-    <h2 class="logo-name">ii-Vent</h2>
+<div class="sidenav d-flex flex-column flex-shrink-0 p-3 text-white">
+  <div class="d-flex justify-content-around align-items-center mb-md-0 me-md-auto text-white text-decoration-none">
+    <i class="fa-brands fa-pied-piper-alt me-2 fs-1"></i>
+    <h2 class="logo-name fs-4">ii-Vent</h2>
   </div>
-  <div class="container sidenav-main d-flex flex-column justify-content-between flex-grow-2">
-    <ul class="list-unstyled d-flex flex-column gap-4 align-items-start">
-      <li class="side-list-item fs-5">
-        <%= link_to :dashboard, class: 'd-flex gap-2 align-items-center' do %>
+  <hr class="side-divider">
+  <div class="mt-4 d-flex flex-column justify-content-between h-100">
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item fs-5">
+        <%= link_to :dashboard, class: 'nav-link active d-flex align-items-center gap-3' do %>
           <i class="fa-solid fa-house"></i>
           <p>Home</p>
         <% end %>
       </li>
-      <li class="side-list-item fs-5">
-        <%= link_to '#', class: 'd-flex gap-2 align-items-center' do %>
+      <li class="nav-item fs-5">
+        <%= link_to '#', class: 'nav-link d-flex align-items-center gap-3' do %>
           <i class="fa-solid fa-list-check"></i>
           <p>Tasks</p>
         <% end %>
       </li>
-      <li class="side-list-item fs-5">
-        <%= link_to '#', class: 'd-flex gap-2 align-items-center' do %>
+      <li class="nav-item fs-5">
+        <%= link_to '#', class: 'nav-link d-flex align-items-center gap-3' do %>
           <i class="fa-solid fa-calendar-week"></i>
           <p>My Events</p>
         <% end %>
       </li>
-      <li class="side-list-item fs-5">
-        <%= link_to '#', class: 'd-flex gap-2 align-items-center' do %>
+      <li class="nav-item fs-5">
+        <%= link_to '#', class: 'nav-link d-flex align-items-center gap-3' do %>
           <i class="fa-solid fa-inbox"></i>
           <p>Inbox</p>
         <% end %>
       </li>
     </ul>
-  </div>
-  <div class="sidenav-footer side-list-item mb-4 fs-5">
-    <%= link_to '#', class: 'd-flex gap-2 align-items-center' do %>
-      <i class="fa-solid fa-calendar-plus"></i>
-      <p>Create an Event</p>
-    <% end %>
+    <hr class="side-divider">
+    <div class="sidenav-footer mb-5 fs-5">
+      <%= link_to new_event_path, class: 'nav-link d-flex align-items-center gap-3' do %>
+        <i class="fa-solid fa-calendar-plus"></i>
+        <p>Create an Event</p>
+      <% end %>
+      <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: 'nav-link d-flex align-items-center gap-3' do %>
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <p>Sign Out</p>
+      <% end %>
+    </div>
   </div>
 </div>
