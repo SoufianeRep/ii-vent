@@ -1,0 +1,30 @@
+.event-container {
+  height: 160px;
+  // background-color: #A2A0A2;
+  background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg') center;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #1F2022;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .right {
+    margin: 0;
+    padding: 0;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

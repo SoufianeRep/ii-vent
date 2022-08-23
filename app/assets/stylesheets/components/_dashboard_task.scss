@@ -25,10 +25,18 @@
 
   .task-event {
     height: 64px;
-    background-color: #A2A0A2;
+    // background-color: #A2A0A2;
+    background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg') center;
     width: 240px;
     margin: 0;
     padding: 0;
+    // text-align: center;
+    display: flex;
+    justify-content: center;
+
+    h5 {
+      align-self: center;
+    }
   }
 
   p {
