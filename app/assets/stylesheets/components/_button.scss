@@ -1,0 +1,18 @@
+.brand-btn {
+  text-decoration: none;
+  background-color: $purple;
+  color: $light-gray;
+  font-family: $headers-font;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.brand-btn:hover {
+  background-color: $hovered-purple;
+  color: #f4f4f4;
+}
