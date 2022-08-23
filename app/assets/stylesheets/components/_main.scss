@@ -1,0 +1,11 @@
+.container-main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: $medium-gray;
+  gap: 24px;
+  border-radius: 4px;
+}
+
+.element-main {
+  padding: 24px;
+}

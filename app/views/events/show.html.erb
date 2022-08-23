@@ -1,1 +1,46 @@
-<h1>This is the show page for event, in progress...</h1>
+<div class="container-fluid">
+  <ul class="nav nav-pills nav-fill" data-controller="tab">
+    <li class="nav-item">
+      <a class="nav-link active" data-tab-target="tabMain tab" data-action="click->tab#toggle">Main</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-tab-target="tabMembers tab" data-action="click->tab#toggle">Members</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-tab-target="tabTasks tab" data-action="click->tab#toggle">Tasks</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-tab-target="tabMessages tab" data-action="click->tab#toggle">Messages</a>
+    </li>
+  </ul>
+</div>
+<div class="container-fluid">
+  <div class="banner" style="background-image: url('https://www.6amgroup.com/wp-content/uploads/2016/12/The-right-DJ-can-improve-an-event.jpg')">
+    <div>
+    <h1><%= @event.name %></h1>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="container-main">
+    <div class="element-main">
+      <h3><strong><%= @event.start_date.strftime("%B #{@event.start_date.day.ordinalize}")%></h3></strong>
+      <h4><%= @event.name %></p></h4>
+      <p><strong><%= @event.event_status.capitalize %> event</strong></p>
+    </div>
+    <div class="element-main">
+      <h3><strong>Date and time</strong></h3>
+      <p><%= @event.start_date.strftime("%d %b %Y %H:%M") %></p>
+      <p><%= @event.end_date.strftime("%d %b %Y %H:%M") %></p>
+    </div>
+    <div class="element-main">
+      <h3><strong>Location</strong></h3>
+      <p><%= @event.location %></p>
+    </div>
+    <div style="width: 100%; height: 200px; padding: 0;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+</div>
