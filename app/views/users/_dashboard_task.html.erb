@@ -5,8 +5,10 @@
     <p class="task-description text-truncate"><%= task.description %></p>
   </div>
   <div class="task-due-date px-3">
-    <p>Wednesday, August 24th</p>
-    <p>20:00 JST</p>
+    <% if task.end %>
+      <p><%= task.end.strftime('%A %B %d, %Y') %></p>
+      <p><%= task.end.strftime('%H:%M %Z') %> </p>
+    <% end %>
   </div>
   <div class="container task-event">
     <h5><%= task.event.name %></h5>
