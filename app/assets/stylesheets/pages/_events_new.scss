@@ -1,0 +1,32 @@
+.page-container {
+  background-color: #1F2022;
+  height: 100%;
+  // width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+
+  .event-form-container {
+    background-color: $dark-gray;
+    margin-top: 32px;
+    height: 640px;
+
+    .event-form-header {
+      color: $something;
+    }
+
+    .form-label {
+      color: $something;
+    }
+
+    .event-form-inputs {
+      background-color: $light-gray;
+    }
+
+    .event-submit-button {
+      // background-color: $something;
+    }
+  }
+
+}
