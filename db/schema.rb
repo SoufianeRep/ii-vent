@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_090009) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_24_051002) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,14 +54,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_090009) do
 
   create_table "events", force: :cascade do |t|
     t.string "location"
-    t.date "start_date"
-    t.date "end_date"
+    t.datetime "start_date", precision: nil
+    t.datetime "end_date", precision: nil
     t.string "name"
     t.string "event_status", default: "upcoming"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "poster_url"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -89,8 +90,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_090009) do
     t.string "name"
     t.string "description"
     t.string "status", default: "pending"
-    t.date "start"
-    t.date "end"
+    t.datetime "start", precision: nil
+    t.datetime "end", precision: nil
     t.string "category"
     t.bigint "task_id"
     t.datetime "created_at", null: false
@@ -114,6 +115,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_090009) do
     t.string "line_id"
     t.string "location"
     t.string "role"
+    t.string "avatar_url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
