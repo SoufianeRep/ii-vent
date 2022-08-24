@@ -13,8 +13,9 @@
   </div>
   <div class="row mx-3 justify-content-center">
     <div class="dashboard-events-container col-10 p-3">
-      <div class="dashboard-events-headers ps-3">
+      <div class="dashboard-events-headers px-3">
         <h3>Events</h3>
+        <%= link_to 'Create Event', new_event_path, class: "btn btn-primary" %>
       </div>
       <div class="dashboard-events-inner-container">
         <% @events.each do |event| %>

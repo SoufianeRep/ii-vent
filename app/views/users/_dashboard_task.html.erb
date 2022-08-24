@@ -2,13 +2,17 @@
   <div class="form-check task-checkbox">
     <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault">
     <label for="flexCheckDefault" class="form-check-label text-truncate" value=""><%= task.name %></label>
-    <p class="task-description text-truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla cum cumque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla cum cumque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla cum cumque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla cum cumque.</p>
+    <p class="task-description text-truncate"><%= task.description %></p>
   </div>
   <div class="task-due-date px-3">
-    <p>Wednesday, August 24th</p>
-    <p>20:00 JST</p>
+    <% if task.end %>
+      <p><%= task.end.strftime('%A %B %d, %Y') %></p>
+      <p><%= task.end.strftime('%H:%M %Z') %> </p>
+    <% end %>
   </div>
-  <div class="container task-event">
-    <h5><%= task.event.name %></h5>
-  </div>
+  <%= link_to event_path(task.event), class: "text-decoration-none" do %>
+    <div class="container task-event" style="background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('<%= task.event.poster_url %>;') center;">
+      <h5><%= task.event.name %></h5>
+    </div>
+  <% end %>
 </div>

@@ -20,12 +20,23 @@
     }
   }
 
+  .event-link-container {
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
   .dashboard-events-container {
     height: 800px;
     background-color: #2A2B2D;
     overflow: hidden;
 
     .dashboard-events-headers {
+      display: flex;
+      justify-content: space-between;
+
 
       h3 {
         color: #ECECEC;
