@@ -15,14 +15,14 @@
       </li>
     </ul>
   </div>
-  <div class="" data-tab-target="pages pagesMain" data-action="click->tab#toggle">
+  <div class="" data-tab-target="pages pagesMain">
     <%= render "shared/main", event: @event %>
   </div>
-  <div class="d-none" data-tab-target="pages pagesMembers" data-action="click->tab#toggle">
-    <%= render "shared/members", event: @event %>
+  <div class="d-none" data-tab-target="pages pagesMembers">
+    <%= render "shared/members", event: @event, artists: @artists, staffs: @staffs, securities: @securities %>
   </div>
-  <div class="d-none" data-tab-target="pages pagesTasks" data-action="click->tab#toggle">
+  <div class="d-none" data-tab-target="pages pagesTasks">
   </div>
-  <div class="d-none" data-tab-target="pages pagesMessages" data-action="click->tab#toggle">
+  <div class="d-none" data-tab-target="pages pagesMessages">
   </div>
 </div>

@@ -7,7 +7,6 @@ export default class extends Controller {
   static targets = [ "tabTasks", "tabMembers", "tabMain", "tabMessages", "tab", "pagesMain", "pages", "pagesMembers", "pagesTasks", "pagesMessages" ]
 
   toggle(event) {
-    console.log(event);
     this.tabTargets.forEach((t) => {t.classList.remove("active")});
     event.currentTarget.classList.add("active");
     this.pagesTargets.forEach((t) => {t.classList.add("d-none")});

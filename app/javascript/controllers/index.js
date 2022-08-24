@@ -12,3 +12,6 @@ application.register("map", MapController)
 
 import TabController from "./tab_controller"
 application.register("tab", TabController)
+
+import TabMembersController from "./tab_members_controller"
+application.register("tab-members", TabMembersController)
