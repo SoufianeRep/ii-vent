@@ -1,2 +1,15 @@
 <div class="page-container container-fluid">
+  <div class="event-form-container container col-10 p-5 rounded">
+    <h2 class="event-form-header border-bottom mb-3 pb-3">Create your new event</h2>
+    <%= simple_form_for(@event) do |f| %>
+      <%= f.input :name, label: 'Event name:', input_html: { class: 'event-form-inputs mb-3'} %>
+      <%= f.input :poster_url, label: 'Event Poster:', input_html: { class: 'event-form-inputs mb-3'} %>
+      <%= f.input :location, input_html: { class: 'event-form-inputs mb-3'} %>
+      <%= f.input :start_date, input_html: { class: 'event-form-inputs'} %>
+      <%= f.input :end_date, input_html: { class: 'event-form-inputs mb-3'} %>
+      <div class="d-flex">
+        <%= f.button :submit, class: "btn btn-primary btn-lg event-submit-button col-6 mx-auto" %>
+      </div>
+    <% end %>
+  </div>
 </div>
