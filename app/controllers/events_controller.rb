@@ -21,15 +21,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.event_members.push(:current_user)
-    # If there's more than one event_members (which there will be), do I just push current user into it instead of saving?
-    raise
     authorize @event
     if @event.save
+      @organizer = EventMember.create!(user: current_user, event: @event, permission: "organizer")
       redirect_to event_path(@event)
     else
-      raise
-      render :new, alert: "Event did not save"
+      render :new, status: :unprocessable_entity
     end
   end
 
