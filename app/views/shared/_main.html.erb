@@ -1,7 +1,49 @@
-<div class="container">
-  <div class="banner background-image: url('https://www.6amgroup.com/wp-content/uploads/2016/12/The-right-DJ-can-improve-an-event.jpg')">
+
+<div class="container-fluid">
+  <div class="banner" style="background-image: url('https://www.6amgroup.com/wp-content/uploads/2016/12/The-right-DJ-can-improve-an-event.jpg')">
     <div>
-    <h1><%= @event.name %></h1>
+    <h1><%= event.name %></h1>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="container-main">
+    <div class="element-main1">
+      <h3><strong><%= event.start_date.strftime("%B #{event.start_date.day.ordinalize}")%></strong> <%= event.event_status.capitalize %> event</h3>
+      <h3><strong><%= event.name %></strong></h3>
+    </div>
+    <div class="element-main2">
+      <h3><strong>Date and time</strong></h3>
+      <p><%= event.start_date.strftime("%d %b %Y %H:%M") %></p>
+      <p><%= event.end_date.strftime("%d %b %Y %H:%M") %></p>
+    </div>
+    <div class="element-main3">
+      <h3><strong>Location</strong></h3>
+      <p><%= event.location %></p>
+    </div>
+    <div class="element-main4"style="width: 100%; height: auto; padding: 0; border-radius: 4px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="info">
+    <div class="info-card">
+      <div class="info-title"><%= event.event_members.count %></div>
+      <div class="info-sub-title">Staff Members</div>
+      <i class="far fa-user"></i>
+    </div>
+    <div class="info-card">
+      <div class="info-title"><%= event.tasks.pending.count %>/<%= event.tasks.count %></div>
+      <div class="info-sub-title">Tasks in progress</div>
+      <i class="fa-solid fa-list-check"></i>
+    </div>
+    <div class="info-card">
+      <div class="info-title"><%= event.tasks.done.count + event.tasks.archived.count %>/<%= event.tasks.count %></div>
+      <div class="info-sub-title">Tasks Completed</div>
+      <i class="fas fa-bullseye"></i>
     </div>
   </div>
 </div>
