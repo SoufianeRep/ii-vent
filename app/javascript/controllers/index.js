@@ -15,3 +15,6 @@ application.register("tab", TabController)
 
 import TabMembersController from "./tab_members_controller"
 application.register("tab-members", TabMembersController)
+
+import TasksController from "./tasks_controller"
+application.register("tasks", TasksController)

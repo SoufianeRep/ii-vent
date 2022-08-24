@@ -11,7 +11,7 @@ class EventsController < ApplicationController
         lng: @event.longitude
       }
     ]
-    @tasks = @event.tasks.where(task_id: nil)
+    @tasks = @event.tasks.where(task_id: nil).order(status: :asc)
   end
 
   def new
