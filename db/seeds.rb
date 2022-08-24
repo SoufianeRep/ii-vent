@@ -27,7 +27,6 @@ uri = URI('https://randomuser.me/api/?results=30')
 response = JSON.parse(Net::HTTP.get(uri))["results"]
 
 response.each do |user|
-
   User.create!(
     email: user["email"],
     password: 'password',
@@ -84,16 +83,11 @@ end
 puts "creating Event memeber"
 puts "organizers"
 User.all.first(4).each do |member|
-  EventMember.create!(user: member, event: Event.all.first, permission: 'organizer')
-end
-
-User.all.first(4).each do |member|
-  EventMember.create!(user: member, event: Event.all.first(2)[1], permission: 'organizer')
+  EventMember.create!(user: member, event: event_one, permission: 'organizer')
+  EventMember.create!(user: member, event: event_two, permission: 'organizer')
 end
 
 puts "creating event members"
-
-users = User.all - User.all.first(4)
 
 users.first(15).each do |user|
   event_member = EventMember.create!(user: user, event: Event.all.first(2)[1], permission: "member")
