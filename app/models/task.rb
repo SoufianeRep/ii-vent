@@ -4,6 +4,7 @@ class Task < ApplicationRecord
   belongs_to :task, optional: true
   has_many :messages, as: :room
   has_many :task_members, dependent: :destroy
+  has_many :event_members, through: :task_members
 
   validates :name, presence: true
   validates :category, presence: true

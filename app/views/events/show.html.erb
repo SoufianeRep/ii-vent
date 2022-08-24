@@ -21,7 +21,8 @@
   <div class="d-none" data-tab-target="pages pagesMembers">
     <%= render "shared/members", event: @event, artists: @artists, staffs: @staffs, securities: @securities %>
   </div>
-  <div class="d-none" data-tab-target="pages pagesTasks">
+  <div class="" data-tab-target="pages pagesTasks" data-action="click->tab#toggle">
+    <%= render 'shared/event_tasks', tasks: @tasks %>
   </div>
   <div class="d-none" data-tab-target="pages pagesMessages">
   </div>

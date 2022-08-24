@@ -4,15 +4,15 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
   }
-  static targets = [ "tabManagers", "tabArtists", "tabSecurity", "tabStaff", "tab", "pagesManager", "pages", "pagesArtist", "pagesSecurity", "pagesStaff" ]
+  static targets = [ "tabManager", "tabArtist", "tabSecurity", "tabStaff", "tab", "pagesManager", "pages", "pagesArtist", "pagesSecurity", "pagesStaff" ]
 
   toggle(event) {
     this.tabTargets.forEach((t) => {t.classList.remove("active")});
     event.currentTarget.classList.add("active");
     this.pagesTargets.forEach((t) => {t.classList.add("d-none")});
-    if (event.currentTarget == this.tabManagersTarget)
+    if (event.currentTarget == this.tabManagerTarget)
       this.pagesManagerTarget.classList.remove("d-none");
-    else if (event.currentTarget == this.tabArtistsTarget)
+    else if (event.currentTarget == this.tabArtistTarget)
       this.pagesArtistTarget.classList.remove("d-none");
     else if (event.currentTarget == this.tabSecurityTarget)
       this.pagesSecurityTarget.classList.remove("d-none");
