@@ -1,8 +1,17 @@
 require 'faker'
 require 'net/http'
 
-puts "Destroying rows"
-
+puts "Destroying subtasks"
+puts "Destroying events"
+Event.destroy_all
+puts "Destroying main tasks"
+Task.destroy_all
+puts "Destroying users"
+User.destroy_all
+puts "Destroying task members"
+TaskMember.destroy_all
+puts "Destroying event members"
+EventMember.destroy_all
 
 roles = ['staff', 'artist', 'security']
 puts "Creating organizers..."
@@ -28,7 +37,9 @@ response.each do |user|
     phone_number: user["phone"],
     line_id: user["login"]["salt"],
     location: "#{user['location']['city']}, #{user['location']['country']}",
-    role: roles.sample)
+    avatar_url: user["picture"]["large"],
+    role: roles.sample
+  )
 end
 
 puts "Creating events"
@@ -42,7 +53,7 @@ puts "Creating Tasks"
 task = ['music', 'security', 'promotion', 'catering', 'org']
 
 event_one = Event.all.first
-event_two = Event.find(2)
+event_two = Event.all.first(2)[1]
 
 Task.create!(name: 'Sound check', description: 'Set times for artist soundchecks before showtime', category: 'music', event: event_one, start: DateTime.now, end: event_one.end_date)
 Task.create!(name: 'Contact food trucks', description: 'Securing offers for food Trucks around the venue', category: 'catering', status:'archived', event: event_one, start: DateTime.now, end: event_one.end_date)
@@ -73,11 +84,11 @@ end
 puts "creating Event memeber"
 puts "organizers"
 User.all.first(4).each do |member|
-  EventMember.create!(user: member, event: Event.first, permission: 'organizer')
+  EventMember.create!(user: member, event: Event.all.first, permission: 'organizer')
 end
 
 User.all.first(4).each do |member|
-  EventMember.create!(user: member, event: Event.find(2), permission: 'organizer')
+  EventMember.create!(user: member, event: Event.all.first(2)[1], permission: 'organizer')
 end
 
 puts "creating event members"
@@ -85,12 +96,12 @@ puts "creating event members"
 users = User.all - User.all.first(4)
 
 users.first(15).each do |user|
-  event_member = EventMember.create!(user: user, event: Event.first, permission: "member")
+  event_member = EventMember.create!(user: user, event: Event.all.first(2)[1], permission: "member")
   TaskMember.create!(task: Task.all.sample, event_member: event_member)
 end
 
 users.last(11).each do |user|
-  event_member = EventMember.create!(user: user, event: Event.find(2), permission: "member")
+  event_member = EventMember.create!(user: user, event: Event.all.first(2)[1], permission: "member")
   TaskMember.create!(task: Task.all.sample, event_member: event_member)
 end
 

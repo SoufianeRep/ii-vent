@@ -3,8 +3,8 @@ class Event < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
 
   has_many :messages, as: :room
-  has_many :tasks
-  has_many :event_members
+  has_many :tasks, dependent: :destroy
+  has_many :event_members, dependent: :destroy
   has_one_attached :photo
 
   validates :location, presence: true
