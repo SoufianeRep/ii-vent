@@ -51,6 +51,9 @@ gem "faker"
 # Cloudinary for images upload
 gem "cloudinary"
 
+# Net-http to make HTTP requests
+gem 'net-http'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
