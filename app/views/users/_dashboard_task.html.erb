@@ -10,7 +10,7 @@
       <p><%= task.end.strftime('%H:%M %Z') %> </p>
     <% end %>
   </div>
-  <div class="container task-event">
+  <div class="container task-event" style="background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('<%= task.event.poster_url %>;') center;">
     <h5><%= task.event.name %></h5>
   </div>
 </div>
