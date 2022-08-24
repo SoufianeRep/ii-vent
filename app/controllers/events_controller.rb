@@ -8,4 +8,9 @@ class EventsController < ApplicationController
         lng: @event.longitude
       }]
   end
+
+  def new
+    @event = Event.new
+    authorize @event
+  end
 end
