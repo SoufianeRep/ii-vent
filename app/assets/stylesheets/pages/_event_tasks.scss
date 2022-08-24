@@ -1,0 +1,84 @@
+.event-task-container {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  border-radius: 6px;
+  color: $light-gray;
+  background-color: $medium-gray;
+  padding: 16px;
+}
+
+
+.event-member-avatar {
+  border: 2px solid $white;
+  border-radius: 55px;
+  height: 45px;
+  width: 45px;
+}
+
+.task-checkbox {
+
+}
+
+.task-date {
+  color: #8d959a;
+}
+
+
+// task status states
+.event-task-status-badge {
+  font-size: 12px;
+  border-radius: 55px;
+  padding: 0 8px;
+}
+
+.event-task-status-badge.done {
+  background-color: #bcf0da;
+  border: 1.5px solid #0f4737;
+  color: #0f4737;
+}
+
+.event-task-status-badge.archived {
+  background-color: #374251;
+  border: 1.5px solid #d1d5db;
+  color: #d1d5db;
+}
+
+.event-task-status-badge.pending {
+  background-color: #c3ddfd;
+  border: 1.5px solid #1e429f;
+  color: #1e429f;
+}
+
+// Task category badge
+
+.event-task-category-badge {
+  font-size: 12px;
+  border-radius: 55px;
+  padding: 0 8px;
+  align-self: baseline;
+}
+
+.event-task-category-badge.promotion {
+  background-color: #fde2e2;
+  border: 1.5px solid #991a1b;
+  color: #991a1b;
+}
+.event-task-category-badge.org {
+  background-color: #c3ddfd;
+  border: 1.5px solid #1e429f;
+  color: #1e429f;
+}
+.event-task-category-badge.security {
+  background-color: #fce7f3;
+  border: 1.5px solid #9d164d;
+  color: #9d164d;
+}
+.event-task-category-badge.music {
+  background-color: #f3e8ff;
+  border: 1.5px solid #6b21a8;
+  color: #6b21a8;
+}
+.event-task-category-badge.catering {
+  background-color: #fef9c3;
+  border: 1.5px solid #854d0e;
+  color: #854d0e;
+}
