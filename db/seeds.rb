@@ -33,10 +33,10 @@ end
 
 puts "Creating events"
 
-Event.create!(location: 'Tokyo', start_date: Time.now + 1.month, end_date: Time.now + 2.month, name: 'Power Base', poster_url: '')
-Event.create!(location: 'Osaka', start_date: Date.today + rand(1..2).month, end_date: Date.today + rand(3..4).month, name: 'Tomorrowland')
-Event.create!(location: 'Kyoto', start_date: Date.today + rand(1..2).month, end_date: Date.today + rand(3..4).month, name: 'Mario & Luigi')
-Event.create!(location: 'Nagoya', start_date: Date.today + rand(1..2).month, end_date: Date.today + rand(3..4).month, name: 'Lafouine feat Booba le Petit Ourson')
+Event.create!(location: 'Tokyo', start_date: DateTime.now + 1.month, end_date: DateTime.now + 2.month, name: 'Power Base', poster_url: 'https://www.6amgroup.com/wp-content/uploads/2016/12/The-right-DJ-can-improve-an-event.jpg')
+Event.create!(location: 'Osaka', start_date: DateTime.now + rand(1..2).month, end_date: DateTime.now + rand(3..4).month, name: 'Tomorrowland', poster_url: 'https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg?w=2000&t=st=1661319012~exp=1661319612~hmac=6fe528e19dbfdb3bb1e1ff9dc23e6eb06fdcbb003cd436174c8084346804be97')
+Event.create!(location: 'Kyoto', start_date: DateTime.now + rand(1..2).month, end_date: DateTime.now + rand(3..4).month, name: 'Mario & Luigi', poster_url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/12b6cf90105865.5e0df9f1b7f73.png')
+Event.create!(location: 'Nagoya', start_date: DateTime.now + rand(1..2).month, end_date: DateTime.now + rand(3..4).month, name: 'Lafouine feat Booba le Petit Ourson', poster_url: 'https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/218290032_1217610138651984_3186298974796388059_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=e3f864&_nc_ohc=69bkw4gJDSsAX84IIfs&_nc_ht=scontent-nrt1-1.xx&oh=00_AT_q9koQafbBRCuJ9w0BiKAesNZsy3CDNcGZ0jLUcSMe2Q&oe=630A05C8')
 
 puts "Creating Tasks"
 task = ['music', 'security', 'promotion', 'catering', 'org']
@@ -44,25 +44,25 @@ task = ['music', 'security', 'promotion', 'catering', 'org']
 event_one = Event.all.first
 event_two = Event.find(2)
 
-Task.create!(name: 'Sound check', description: 'Set times for artist soundchecks before showtime', category: 'music', event: event_one, start: Date.today + 1.month + 1.day, end: Date.today + 1.month + 3.day)
-Task.create!(name: 'Contact food trucks', description: 'Securing offers for food Trucks around the venue', category: 'catering', status:'archived', event: event_one)
-Task.create!(name: 'Social Media Setup', description: 'Setup event pages on different social medias', category: 'promotion', event: event_one)
-Task.create!(name: 'Securing secutiry contract', description: 'Find a security company to assure secutiry during the event', category: 'security', event: event_one)
-Task.create!(name: 'Book Headliner', description: 'Secure headlining artist for the event', category: 'org', event: event_one)
-Task.create!(name: 'Book Venue', description: 'Find and secure a venue for event - 150-500 capacity', category: 'org', event: event_one)
-Task.create!(name: 'Schedule staff', description: 'Bar staff, front-of-house (sound), lighting/visuals', category: 'org', event: event_one)
-Task.create!(name: 'Rent Gear', description: 'Rent 4x CDJ-2000 NX2’s + DJM900NX2 Mixer', category: 'music', event: event_one)
-Task.create!(name: 'Book local DJ\'s & MC\'s', description: 'Find 3-4 local artists to open the show and close it', category: 'music', event: event_one)
-Task.create!(name: 'Determine Timetable', description: 'Set timetable/order of performers', category: 'org', event: event_one)
-Task.create!(name: 'Have promotional materials made', description: 'Have event poster(physical & digital versions) made', category: 'promotion', event: event_one)
-Task.create!(name: 'Distribute Promo Materials', description: 'Distribute physical flyers/posters around town and give digital materials to all those affiliated with the event to post on social media', category: 'promotion', event: event_one)
-Task.create!(name: 'Set Reminders for Social Media Promotion', description: 'Artists and staff should post about the event on social media at set intervals in lead up to the event', category: 'org', event: event_one)
-Task.create!(name: 'Restock Bar', description: 'Make sure bar(s) are fully stocked the day of the event', category: 'catering', event: event_one)
-Task.create!(name: 'Book Headliner\'s Hotel Accomodations', description: 'Find hotel accomodations for headlining artist - per their specifications', category: 'music', event: event_one)
-Task.create!(name: 'Book Catering', description: 'Secure a local caterer for food in rest area of event', category: 'catering', event: event_one)
-Task.create!(name: 'Organize Headliner transportation', description: 'Reserve a car to transport headliner to / from the event', category: 'org', event: event_one)
-Task.create!(name: 'Wristbands', description: 'Make sure we have enough wristbands for both artists / vip / general attendees', category: 'security', event: event_one)
-Task.create!(name: 'Lighting/Visuals', description: 'Provide space and access to connections for lights/smoke/visuals', category: 'org', event: event_one)
+Task.create!(name: 'Sound check', description: 'Set times for artist soundchecks before showtime', category: 'music', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Contact food trucks', description: 'Securing offers for food Trucks around the venue', category: 'catering', status:'archived', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Social Media Setup', description: 'Setup event pages on different social medias', category: 'promotion', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Securing secutiry contract', description: 'Find a security company to assure secutiry during the event', category: 'security', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Book Headliner', description: 'Secure headlining artist for the event', category: 'org', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Book Venue', description: 'Find and secure a venue for event - 150-500 capacity', category: 'org', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Schedule staff', description: 'Bar staff, front-of-house (sound), lighting/visuals', category: 'org', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Rent Gear', description: 'Rent 4x CDJ-2000 NX2’s + DJM900NX2 Mixer', category: 'music', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Book local DJ\'s & MC\'s', description: 'Find 3-4 local artists to open the show and close it', category: 'music', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Determine Timetable', description: 'Set timetable/order of performers', category: 'org', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Have promotional materials made', description: 'Have event poster(physical & digital versions) made', category: 'promotion', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Distribute Promo Materials', description: 'Distribute physical flyers/posters around town and give digital materials to all those affiliated with the event to post on social media', category: 'promotion', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Set Reminders for Social Media Promotion', description: 'Artists and staff should post about the event on social media at set intervals in lead up to the event', category: 'org', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Restock Bar', description: 'Make sure bar(s) are fully stocked the day of the event', category: 'catering', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Book Headliner\'s Hotel Accomodations', description: 'Find hotel accomodations for headlining artist - per their specifications', category: 'music', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Book Catering', description: 'Secure a local caterer for food in rest area of event', category: 'catering', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Organize Headliner transportation', description: 'Reserve a car to transport headliner to / from the event', category: 'org', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Wristbands', description: 'Make sure we have enough wristbands for both artists / vip / general attendees', category: 'security', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Lighting/Visuals', description: 'Provide space and access to connections for lights/smoke/visuals', category: 'org', event: event_one, start: DateTime.now, end: event_one.end_date)
 
 Task.all.each do |task|
   rand(3..7).times do
@@ -70,23 +70,31 @@ Task.all.each do |task|
   end
 end
 
-# puts "creating Event memeber"
-# puts "organizers"
-# User.all.first(4).each do |member|
-#   EventMember.create!(user: member, event: Event.first, permission: 'organizer')
-# end
+puts "creating Event memeber"
+puts "organizers"
+User.all.first(4).each do |member|
+  EventMember.create!(user: member, event: Event.first, permission: 'organizer')
+end
 
-# puts "creqting event members"
+User.all.first(4).each do |member|
+  EventMember.create!(user: member, event: Event.find(2), permission: 'organizer')
+end
 
-# EventMember.create!(user: (User.all - User.all.first(4)).sample, event: Event.first, permission: "member")
-# EventMember.create!(user: (User.all - User.all.first(4)).sample, event: Event.first, permission: "member")
-# EventMember.create!(user: (User.all - User.all.first(4)).sample, event: Event.first, permission: "member")
-# EventMember.create!(user: (User.all - User.all.first(4)).sample, event: Event.first, permission: "member")
+puts "creating event members"
 
+users = User.all - User.all.first(4)
 
-# puts "Creating task memebr"
+users.first(15).each do |user|
+  event_member = EventMember.create!(user: user, event: Event.first, permission: "member")
+  TaskMember.create!(task: Task.all.sample, event_member: event_member)
+end
 
-# TaskMember.create!(task: Task.all.first, event_member: EventMember.all.last)
-# TaskMember.create!(task: Task.all.first, event_member: EventMember.all[-2])
+users.last(11).each do |user|
+  event_member = EventMember.create!(user: user, event: Event.find(2), permission: "member")
+  TaskMember.create!(task: Task.all.sample, event_member: event_member)
+end
+
+puts "Creating task memebr"
+
 
 puts "finished"
