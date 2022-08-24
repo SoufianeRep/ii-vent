@@ -33,7 +33,7 @@ end
 
 puts "Creating events"
 
-Event.create!(location: 'Tokyo', start_date: Date.today + 1.month, end_date: Date.today + 2.month, name: 'Power Base', poster_url: '')
+Event.create!(location: 'Tokyo', start_date: Time.now + 1.month, end_date: Time.now + 2.month, name: 'Power Base', poster_url: '')
 Event.create!(location: 'Osaka', start_date: Date.today + rand(1..2).month, end_date: Date.today + rand(3..4).month, name: 'Tomorrowland')
 Event.create!(location: 'Kyoto', start_date: Date.today + rand(1..2).month, end_date: Date.today + rand(3..4).month, name: 'Mario & Luigi')
 Event.create!(location: 'Nagoya', start_date: Date.today + rand(1..2).month, end_date: Date.today + rand(3..4).month, name: 'Lafouine feat Booba le Petit Ourson')
