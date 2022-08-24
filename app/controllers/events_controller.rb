@@ -9,7 +9,9 @@ class EventsController < ApplicationController
       {
         lat: @event.latitude,
         lng: @event.longitude
-      }]
+      }
+    ]
+    @tasks = @event.tasks.where(task_id: nil)
   end
 
   def new
