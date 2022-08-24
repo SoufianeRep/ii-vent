@@ -2,23 +2,23 @@
   <div class="container-fluid">
     <ul class="nav nav-pills nav-fill">
       <li class="nav-item">
-        <a class="nav-link active" data-tab-target="tabManagers tab" data-action="click->tab#toggle">Managers</a>
+        <a class="nav-link active" data-tab-members-target="tabManager tab" data-action="click->tab-members#toggle">Managers</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-tab-target="tabArtists tab" data-action="click->tab#toggle">Artists</a>
+        <a class="nav-link" data-tab-members-target="tabArtist tab" data-action="click->tab-members#toggle">Artists</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-tab-target="tabSecurity tab" data-action="click->tab#toggle">Security</a>
+        <a class="nav-link" data-tab-members-target="tabSecurity tab" data-action="click->tab-members#toggle">Security</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-tab-target="tabStaff tab" data-action="click->tab#toggle">Staff</a>
+        <a class="nav-link" data-tab-members-target="tabStaff tab" data-action="click->tab-members#toggle">Staff</a>
       </li>
     </ul>
   </div>
   <div class="container d-flex justify-content-end">
     <button type="button" class="add-btn"><i class="fa-solid fa-plus"></i> Add a member</button>
   </div>
-  <div class="" data-tab-target="pages pagesManager">
+  <div class="" data-tab-members-target="pages pagesManager">
     <% event.event_members.organizer.each do |manager| %>
       <div class="container-fluid">
         <div class="card-product">
@@ -35,7 +35,7 @@
       </div>
     <% end %>
   </div>
-  <div class="d-none" data-tab-target="pages pagesArtist">
+  <div class="d-none" data-tab-members-target="pages pagesArtist">
     <% artists.each do |artist|  %>
       <div class="container-fluid">
         <div class="card-product">
@@ -52,7 +52,7 @@
       </div>
     <% end %>
   </div>
-  <div class="d-none" data-tab-target="pages pagesSecurity">
+  <div class="d-none" data-tab-members-target="pages pagesSecurity">
     <% securities.each do |security|  %>
       <div class="container-fluid">
         <div class="card-product">
@@ -69,7 +69,7 @@
       </div>
     <% end %>
   </div>
-  <div class="d-none" data-tab-target="pages pagesStaff">
+  <div class="d-none" data-tab-members-target="pages pagesStaff">
     <% staffs.each do |staff|  %>
       <div class="container-fluid">
         <div class="card-product">
