@@ -18,4 +18,21 @@ class EventsController < ApplicationController
     @event = Event.new
     authorize @event
   end
+
+  def create
+    @event = Event.new(event_params)
+    authorize @event
+    if @event.save
+      @organizer = EventMember.create!(user: current_user, event: @event, permission: "organizer")
+      redirect_to event_path(@event)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:name, :location, :start_date, :end_date, :poster_url)
+  end
 end
