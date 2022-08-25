@@ -4,7 +4,7 @@
     <div class="col-5 d-flex flex-column gap-3">
       <% tasks.each_with_index do |task, index| %>
         <% if index.odd? %>
-          <%= render 'shared/task_member_form_modal', event_task: task %>
+          <%= render 'shared/new_member_form_modal', event_task: task %>
           <div class="event-task-container d-flex flex-column align-self-stretch"
           data-controller="tasks">
             <div class="event-task-header d-flex justify-content-between align-items-center">
@@ -48,7 +48,7 @@
     <div class="col-5 d-flex flex-column gap-3">
       <% tasks.each_with_index do |task, index| %>
         <% if index.even? %>
-          <%= render 'shared/task_member_form_modal', event_task: task %>
+          <%= render 'shared/new_member_form_modal', event_task: task %>
           <div class="event-task-container d-flex flex-column align-self-stretch"
           data-controller="tasks">
             <div class="event-task-header d-flex justify-content-between align-items-center">
@@ -90,8 +90,10 @@
       <% end %>
     </div>
     <div class="col-1">
-      <%= link_to event_tasks_path(event) do  %>
-        <i class="fa-solid fa-square-plus fs-1 text-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Add a Task"></i>
+      <%= render 'shared/add_task_form', event: event  %>
+      <%= link_to event_tasks_path(event), data: {bs_toggle: 'modal', bs_target: '#addTaskForm'} do  %>
+        <i class="fa-solid fa-square-plus fs-1 text-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Add a Task">
+        </i>
       <% end %>
     </div>
   </div>
