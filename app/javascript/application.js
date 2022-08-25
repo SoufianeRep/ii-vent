@@ -7,3 +7,5 @@ import * as bootstrap from "bootstrap"
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
 const tooltipList = [...tooltipTriggerList];
 tooltipList.map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
+// Modal
