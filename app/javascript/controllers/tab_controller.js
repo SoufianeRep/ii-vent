@@ -24,9 +24,6 @@ export default class extends Controller {
     const params = new URLSearchParams(window.location.search);
     if (params.get("tab") === "members") {
       this.tabMembersTarget.click()
-      if (params.get("sub_tab") === "") {
-
-      }
     } else if (params.get("tab") === "tasks") {
       this.tabTasksTarget.click()
     }
