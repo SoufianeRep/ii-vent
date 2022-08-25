@@ -22,7 +22,7 @@
     <%= render "shared/members", event: @event, artists: @artists, staffs: @staffs, securities: @securities, event_member: @event_member %>
   </div>
   <div class="d-none" data-tab-target="pages pagesTasks">
-    <%= render 'shared/event_tasks', tasks: @tasks %>
+    <%= render 'shared/event_tasks', tasks: @tasks, event: @event %>
   </div>
   <div class="d-none" data-tab-target="pages pagesMessages">
   </div>

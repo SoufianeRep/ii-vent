@@ -1,48 +1,98 @@
 <div class="container mt-5">
   <div class="row">
-    <div class="col-3"></div>
-    <div class="col-6 d-flex flex-column gap-3">
-      <% tasks.each do |task| %>
-        <%= render 'shared/task_member_form_modal', event_task: task %>
-        <div class="event-task-container d-flex flex-column"
+    <div class="col-1"></div>
+    <div class="col-5 d-flex flex-column gap-3">
+      <% tasks.each_with_index do |task, index| %>
+        <% if index.odd? %>
+          <%= render 'shared/task_member_form_modal', event_task: task %>
+          <div class="event-task-container d-flex flex-column align-self-stretch"
           data-controller="tasks">
-          <div class="event-task-header d-flex justify-content-between align-items-center">
-            <div class="card-body fs-4">
-              <input type="checkbox" class="task-checkbox me-2" <%= task.status == 'archived' ? 'checked disabled' : 0 %>>
-              <strong data-action="click->tasks#toggleDisplay"><%= task.name %></strong>
+            <div class="event-task-header d-flex justify-content-between align-items-center">
+              <div class="card-body fs-4">
+                <input type="checkbox" class="task-checkbox me-2" <%= task.status == 'archived' ? 'checked disabled' : 0 %>>
+                <strong data-action="click->tasks#toggleDisplay"><%= task.name %></strong>
+              </div>
+              <p class="m-0 event-task-status-badge <%= task.status %>"><%= task.status %></p>
             </div>
-            <p class="m-0 event-task-status-badge <%= task.status %>"><%= task.status %></p>
-          </div>
-          <div class="d-none d-flex flex-column card-content" data-tasks-target='task'>
-            <hr>
-            <span class="mb-3 event-task-category-badge <%= task.category %>"><%= task.category %></span>
-            <p><%= task.description %></p>
-            <% task.tasks.each do |task| %>
-              <p class="ms-5">↪ <%= task.name %></p>
-            <% end %>
-            <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>From: <%= task.start.strftime("%d.%m.%Y") %></p>
-            <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>End: <%= task.end.strftime("%d.%m.%Y") %></p>
-            <hr>
-            <div class="task-members d-flex gap-1 justify-content-end align-items-center">
-              <%= link_to new_task_task_member_path(task),
+            <div class="d-none d-flex flex-column card-content" data-tasks-target='task'>
+              <hr>
+              <span class="mb-3 event-task-category-badge <%= task.category %>"><%= task.category %></span>
+              <p><%= task.description %></p>
+              <% task.tasks.each do |task| %>
+                <p class="ms-5">↪ <%= task.name %></p>
+              <% end %>
+              <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>From: <%= task.start.strftime("%d.%m.%Y") %></p>
+              <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>End: <%= task.end.strftime("%d.%m.%Y") %></p>
+              <hr>
+              <div class="task-members d-flex gap-1 justify-content-end align-items-center">
+                <%= link_to new_task_task_member_path(task),
                 data: {bs_toggle: "modal", bs_target: "#addMembersModal#{task.id}"},
                 class: 'me-2' do %>
-                <i class="fa-solid fa-square-plus fs-4 text-light" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign Member"></i>
-              <% end %>
-              <% if task.event_members.any? %>
-                <% task.event_members.each do |event_member| %>
-                  <%= image_tag event_member.user.avatar_url,
+                  <i class="fa-solid fa-square-plus fs-4 text-light" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign Member"></i>
+                <% end %>
+                <% if task.event_members.any? %>
+                  <% task.event_members.each do |event_member| %>
+                    <%= image_tag event_member.user.avatar_url,
                     alt: "user-avatar",
                     class: 'event-member-avatar',
                     data: {bs_toggle: "tooltip", bs_placement: 'top'},
                     title: "#{event_member.user.first_name} #{event_member.user.last_name}" %>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
-    <div class="col-3"></div>
+    <div class="col-5 d-flex flex-column gap-3">
+      <% tasks.each_with_index do |task, index| %>
+        <% if index.even? %>
+          <%= render 'shared/task_member_form_modal', event_task: task %>
+          <div class="event-task-container d-flex flex-column align-self-stretch"
+          data-controller="tasks">
+            <div class="event-task-header d-flex justify-content-between align-items-center">
+              <div class="card-body fs-4">
+                <input type="checkbox" class="task-checkbox me-2" <%= task.status == 'archived' ? 'checked disabled' : 0 %>>
+                <strong data-action="click->tasks#toggleDisplay"><%= task.name %></strong>
+              </div>
+              <p class="m-0 event-task-status-badge <%= task.status %>"><%= task.status %></p>
+            </div>
+            <div class="d-none d-flex flex-column card-content" data-tasks-target='task'>
+              <hr>
+              <span class="mb-3 event-task-category-badge <%= task.category %>"><%= task.category %></span>
+              <p><%= task.description %></p>
+              <% task.tasks.each do |task| %>
+                <p class="ms-5">↪ <%= task.name %></p>
+              <% end %>
+              <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>From: <%= task.start.strftime("%d.%m.%Y") %></p>
+              <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>End: <%= task.end.strftime("%d.%m.%Y") %></p>
+              <hr>
+              <div class="task-members d-flex gap-1 justify-content-end align-items-center">
+                <%= link_to new_task_task_member_path(task),
+                data: {bs_toggle: "modal", bs_target: "#addMembersModal#{task.id}"},
+                class: 'me-2' do %>
+                  <i class="fa-solid fa-square-plus fs-4 text-light" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign Member"></i>
+                <% end %>
+                <% if task.event_members.any? %>
+                  <% task.event_members.each do |event_member| %>
+                    <%= image_tag event_member.user.avatar_url,
+                    alt: "user-avatar",
+                    class: 'event-member-avatar',
+                    data: {bs_toggle: "tooltip", bs_placement: 'top'},
+                    title: "#{event_member.user.first_name} #{event_member.user.last_name}" %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-1">
+      <%= link_to event_tasks_path(event) do  %>
+        <i class="fa-solid fa-square-plus fs-1 text-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Add a Task"></i>
+      <% end %>
+    </div>
   </div>
 </div>
