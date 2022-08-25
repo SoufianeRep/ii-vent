@@ -9,7 +9,7 @@
         <%= simple_form_for([@event, @event_member]) do |f| %>
           <%= f.input :user_id, as: :select, collection: @users, label_method: :full_name %>
           <%= f.input :permission, as: :select, collection: EventMember.permissions.keys, label_method: :capitalize %>
-          <%= f.submit %>
+          <%= f.submit class: "btn btn-dark" %>
         <% end %>
       </div>
       <div class="modal-footer">
