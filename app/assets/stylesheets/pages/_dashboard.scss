@@ -1,11 +1,12 @@
 .dashboard-page-container {
-  background-color: #1F2022;
   padding-bottom: 64px;
-  // height: 100%;
+  background-color: $dark-gray;
 
   .dashboard-tasks-container {
     height: 400px;
-    background-color: #2A2B2D;
+    background-color: $medium-gray;
+    border-radius: 6px;
+    border: 1px solid rgba(181, 179, 179, 0.12);
     overflow: hidden;
 
     .dashboard-tasks-headers {
@@ -31,7 +32,9 @@
 
   .dashboard-events-container {
     height: 800px;
-    background-color: #2A2B2D;
+    background-color: $medium-gray;
+    border-radius: 6px;
+    border: 1px solid rgba(181, 179, 179, 0.12);
     overflow: hidden;
 
 

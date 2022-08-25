@@ -3,6 +3,8 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="tab"
 export default class extends Controller {
   connect() {
+    console.log("hello");
+    this.selectTab()
   }
   static targets = [ "tabTasks", "tabMembers", "tabMain", "tabMessages", "tab", "pagesMain", "pages", "pagesMembers", "pagesTasks", "pagesMessages" ]
 
@@ -18,4 +20,12 @@ export default class extends Controller {
       this.pagesTasksTarget.classList.remove("d-none");
   }
 
+  selectTab() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("tab") === "members") {
+      this.tabMembersTarget.click()
+    } else if (params.get("tab") === "tasks") {
+      this.tabTasksTarget.click()
+    }
+  }
 }
