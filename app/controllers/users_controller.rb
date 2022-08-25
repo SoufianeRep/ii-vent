@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     if user_signed_in?
       @events = policy_scope(Event)
       @tasks = policy_scope(Task)
+      # @tasks = policy_scope(Task).order('end ASC')
+      # end is throwing an error because it is a reserved word in Rails - need to change in Task model
     else
       redirect_to root_path, alert: "You are not authorized to perform this action."
     end
