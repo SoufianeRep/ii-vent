@@ -1,19 +1,18 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-3"></div>
-    <div class="col-6 d-flex flex-column gap-3" data-controller="tasks">
+    <div class="col-6 d-flex flex-column gap-3">
       <% tasks.each do |task| %>
-        <div
-          class="event-task-container d-flex flex-column"
-          data-action="click->tasks#toggleDisplay">
+        <div class="event-task-container d-flex flex-column"
+          data-controller="tasks">
           <div class="event-task-header d-flex justify-content-between align-items-center">
             <div class="card-body fs-4">
               <input type="checkbox" class="task-checkbox me-2" <%= task.status == 'archived' ? 'checked disabled' : 0 %>>
-              <strong><%= task.name %></strong>
+              <strong data-action="click->tasks#toggleDisplay"><%= task.name %></strong>
             </div>
             <p class="m-0 event-task-status-badge <%= task.status %>"><%= task.status %></p>
           </div>
-          <div class="d-flex flex-column card-content" data-tasks-target='task'>
+          <div class="d-none d-flex flex-column card-content" data-tasks-target='task'>
             <hr>
             <span class="mb-3 event-task-category-badge <%= task.category %>"><%= task.category %></span>
             <p><%= task.description %></p>

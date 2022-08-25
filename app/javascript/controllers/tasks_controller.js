@@ -9,6 +9,6 @@ export default class extends Controller {
   }
 
   toggleDisplay(e) {
-    this.taskTarget.classList.toggle('d-none');
+    this.taskTarget.classList.toggle('d-none')
   }
 }
