@@ -9,7 +9,7 @@
 
     .dashboard-tasks-headers {
 
-      h3 {
+      h2 {
         color: #ECECEC;
       }
     }
@@ -38,8 +38,9 @@
       justify-content: space-between;
 
 
-      h3 {
+      h2 {
         color: #ECECEC;
+        flex-grow: 1;
       }
     }
 

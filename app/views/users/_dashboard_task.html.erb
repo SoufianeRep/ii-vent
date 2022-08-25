@@ -4,10 +4,14 @@
     <label for="flexCheckDefault" class="form-check-label text-truncate" value=""><%= task.name %></label>
     <p class="task-description text-truncate"><%= task.description %></p>
   </div>
+  <div class="task-status px-3">
+    <p class="m-0 task-status-badge <%= task.status %>"><%= task.status %></p>
+  </div>
   <div class="task-due-date px-3">
     <% if task.end %>
-      <p><%= task.end.strftime('%A %B %d, %Y') %></p>
-      <p><%= task.end.strftime('%H:%M %Z') %> </p>
+      <p><%= task.end.localtime.strftime('%A') %></p>
+      <p><%= task.end.localtime.strftime('%B %d, %Y') %></p>
+      <p><%= task.end.localtime.strftime('%H:%M %Z') %> </p>
     <% end %>
   </div>
   <%= link_to event_path(task.event), class: "text-decoration-none" do %>
