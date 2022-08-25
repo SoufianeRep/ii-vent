@@ -2,7 +2,8 @@ class TaskPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.all
+      user.tasks
+      # scope.all
       # scope.where(user: user)
     end
   end

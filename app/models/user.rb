@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :event_members, dependent: :destroy
   has_many :events, through: :event_members
+  has_many :task_members, through: :event_members
+  has_many :tasks, through: :task_members
 
   has_one_attached :photo
 
@@ -15,4 +17,8 @@ class User < ApplicationRecord
   validates :location, presence: true
   validates :role, presence: true
   enum role: { staff: "staff", organizer: "organizer", artist: "artist", security: "security" }
+
+  # def tasks
+  #   Task.joins(task_members: {event_member: :user}).where(user: self)
+  # end
 end
