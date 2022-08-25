@@ -1,12 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  color: $white;
   margin: O;
   background-color: $dark-gray;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.12), 0 0 4px rgba(0, 0, 0, 0.24);
   z-index: 1;
   position: sticky;
   top: 0;
+}
+
+.navbar-lewagon .nav-link:hover {
+  color: $something;
 }
 
 .navbar-lewagon .navbar-collapse {
