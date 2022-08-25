@@ -36,7 +36,9 @@
             <% else %>
               <p>Has <%= pluralize(manager.tasks.count, "task") %> remaining...</p>
             <% end %>
-            <i class="fa-solid fa-square-plus fs-4 text-light plus-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign a Task" ></i>
+            <%= link_to event_tasks_path(manager), data: {bs_toggle: "modal", bs_target: "#assignMembersModal#{manager.id}"} do %>
+              <i class="fa-solid fa-square-plus fs-4 text-light plus-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign a Task" ></i>
+            <% end %>
         </div>
         </div>
       </div>
