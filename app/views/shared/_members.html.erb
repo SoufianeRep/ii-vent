@@ -21,6 +21,7 @@
     <% end %>
   </div>
   <div class="" data-tab-members-target="pages pagesManager">
+    <div class="grid-members">
     <% event.event_members.manager.each do |manager| %>
       <div class="container-fluid">
         <div class="card-product">
@@ -41,30 +42,34 @@
         </div>
       </div>
     <% end %>
+    </div>
   </div>
   <div class="d-none" data-tab-members-target="pages pagesArtist">
+    <div class="grid-members">
     <% event.event_members.artist.each do |artist|  %>
       <div class="container-fluid">
-        <div class="card-product">
-          <% if artist.user.avatar_url.blank? %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
-          <% else %>
-            <img src="<%= artist.user.avatar_url %>" alt="">
-          <% end %>
-          <div class="card-product-infos">
-            <h2><%= artist.user.first_name %> <%= artist.user.last_name %></h2>
-            <% if artist.tasks.count == 0 %>
-              <p>Does not have tasks remaining.</p>
+          <div class="card-product">
+            <% if artist.user.avatar_url.blank? %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
             <% else %>
-              <p>Has <%= pluralize(artist.tasks.count, "task") %> remaining...</p>
+              <img src="<%= artist.user.avatar_url %>" alt="">
             <% end %>
-            <i class="fa-solid fa-square-plus fs-4 text-light plus-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign a Task" ></i>
+            <div class="card-product-infos">
+              <h2><%= artist.user.first_name %> <%= artist.user.last_name %></h2>
+              <% if artist.tasks.count == 0 %>
+                <p>Does not have tasks remaining.</p>
+              <% else %>
+                <p>Has <%= pluralize(artist.tasks.count, "task") %> remaining...</p>
+              <% end %>
+              <i class="fa-solid fa-square-plus fs-4 text-light plus-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign a Task" ></i>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="d-none" data-tab-members-target="pages pagesSecurity">
+    <div class="grid-members">
     <% event.event_members.security.each do |security|  %>
       <div class="container-fluid">
         <div class="card-product">
@@ -85,8 +90,10 @@
         </div>
       </div>
     <% end %>
+    </div>
   </div>
   <div class="d-none" data-tab-members-target="pages pagesStaff">
+    <div class="grid-members">
     <% event.event_members.staff.each do |staff|  %>
       <div class="container-fluid">
         <div class="card-product">
@@ -107,5 +114,6 @@
         </div>
       </div>
     <% end %>
+    </div>
   </div>
 </div>
