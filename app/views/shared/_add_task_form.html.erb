@@ -1,0 +1,24 @@
+<div class="modal fade" id="addTaskForm" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content custom-modal">
+      <div class="modal-header">
+        <h5 class="modal-title">Create A New Task</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <%= simple_form_for([event, Task.new]) do |f| %>
+            <%= f.input :name, placeholder: 'Task name' %>
+            <%= f.input :description, placeholder: 'Task desctiption'%>
+            <%= f.input :category, collection: Task::CATEGORY, selected: 1%>
+            <%= f.input :start, html5: true %>
+            <%= f.input :end, html5: true %>
+            <%= f.submit class: 'btn btn-dark' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
