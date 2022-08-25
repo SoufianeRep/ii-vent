@@ -1,12 +1,13 @@
 .page-container {
-  background-color: #1F2022;
+  // background-color: #1F2022;
+  background-color: $dark-gray;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
 
   .event-form-container {
-    background-color: $dark-gray;
+    background-color: $medium-gray;
     margin-top: 32px;
     height: 640px;
 
