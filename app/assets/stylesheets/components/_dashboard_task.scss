@@ -49,9 +49,11 @@
   }
 
   .task-status-badge.pending {
-    background-color: #c3ddfd;
+    // background-color: #c3ddfd;
+    background-color: #6D48D3;
     border: 1.5px solid #1e429f;
-    color: #1e429f;
+    // color: #1e429f;
+    color: #ECECEC;
   }
 
   .task-due-date {
@@ -61,6 +63,7 @@
     flex-grow: 1;
     min-width: 160px;
     max-width: 160px;
+    // width: 160px;
   }
 
   .task-event-link-container {

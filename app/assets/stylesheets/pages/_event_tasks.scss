@@ -14,9 +14,7 @@
   width: 45px;
 }
 
-.task-checkbox {
-
-}
+.task-checkbox {}
 
 .card-content {
   transition: 1s;
@@ -25,7 +23,6 @@
 .task-date {
   color: #8d959a;
 }
-
 
 // task status states
 .event-task-status-badge {
@@ -66,21 +63,25 @@
   border: 1.5px solid #991a1b;
   color: #991a1b;
 }
+
 .event-task-category-badge.org {
   background-color: #c3ddfd;
   border: 1.5px solid #1e429f;
   color: #1e429f;
 }
+
 .event-task-category-badge.security {
   background-color: #fce7f3;
   border: 1.5px solid #9d164d;
   color: #9d164d;
 }
+
 .event-task-category-badge.music {
   background-color: #f3e8ff;
   border: 1.5px solid #6b21a8;
   color: #6b21a8;
 }
+
 .event-task-category-badge.catering {
   background-color: #fef9c3;
   border: 1.5px solid #854d0e;
