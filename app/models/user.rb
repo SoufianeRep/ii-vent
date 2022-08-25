@@ -19,9 +19,9 @@ class User < ApplicationRecord
   enum role: { staff: "staff", organizer: "organizer", artist: "artist", security: "security" }
 
   def full_name
-    "#{first_name} #{last_name}"
+    "#{last_name} #{first_name}"
   end
-  
+
   # def tasks
   #   Task.joins(task_members: {event_member: :user}).where(user: self)
   # end

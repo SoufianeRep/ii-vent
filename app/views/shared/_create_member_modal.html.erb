@@ -7,8 +7,9 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for([@event, @event_member]) do |f| %>
-          <%= f.input :user_id, as: :select, collection: @users, label_method: :full_name %>
-          <%= f.input :permission, as: :select, collection: EventMember.permissions.keys, label_method: :capitalize %>
+          <%= f.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name %>
+          <%= f.input :role, as: :select, collection: EventMember.roles.keys, label_method: :capitalize %>
+          <%= f.input :permission, as: :hidden, input_html: {value: 'member'} %>
           <%= f.submit class: "btn btn-dark" %>
         <% end %>
       </div>

@@ -5,11 +5,11 @@ class EventMembersController < ApplicationController
     @event_member = EventMember.new(event_member_params.merge(event: @event))
     authorize @event_member
     if @event_member.save
-      if @event_member.user.artist?
+      if @event_member.artist?
         redirect_to event_path(@event, tab: "members", sub_tab: "artists")
-      elsif @event_member.user.staff?
+      elsif @event_member.staff?
         redirect_to event_path(@event, tab: "members", sub_tab: "staff")
-      elsif @event_member.user.security?
+      elsif @event_member.security?
         redirect_to event_path(@event, tab: "members", sub_tab: "security")
       else
         redirect_to event_path(@event, tab: "members")
@@ -22,6 +22,6 @@ class EventMembersController < ApplicationController
   private
 
   def event_member_params
-    params.require(:event_member).permit(:user_id, :permission)
+    params.require(:event_member).permit(:user_id, :permission, :role)
   end
 end
