@@ -1,12 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  color: $white;
   margin: O;
   background-color: $dark-gray;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.12), 0 0 4px rgba(0, 0, 0, 0.24);
   z-index: 1;
   position: sticky;
   top: 0;
+}
+
+.navbar-lewagon .nav-link:hover {
+  color: $something;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -21,4 +26,24 @@
   border: 2px solid $white;
   width: 56px;
   height: 56px;
+}
+
+// time and date
+.nav-time-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-weight: 300;
+}
+
+.nav-date {
+  text-align: center;
+  color: $white;
+  letter-spacing: 1px;
+}
+
+.nav-time {
+  text-align: center;
+  color: rgb(119, 119, 119);
 }

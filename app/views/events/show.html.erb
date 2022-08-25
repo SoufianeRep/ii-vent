@@ -1,6 +1,6 @@
 <div data-controller="tab">
   <div class="container-fluid">
-    <ul class="nav nav-pills nav-fill">
+    <ul id="tabBorder" class="nav nav-pills nav-fill">
       <li class="nav-item">
         <a class="nav-link active" data-tab-target="tabMain tab" data-action="click->tab#toggle">Main</a>
       </li>
@@ -15,13 +15,13 @@
       </li>
     </ul>
   </div>
-  <div class="d-none" data-tab-target="pages pagesMain">
+  <div class="" data-tab-target="pages pagesMain">
     <%= render "shared/main", event: @event %>
   </div>
   <div class="d-none" data-tab-target="pages pagesMembers">
-    <%= render "shared/members", event: @event, artists: @artists, staffs: @staffs, securities: @securities %>
+    <%= render "shared/members", event: @event, artists: @artists, staffs: @staffs, securities: @securities, event_member: @event_member %>
   </div>
-  <div class="" data-tab-target="pages pagesTasks">
+  <div class="d-none" data-tab-target="pages pagesTasks">
     <%= render 'shared/event_tasks', tasks: @tasks, event: @event %>
   </div>
   <div class="d-none" data-tab-target="pages pagesMessages">

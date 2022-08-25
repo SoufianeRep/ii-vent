@@ -5,6 +5,7 @@ class Event < ApplicationRecord
   has_many :messages, as: :room
   has_many :tasks, dependent: :destroy
   has_many :event_members, dependent: :destroy
+  has_many :users, through: :event_members
   has_one_attached :photo
 
   validates :location, presence: true

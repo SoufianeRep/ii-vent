@@ -9,6 +9,7 @@
   margin-bottom: 24px;
   padding-left: 16px;
   border-radius: 4px;
+  position: relative;
 }
 
 .card-product img {
@@ -56,4 +57,12 @@
 .add-btn:hover {
   background-color: $light-gray;
   color: $bg-gray;
+}
+
+
+.plus-btn {
+  color: $bg-gray;
+  position:absolute;
+  bottom:8px;
+  right:8px;
 }
