@@ -7,6 +7,7 @@ class Event < ApplicationRecord
   has_many :event_members, dependent: :destroy
   has_one_attached :photo
 
+  validates :event_member, presence: true
   validates :location, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
