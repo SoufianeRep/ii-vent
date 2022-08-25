@@ -89,6 +89,8 @@ end
 
 puts "creating event members"
 
+users = User.all - User.all.first(4)
+
 users.first(15).each do |user|
   event_member = EventMember.create!(user: user, event: Event.all.first(2)[1], permission: "member")
   TaskMember.create!(task: Task.all.sample, event_member: event_member)
