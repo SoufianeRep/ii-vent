@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   end
 
   resources :tasks, only: [:update, :edit] do
-    resources :task_members, only: [:create]
+    resources :task_members, only: [:new, :create]
   end
 end
