@@ -27,3 +27,23 @@
   width: 56px;
   height: 56px;
 }
+
+// time and date
+.nav-time-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-weight: 300;
+}
+
+.nav-date {
+  text-align: center;
+  color: $white;
+  letter-spacing: 1px;
+}
+
+.nav-time {
+  text-align: center;
+  color: rgb(119, 119, 119);
+}
