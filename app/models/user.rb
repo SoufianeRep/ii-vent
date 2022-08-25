@@ -15,4 +15,8 @@ class User < ApplicationRecord
   validates :location, presence: true
   validates :role, presence: true
   enum role: { staff: "staff", organizer: "organizer", artist: "artist", security: "security" }
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

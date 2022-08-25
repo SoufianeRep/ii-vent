@@ -16,7 +16,9 @@
     </ul>
   </div>
   <div class="container d-flex justify-content-end">
-    <button type="button" class="add-btn"><i class="fa-solid fa-plus"></i> Add a member</button>
+    <%= link_to event_event_members_path(event), data: {bs_toggle: "modal", bs_target: "#addMemberModal"} do %>
+      <button type="button" class="add-btn"><i class="fa-solid fa-plus"></i> Add a member</button>
+    <% end %>
   </div>
   <div class="" data-tab-members-target="pages pagesManager">
     <% event.event_members.organizer.each do |manager| %>
@@ -29,7 +31,12 @@
         <% end %>
         <div class="card-product-infos">
           <h2><%= manager.user.first_name %> <%= manager.user.last_name %></h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
+            <% if manager.tasks.count == 0 %>
+              <p>Does not have tasks remaining.</p>
+            <% else %>
+              <p>Has <%= pluralize(manager.tasks.count, "task") %> remaining...</p>
+            <% end %>
+            <i class="fa-solid fa-square-plus fs-4 text-light plus-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign a Task" ></i>
         </div>
         </div>
       </div>
@@ -46,7 +53,12 @@
         <% end %>
           <div class="card-product-infos">
             <h2><%= artist.user.first_name %> <%= artist.user.last_name %></h2>
-            <p><%= artist.user.role %> <strong>relevant info</strong> only.</p>
+            <% if artist.tasks.count == 0 %>
+              <p>Does not have tasks remaining.</p>
+            <% else %>
+              <p>Has <%= pluralize(artist.tasks.count, "task") %> remaining...</p>
+            <% end %>
+            <i class="fa-solid fa-square-plus fs-4 text-light plus-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign a Task" ></i>
           </div>
         </div>
       </div>
@@ -63,7 +75,12 @@
         <% end %>
           <div class="card-product-infos">
             <h2><%= security.user.first_name %> <%= security.user.last_name %></h2>
-            <p><%= security.user.role %> <strong>relevant info</strong> only.</p>
+            <% if security.tasks.count == 0 %>
+              <p>Does not have tasks remaining.</p>
+            <% else %>
+              <p>Has <%= pluralize(security.tasks.count, "task") %> remaining...</p>
+            <% end %>
+            <i class="fa-solid fa-square-plus fs-4 text-light plus-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign a Task" ></i>
           </div>
         </div>
       </div>
@@ -80,7 +97,12 @@
         <% end %>
           <div class="card-product-infos">
             <h2><%= staff.user.first_name %> <%= staff.user.last_name %></h2>
-            <p><%= staff.user.role %> <strong>relevant info</strong> only.</p>
+            <% if staff.tasks.count == 0 %>
+              <p>Does not have tasks remaining.</p>
+            <% else %>
+              <p>Has <%= pluralize(staff.tasks.count, "task") %> remaining...</p>
+            <% end %>
+            <i class="fa-solid fa-square-plus fs-4 text-light plus-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign a Task" ></i>
           </div>
         </div>
       </div>
