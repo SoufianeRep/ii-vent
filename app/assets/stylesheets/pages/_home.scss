@@ -1,46 +1,135 @@
 // Specific CSS for your home-page
 
-.landing-main {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background-color: rgb(8, 42, 82);
-  color: #f4f4f4;
-  background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('https://images.unsplash.com/photo-1486556396467-d83d2b23514b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.landing-container {
-  width: 100%;
+.landing-main {
+  background: $medium-gray;
+  padding-left: 10%;
+}
+
+section {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+}
+
+section .logo {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  color: $something;
+  font-size: 3em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+section .bg {
+  position: absolute;
+  top: 0;
+  right: 60px;
   height: 100%;
+}
+
+section .content {
+  position: relative;
+  max-width: 650px;
+  z-index: 1;
+  margin-left: 30px;
+}
+
+section .content h2 {
+  font-size: 3em;
+  font-weight: 700;
+  color: $something;
+  line-height: 1.2;
+}
+
+section .content p {
+  font-size: 1.1em;
+  color: $something;
+  margin: 1rem 0 1rem;
+}
+
+section .content .brand-btn {
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 400;
+  padding: 10px 30px;
+  margin: 20px 0;
+}
+
+.copyright-text {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  color: $something;
+  font-size: 1.1em;
+  margin: 20px 0 10px;
+}
+
+.menu-toggle {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: $purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-toggle .hamburger {
+  font-size: 1.5em;
+  color: $something;
+  cursor: pointer;
+}
+
+.social-media {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 60px;
+  height: calc(100vh - 60px);
+  background: $something;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-media ul {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#landing-title {
-  font-size: 3rem;
-  font-weight: 400;
-  margin-bottom: 3rem;
-  font-family: $headers-font;
+.social-media ul li {
+  list-style: none;
+  text-decoration: none;
+  margin: 10px 0;
+  margin-right: 30px;
 }
 
-#landing-logo {
-  max-width: 100%;
-  max-height: 100%;
-  margin-bottom: 3rem;
-  padding: 1rem;
-  margin: 1rem;
-  font-family: 'Dosis', sans-serif;
-  letter-spacing: 0.125rem;
+.social-media ul li i {
+  font-size: 2.5em;
+  color: $purple;
 }
 
-.top-div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+.social-media ul li i:hover {
+  color: $hovered-purple;
+  transform: scale(1.2);
+  transition: all 0.5s ease;
+  cursor: pointer;
 }
