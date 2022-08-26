@@ -10,6 +10,9 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import PosterUploadOptionsController from "./poster_upload_options_controller"
+application.register("poster-upload-options", PosterUploadOptionsController)
+
 import TabController from "./tab_controller"
 application.register("tab", TabController)
 
