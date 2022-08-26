@@ -21,8 +21,4 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
-  
-  # def tasks
-  #   Task.joins(task_members: {event_member: :user}).where(user: self)
-  # end
 end
