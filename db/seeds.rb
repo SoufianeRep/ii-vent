@@ -51,7 +51,7 @@ Event.create!(location: 'Kyoto', start_date: DateTime.now + rand(1..2).month, en
 Event.create!(location: 'Nagoya', start_date: DateTime.now + rand(1..2).month, end_date: DateTime.now + rand(3..4).month, name: 'Lafouine feat Booba le Petit Ourson', poster_url: 'https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/218290032_1217610138651984_3186298974796388059_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=e3f864&_nc_ohc=69bkw4gJDSsAX84IIfs&_nc_ht=scontent-nrt1-1.xx&oh=00_AT_q9koQafbBRCuJ9w0BiKAesNZsy3CDNcGZ0jLUcSMe2Q&oe=630A05C8')
 
 puts "Creating Tasks"
-task = ['music', 'security', 'promotion', 'catering', 'org']
+task = ['music', 'security', 'promotion', 'catering', 'organization']
 
 event_one = Event.all.first
 event_two = Event.all.first(2)[1]
