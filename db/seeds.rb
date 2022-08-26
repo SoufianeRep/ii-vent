@@ -72,7 +72,7 @@ Task.create!(name: 'Set Reminders for Social Media Promotion', description: 'Art
 Task.create!(name: 'Restock Bar', description: 'Make sure bar(s) are fully stocked the day of the event', category: 'catering', event: event_one, start: DateTime.now, end: event_one.end_date)
 Task.create!(name: 'Book Headliner\'s Hotel Accomodations', description: 'Find hotel accomodations for headlining artist - per their specifications', category: 'music', event: event_one, start: DateTime.now, end: event_one.end_date)
 Task.create!(name: 'Book Catering', description: 'Secure a local caterer for food in rest area of event', category: 'catering', event: event_one, start: DateTime.now, end: event_one.end_date)
-Task.create!(name: 'Organize Headliner transportation', description: 'Reserve a car to transport headliner to / from the event', category: 'org', event: event_one, start: DateTime.now, end: event_one.end_date)
+Task.create!(name: 'Organize Headliner transportation', description: 'Reserve a car to transport headliner to / from the event', category: 'organization', event: event_one, start: DateTime.now, end: event_one.end_date)
 Task.create!(name: 'Wristbands', description: 'Make sure we have enough wristbands for both artists / vip / general attendees', category: 'security', event: event_one, start: DateTime.now, end: event_one.end_date)
 Task.create!(name: 'Lighting/Visuals', description: 'Provide space and access to connections for lights/smoke/visuals', category: 'organization', event: event_one, start: DateTime.now, end: event_one.end_date)
 
