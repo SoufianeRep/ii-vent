@@ -1,0 +1,14 @@
+.custom-modal {
+  background-color: $medium-gray;
+  color: $light-gray;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+
+  input, select{
+    color: white;
+  }
+
+  input:focus, select:focus{
+    color: white;
+  }
+}
