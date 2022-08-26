@@ -6,21 +6,11 @@
         <i class="fa-solid fa-square-plus fs-1 text-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Add a Task">
         </i>
       <% end %></div>
-    <div class="col-5 d-flex flex-column gap-3">
-      <% tasks.each_with_index do |task, index| %>
-        <% if index.even? %>
-          <%= render 'shared/task', task: task %>
-        <% end %>
+    <div class="col-9 d-flex flex-column gap-3">
+      <% tasks.each do |task| %>
+        <%= render 'shared/task', task: task %>
       <% end %>
     </div>
-    <div class="col-5 d-flex flex-column gap-3">
-      <% tasks.each_with_index do |task, index| %>
-        <% if index.odd? %>
-          <%= render 'shared/task', task: task %>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="col-1">
-    </div>
+    <div class="col-2"></div>
   </div>
 </div>
