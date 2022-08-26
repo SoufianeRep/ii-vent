@@ -25,7 +25,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     authorize @event
     if @event.save
-      @organizer = EventMember.create!(user: current_user, event: @event, permission: "organizer")
+      @organizer = EventMember.create!(user: current_user, event: @event, permission: "organizer", role: "manager")
       redirect_to event_path(@event)
     else
       render :new, status: :unprocessable_entity
