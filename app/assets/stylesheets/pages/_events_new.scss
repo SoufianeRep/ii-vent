@@ -8,24 +8,13 @@
 
   .event-form-container {
     background-color: $medium-gray;
-    margin-top: 32px;
-    height: 640px;
-
-    .event-form-header {
-      color: $something;
-    }
-
-    .form-label {
-      color: $something;
-    }
-
-    .event-form-inputs {
-      background-color: $light-gray;
-    }
-
-    .event-submit-button {
-      // background-color: $something;
-    }
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    width: 50%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    border: 1px solid #f4f4f473;
   }
 
 }
