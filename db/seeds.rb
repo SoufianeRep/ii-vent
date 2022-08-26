@@ -76,29 +76,29 @@ Task.create!(name: 'Lighting/Visuals', description: 'Provide space and access to
 
 Task.all.each do |task|
   rand(3..7).times do
-    Task.create!(name: 'Subtask...', event: Event.all.first, category: task.category, task: task)
+    Task.create!(name: 'Subtask...', event: Event.all.first, category: task.category, task: task, start: DateTime.now)
   end
 end
 
 puts "creating Event memeber"
 puts "organizers"
 User.all.first(4).each do |member|
-  EventMember.create!(user: member, event: event_one, permission: 'organizer')
-  EventMember.create!(user: member, event: event_two, permission: 'organizer')
+  EventMember.create!(user: member, event: event_one, permission: 'organizer', role: 'manager')
+  EventMember.create!(user: member, event: event_two, permission: 'organizer', role: 'manager')
 end
 
 puts "creating event members"
 
 users = User.all - User.all.first(4)
-
+roles = ["artist", "security", "staff"]
 users.first(15).each do |user|
-  event_member = EventMember.create!(user: user, event: Event.all.first(2)[1], permission: "member")
+  event_member = EventMember.create!(user: user, event: Event.all.first(2)[1], permission: "member", role: roles.sample)
   TaskMember.create!(task: Task.all.sample, event_member: event_member)
 end
 
 
 users.last(11).each do |user|
-  event_member = EventMember.create!(user: user, event: Event.all.first(2)[1], permission: "member")
+  event_member = EventMember.create!(user: user, event: Event.all.first(2)[1], permission: "member", role: roles.sample)
   TaskMember.create!(task: Task.all.sample, event_member: event_member)
 end
 
@@ -110,9 +110,9 @@ kyle = User.third
 kyles_event_one = Event.create!(location: 'Circus Osaka', start_date: DateTime.now + rand(1..2).month, end_date: DateTime.now + rand(3..4).month, name: '06S 20th Anniversary', poster_url: 'https://circus-osaka.com/wp-content/uploads/2022/01/design_lineup_All.jpg')
 kyles_event_two = Event.create!(location: 'Triangle Osaka', start_date: DateTime.now + rand(1..2).month, end_date: DateTime.now + rand(3..4).month, name: 'Critical Sound', poster_url: 'https://d38fgd7fmrcuct.cloudfront.net/pf_1/1_3qbc57g6s43bwty3dt9uf')
 kyles_event_three = Event.create!(location: 'Triangle Osaka', start_date: DateTime.now + rand(1..2).month, end_date: DateTime.now + rand(3..4).month, name: 'Trippin Factory x JDNBA', poster_url: 'https://imgproxy.ra.co/_/quality:100/w:1200/rt:fill/plain/https://static.ra.co/images/events/flyer/2020/2/jp-0215-1384099-front.jpg?dateUpdated=1659957962370')
-kyles_event_member_one = EventMember.create!(user: kyle, event: kyles_event_one, permission: "member")
-kyles_event_member_two = EventMember.create!(user: kyle, event: kyles_event_two, permission: "member")
-kyles_event_member_three = EventMember.create!(user: kyle, event: kyles_event_three, permission: "member")
+kyles_event_member_one = EventMember.create!(user: kyle, event: kyles_event_one, permission: "member", role: roles.sample)
+kyles_event_member_two = EventMember.create!(user: kyle, event: kyles_event_two, permission: "member", role: roles.sample)
+kyles_event_member_three = EventMember.create!(user: kyle, event: kyles_event_three, permission: "member", role: roles.sample)
 kyles_task_one = Task.create!(name: 'Sound check', description: 'Perform soundcheck before doors open - between 21:00 and 21:50', category: 'music', event: kyles_event_one, start: DateTime.now, end: kyles_event_one.end_date)
 kyles_task_two = Task.create!(name: 'Post to socials', description: 'Make social media posts promoting the event on all socials (Facebook, Instagram, Twitter, etc.) - Use provided digital posters!', category: 'music', event: kyles_event_two, start: DateTime.now, end: kyles_event_two.end_date)
 kyles_task_three = Task.create!(name: 'Confirm set times', description: 'Confirm set time for the event', category: 'music', event: kyles_event_three, start: DateTime.now, end: kyles_event_three.end_date)
