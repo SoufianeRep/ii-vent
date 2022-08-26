@@ -1,11 +1,4 @@
 <div class="container-fluid">
-  <div class="banner" style="background-image: url('<%= event.poster_url %>')">
-    <div>
-      <h1><%= event.name %></h1>
-    </div>
-  </div>
-</div>
-<div class="container-fluid">
   <div class="container-main">
     <div class="element-main1">
       <h3><strong><%= event.start_date.strftime("%B #{event.start_date.day.ordinalize}")%></strong> <%= event.event_status.capitalize %> event</h3>
