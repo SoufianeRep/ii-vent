@@ -21,7 +21,7 @@
     <% end %>
   </div>
   <div class="" data-tab-members-target="pages pagesManager">
-    <% event.event_members.organizer.each do |manager| %>
+    <% event.event_members.manager.each do |manager| %>
       <div class="container-fluid">
         <div class="card-product">
         <% if manager.user.avatar_url.blank? %>
@@ -43,7 +43,7 @@
     <% end %>
   </div>
   <div class="d-none" data-tab-members-target="pages pagesArtist">
-    <% artists.each do |artist|  %>
+    <% event.event_members.artist.each do |artist|  %>
       <div class="container-fluid">
         <div class="card-product">
         <% if artist.user.avatar_url.blank? %>
@@ -65,7 +65,7 @@
     <% end %>
   </div>
   <div class="d-none" data-tab-members-target="pages pagesSecurity">
-    <% securities.each do |security|  %>
+    <% event.event_members.security.each do |security|  %>
       <div class="container-fluid">
         <div class="card-product">
         <% if security.user.avatar_url.blank? %>
@@ -87,7 +87,7 @@
     <% end %>
   </div>
   <div class="d-none" data-tab-members-target="pages pagesStaff">
-    <% staffs.each do |staff|  %>
+    <% event.event_members.staff.each do |staff|  %>
       <div class="container-fluid">
         <div class="card-product">
         <% if staff.user.avatar_url.blank? %>

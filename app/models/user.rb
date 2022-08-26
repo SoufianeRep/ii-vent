@@ -19,6 +19,6 @@ class User < ApplicationRecord
   enum role: { staff: "staff", organizer: "organizer", artist: "artist", security: "security" }
 
   def full_name
-    "#{first_name} #{last_name}"
+    "#{last_name} #{first_name}"
   end
 end
