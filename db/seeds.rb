@@ -1,5 +1,6 @@
 require 'faker'
 require 'net/http'
+require 'json'
 
 puts "Destroying subtasks"
 puts "Destroying events"
