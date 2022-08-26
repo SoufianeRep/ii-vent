@@ -1,6 +1,4 @@
 class Task < ApplicationRecord
-  CATEGORY = ['music', 'security', 'promotion', 'catering', 'organization']
-
   belongs_to :event
   has_many :tasks, dependent: :destroy
   belongs_to :task, optional: true
@@ -12,5 +10,6 @@ class Task < ApplicationRecord
   validates :category, presence: true
   validates :status, presence: true
   validates :start, presence: true
+  enum category: {music: "music", security: "security", promotion: "promotion", catering: "catering", organization: "organization"}
   enum status: { pending: "pending", done: "done", archived: "archived" }
 end
