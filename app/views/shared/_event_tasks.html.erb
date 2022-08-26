@@ -8,7 +8,7 @@
       <% end %></div>
     <div class="col-5 d-flex flex-column gap-3">
       <% tasks.each_with_index do |task, index| %>
-        <% if index.odd? %>
+        <% if index.even? %>
           <%= render 'shared/new_member_form_modal', event_task: task %>
           <div class="event-task-container d-flex flex-column align-self-stretch"
           data-controller="tasks">
@@ -54,7 +54,7 @@
     </div>
     <div class="col-5 d-flex flex-column gap-3">
       <% tasks.each_with_index do |task, index| %>
-        <% if index.even? %>
+        <% if index.odd? %>
           <%= render 'shared/new_member_form_modal', event_task: task %>
           <div class="event-task-container d-flex flex-column align-self-stretch"
           data-controller="tasks">
