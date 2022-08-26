@@ -39,6 +39,7 @@ response.each do |user|
     avatar_url: user["picture"]["large"],
     role: roles.sample
   )
+  puts "User created"
 end
 
 puts "Creating events"
