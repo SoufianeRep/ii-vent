@@ -1,9 +1,14 @@
 <div class="container mt-5">
+  <%= render 'shared/add_task_form', event: event  %>
   <div class="row">
-    <div class="col-1"></div>
+    <div class="col-1">
+      <%= link_to event_tasks_path(event), data: {bs_toggle: 'modal', bs_target: '#addTaskForm'} do  %>
+        <i class="fa-solid fa-square-plus fs-1 text-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Add a Task">
+        </i>
+      <% end %></div>
     <div class="col-5 d-flex flex-column gap-3">
       <% tasks.each_with_index do |task, index| %>
-        <% if index.odd? %>
+        <% if index.even? %>
           <%= render 'shared/new_member_form_modal', event_task: task %>
           <div class="event-task-container d-flex flex-column align-self-stretch"
           data-controller="tasks">
@@ -22,7 +27,9 @@
                 <p class="ms-5">↪ <%= task.name %></p>
               <% end %>
               <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>From: <%= task.start.strftime("%d.%m.%Y") %></p>
-              <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>End: <%= task.end.strftime("%d.%m.%Y") %></p>
+              <% if  task.end %>
+                <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>End: <%= task.end.strftime("%d.%m.%Y") %></p>
+              <% end %>
               <hr>
               <div class="task-members d-flex gap-1 justify-content-end align-items-center">
                 <%= link_to new_task_task_member_path(task),
@@ -47,7 +54,7 @@
     </div>
     <div class="col-5 d-flex flex-column gap-3">
       <% tasks.each_with_index do |task, index| %>
-        <% if index.even? %>
+        <% if index.odd? %>
           <%= render 'shared/new_member_form_modal', event_task: task %>
           <div class="event-task-container d-flex flex-column align-self-stretch"
           data-controller="tasks">
@@ -66,8 +73,9 @@
                 <p class="ms-5">↪ <%= task.name %></p>
               <% end %>
               <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>From: <%= task.start.strftime("%d.%m.%Y") %></p>
-              <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>End: <%= task.end.strftime("%d.%m.%Y") %></p>
-              <hr>
+              <% if  task.end %>
+                <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>End: <%= task.end.strftime("%d.%m.%Y") %></p>
+              <% end %>              <hr>
               <div class="task-members d-flex gap-1 justify-content-end align-items-center">
                 <%= link_to new_task_task_member_path(task),
                 data: {bs_toggle: "modal", bs_target: "#addMembersModal#{task.id}"},
@@ -90,11 +98,6 @@
       <% end %>
     </div>
     <div class="col-1">
-      <%= render 'shared/add_task_form', event: event  %>
-      <%= link_to event_tasks_path(event), data: {bs_toggle: 'modal', bs_target: '#addTaskForm'} do  %>
-        <i class="fa-solid fa-square-plus fs-1 text-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Add a Task">
-        </i>
-      <% end %>
     </div>
   </div>
 </div>

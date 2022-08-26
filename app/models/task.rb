@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  CATEGORY = ['Music', 'Security', 'Promotion', 'Catering', 'Organization']
+  CATEGORY = ['music', 'security', 'promotion', 'catering', 'organization']
 
   belongs_to :event
   has_many :tasks, dependent: :destroy
