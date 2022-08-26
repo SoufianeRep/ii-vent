@@ -1,4 +1,5 @@
 <%= render 'shared/create_member_modal' %>
+<%= render 'shared/assign_task_to_member_form' %>
 <div data-controller="tab">
   <div class="container-fluid">
     <ul id="tabBorder" class="nav nav-pills nav-fill">
@@ -20,7 +21,7 @@
     <%= render "shared/main", event: @event %>
   </div>
   <div class="d-none" data-tab-target="pages pagesMembers">
-    <%= render "shared/members", event: @event, artists: @artists, staffs: @staffs, securities: @securities, event_member: @event_member %>
+    <%= render "shared/members", event: @event, artists: @artists, staffs: @staffs, securities: @securities, event_member: @event_member, tasks: @tasks %>
   </div>
   <div class="d-none" data-tab-target="pages pagesTasks">
     <%= render 'shared/event_tasks', tasks: @tasks, event: @event %>
