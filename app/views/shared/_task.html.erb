@@ -2,17 +2,12 @@
   <%= render 'shared/new_member_form_modal', event_task: task %>
   <div class="event-task-header d-flex justify-content-between align-items-center">
     <div class="card-body fs-4 d-flex align-items-center flex-grow-2">
-      <% if task.status == 'archived' %>
-        <input type="checkbox" class="task-checkbox me-2" checked disabled>
-      <% elsif task.status == 'done'%>
-        <input type="checkbox" class="task-checkbox me-2" checked >
-      <% else %>
-        <input type="checkbox" class="task-checkbox me-2">
-      <% end %>
-      <strong data-action="click->tasks#toggleDisplay"><%= task.name %></strong>
+      <%= render 'components/update_task_form', event: event, task: task %>
+      <%# <input type="checkbox" class="task-checkbox me-2" checked disabled> %>
+      <h5 data-action="click->tasks#toggleDisplay"><%= task.name %></h5>
     </div>
     <%# Small task members avatars %>
-    <div class="task-members-small d-flex pe-3 gap-1" data-tasks-target='members'>
+    <div class="task-members-small d-flex flex-wrap pe-3 gap-1" data-tasks-target='members'>
       <% if task.event_members.any? %>
         <% task.event_members.each do |event_member| %>
           <%= render "components/task_member", member: event_member %>
@@ -20,9 +15,9 @@
       <% end %>
     </div>
     <%# Small task members avatars end %>
-    <div class="task-info d-flex flex-column justify-content-end align-items-center">
-      <span class="m-0 event-task-status-badge <%= task.status %>"><%= task.status %></span>
-      <span class="m-0 event-task-category-badge <%= task.category %>" data-tasks-target='badge'><%= task.category %></span>
+    <div class="task-info d-flex flex-column justify-content-end align-items-end">
+      <span class="m-0 event-task-status-badge <%= task.done ? "done" : "pending" %>"><%= task.done ? 'done' : 'pending' %></span>
+      <span class="m-0 event-task-category-badge align-self-end <%= task.category %>" data-tasks-target='badge'><%= task.category %></span>
     </div>
   </div>
   <%# Task card expanded view %>

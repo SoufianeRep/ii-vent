@@ -12,4 +12,11 @@ class TaskPolicy < ApplicationPolicy
     organizers = record.event_members.select { |member| member.permission == 'organizer' }
     organizers.any? { |member| member == user }
   end
+
+  def update?
+    true
+    # organizers = record.event.event_members.select { |member| member.permission == 'organizer' }
+    # organizers.any? { |member| member == user }
+  end
+
 end
