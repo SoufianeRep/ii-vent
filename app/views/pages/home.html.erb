@@ -50,10 +50,13 @@
         </div>
       </div>
     </div>
-    <p class="copyright-text">© 2022 ii-Vent. All rights reserved.</p>
   </section>
-  <div class="menu-toggle"><i class="fa-solid fa-bars hamburger"></i></div>
+  <div class="menu-toggle">
+    <%= link_to "Get Started", new_user_session_path, class: "brand-btn" %>
+    <%= link_to "Sign Up", new_user_registration_path, class: "grey-btn" %>
+  </div>
   <div class="social-media">
+    <p class="copyright-text">© 2022 ii-Vent. All rights reserved.</p>
     <ul>
       <li><i class="fa-brands fa-square-facebook"></i></li>
       <li><i class="fa-brands fa-square-github"></i></li>

@@ -75,48 +75,38 @@ section .content .brand-btn {
 
 .copyright-text {
   position: absolute;
-  bottom: 20px;
   left: 30px;
   color: $something;
   font-size: 1.1em;
-  margin: 20px 0 10px;
+  margin: 20px;
 }
 
 .menu-toggle {
   position: fixed;
-  top: 0;
-  right: 0;
-  width: 60px;
-  height: 60px;
-  background: $purple;
+  top: 20px;
+  right: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.menu-toggle .hamburger {
-  font-size: 1.5em;
-  color: $something;
-  cursor: pointer;
 }
 
 .social-media {
   position: absolute;
-  top: 60px;
+  bottom: 0;
   right: 0;
-  width: 60px;
-  height: calc(100vh - 60px);
-  background: $something;
+  height: 60px;
+  width: 100vw;
+  background: transparent;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .social-media ul {
   position: absolute;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -124,13 +114,13 @@ section .content .brand-btn {
 .social-media ul li {
   list-style: none;
   text-decoration: none;
-  margin: 10px 0;
   margin-right: 30px;
+  margin-top: 15px;
 }
 
 .social-media ul li i {
   font-size: 2.5em;
-  color: $purple;
+  color: $something;
 }
 
 .social-media ul li i:hover {
