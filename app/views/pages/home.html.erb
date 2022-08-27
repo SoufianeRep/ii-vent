@@ -3,10 +3,52 @@
     <div class="logo"><i class="fa-solid fa-headphones me-3"></i>ii-Vent</div>
     <img src="https://images.unsplash.com/photo-1583376097610-516c37bb66ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="landing-image" class="bg">
     <div class="content">
-      <h2>Make your next event an<br> ii-vent.</h2>
-      <p>If you are involved in creating live music events, let the creation begin here! Store your events, assign tasks, talk with other event members.</p>
-      <p>All the power of event management and organization tools, but with more fun.</p>
-      <%= link_to 'Get Started', dashboard_path, class: "brand-btn" %>
+      <div class="top-div">
+        <h2>Make your next event an<br> ii-vent.</h2>
+        <p>If you are involved in creating live music events, let the creation begin here! All the power of event management and organization tools, but with more fun.</p>
+        <%= link_to 'Get Started', dashboard_path, class: "brand-btn" %>
+      </div>
+      <div class="landing-cards">
+        <div class="landing-card">
+          <div class="img-bx">
+            <i class="fa-solid fa-calendar-alt"></i>
+          </div>
+          <div class="landing-card-content">
+            <div class="landing-card-details">
+              <h2 id="landing-title">Event Management<br><span>All your events in one place</span></h2>
+              <div class="learn-more-btn">
+                <%= link_to 'Learn More', dashboard_path, class: "landing-card-btn" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="landing-card">
+          <div class="img-bx">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div class="landing-card-content">
+            <div class="landing-card-details">
+              <h2 id="landing-title">Live Collaboration<br><span>Communicate in real time</span></h2>
+              <div class="learn-more-btn">
+                <%= link_to 'Learn More', dashboard_path, class: "landing-card-btn" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="landing-card">
+          <div class="img-bx">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <div class="landing-card-content">
+            <div class="landing-card-details">
+              <h2 id="landing-title">Make Great Music!<br><span>Have fun while working</span></h2>
+              <div class="learn-more-btn">
+                <%= link_to 'Learn More', dashboard_path, class: "landing-card-btn" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <p class="copyright-text">© 2022 ii-Vent. All rights reserved.</p>
   </section>

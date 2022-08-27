@@ -8,7 +8,8 @@
 }
 
 .landing-main {
-  background: $medium-gray;
+  // subtle linear-gradient mainly $medium-gray but with hint of $purple
+  background: linear-gradient(45deg, #5528cf3f, #151c24);
   padding-left: 10%;
 }
 
@@ -22,9 +23,9 @@ section {
 
 section .logo {
   position: fixed;
-  top: 30px;
-  left: 30px;
-  color: $something;
+  top: 20px;
+  left: 20px;
+  color: $purple;
   font-size: 3em;
   font-weight: 700;
   letter-spacing: 1px;
@@ -44,6 +45,7 @@ section .content {
   max-width: 650px;
   z-index: 1;
   margin-left: 30px;
+  margin-top: 4rem;
 }
 
 section .content h2 {
@@ -65,6 +67,10 @@ section .content .brand-btn {
   font-weight: 400;
   padding: 10px 30px;
   margin: 20px 0;
+}
+
+.top-div {
+  margin-bottom: 4em;
 }
 
 .copyright-text {
@@ -132,4 +138,141 @@ section .content .brand-btn {
   transform: scale(1.2);
   transition: all 0.5s ease;
   cursor: pointer;
+}
+
+.landing-cards {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 60vw;
+  margin: 30px 0;
+  gap: 2rem;
+}
+
+.landing-card {
+  position: relative;
+  width: 300px;
+  height: 150px;
+  background: $something;
+  border-radius: 8px;
+  border: 1px solid $purple;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+  transition: all 0.5s ease;
+}
+
+.landing-card:hover {
+  height: 250px;
+  margin-top: -60px;
+  cursor: pointer;
+}
+
+.landing-card .landing-card-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 0.4em;
+  overflow: hidden;
+}
+
+#landing-title {
+  color: #555;
+  font-size: 3.5em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+#landing-title span {
+  font-weight: 400;
+  opacity: 0.5;
+  font-size: 0.6em;
+  margin-bottom: 2rem;
+}
+
+.landing-card .landing-card-content .landing-card-details {
+  padding: 40px;
+  text-align: center;
+  width: 100%;
+  transition: all 0.5s ease;
+  transform: translateY(50px);;
+}
+
+.landing-card:hover .landing-card-content .landing-card-details {
+  transform: translateY(0);
+}
+
+.landing-card:hover .landing-card-content .landing-card-details .learn-more-btn {
+  text-decoration: none;
+  color: $purple;
+  padding: 10px 30px;
+  border: 1px solid $purple;
+  border-radius: 8px;
+  margin-top: 20px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.landing-card:hover .landing-card-content .landing-card-details .learn-more-btn:hover {
+  background-color: transparent;
+  color: $something;
+}
+
+.img-bx {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  color: $hovered-purple;
+  background: #f4f4f4;
+  border-radius: 50%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.landing-card:hover .img-bx {
+  width: 100px;
+  height: 100px;
+}
+
+.landing-card:hover .img-bx i {
+  font-size: 3.5em;
+  transition: 0.5s;
+}
+
+.img-bx i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+}
+
+// Media Queries
+@media screen and (max-width: 768px) {
+  section {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  section .content {
+    margin-left: 0px;
+    max-width: 75%;
+  }
+
+  section .content h2 {
+    font-size: 2em;
+    font-weight: 700;
+    color: $something;
+    line-height: 1.1;
+  }
 }
