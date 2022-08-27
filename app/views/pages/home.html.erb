@@ -1,21 +1,63 @@
 <div class="landing-main">
-  <div class="top-div">
-    <div class="left-div">
-      <h3 id="landing-logo"><i class="fa-solid fa-headphones me-3"></i>ii-Vent</h3>
+  <section>
+    <div class="logo"><i class="fa-solid fa-headphones me-3"></i>ii-Vent</div>
+    <img src="https://images.unsplash.com/photo-1583376097610-516c37bb66ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="landing-image" class="bg">
+    <div class="content">
+      <div class="top-div">
+        <h2>Make your next event an<br> ii-vent.</h2>
+        <p>If you are involved in creating live music events, let the creation begin here! All the power of event management and organization tools, but with more fun.</p>
+        <%= link_to 'Get Started', dashboard_path, class: "brand-btn" %>
+      </div>
+      <div class="landing-cards">
+        <div class="landing-card">
+          <div class="img-bx">
+            <i class="fa-solid fa-calendar-alt"></i>
+          </div>
+          <div class="landing-card-content">
+            <div class="landing-card-details">
+              <h2 id="landing-title">Event Management<br><span>All your events in one place</span></h2>
+              <div class="learn-more-btn">
+                <%= link_to 'Learn More', dashboard_path, class: "landing-card-btn" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="landing-card">
+          <div class="img-bx">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div class="landing-card-content">
+            <div class="landing-card-details">
+              <h2 id="landing-title">Live Collaboration<br><span>Communicate in real time</span></h2>
+              <div class="learn-more-btn">
+                <%= link_to 'Learn More', dashboard_path, class: "landing-card-btn" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="landing-card">
+          <div class="img-bx">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <div class="landing-card-content">
+            <div class="landing-card-details">
+              <h2 id="landing-title">Make Great Music!<br><span>Have fun while working</span></h2>
+              <div class="learn-more-btn">
+                <%= link_to 'Learn More', dashboard_path, class: "landing-card-btn" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="right-div">
-      <% if current_user %>
-        <%= link_to "Logout", '#', class: "brand-btn me-4" %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path, class: "brand-btn" %>
-        <%= link_to "Signup", '#', class: "grey-btn" %>
-      <% end %>
-    </div>
-  </div>
-  <div class="container landing-container">
-    <h1 id="landing-title">Make your next event an ii-vent</h1>
-    <p>
-      <%= link_to 'Get Started', dashboard_path, class: "brand-btn" %>
-    </p>
+    <p class="copyright-text">© 2022 ii-Vent. All rights reserved.</p>
+  </section>
+  <div class="menu-toggle"><i class="fa-solid fa-bars hamburger"></i></div>
+  <div class="social-media">
+    <ul>
+      <li><i class="fa-brands fa-square-facebook"></i></li>
+      <li><i class="fa-brands fa-square-github"></i></li>
+      <li><i class="fa-brands fa-square-twitter"></i></li>
+    </ul>
   </div>
 </div>

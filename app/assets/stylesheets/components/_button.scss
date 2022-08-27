@@ -16,3 +16,18 @@
   background-color: $hovered-purple;
   color: #f4f4f4;
 }
+
+.landing-card-btn {
+  text-decoration: none;
+  background-color: transparent;
+  color: $purple;
+  font-size: 1.5em;
+  transition: all 0.3s ease-in-out;
+}
+
+.landing-card-btn:hover {
+  text-decoration: none;
+  background-color: transparent;
+  color: $hovered-purple;
+  font-size: 1.5em;
+}
