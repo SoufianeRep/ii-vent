@@ -11,7 +11,7 @@ class EventsController < ApplicationController
         lng: @event.longitude
       }
     ]
-    @tasks = @event.tasks.where(task_id: nil).order(status: :asc)
+    @tasks = @event.tasks.where(task_id: nil).order(done: :asc)
     @event_member = EventMember.new
     @users = User.where.not(id: @event.users.map(&:id))
   end

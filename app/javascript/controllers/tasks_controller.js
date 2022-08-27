@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="tasks"
 export default class extends Controller {
-  static targets = ['task', 'badge', 'members', 'subtaskform', 'subtasks'];
+  static targets = ['task', 'badge', 'members', 'subtaskform', 'subtasks', 'doneform'];
 
   connect() {
     console.log('hello from tasks controller');
@@ -14,7 +14,7 @@ export default class extends Controller {
     this.membersTarget.classList.toggle('d-none');
   }
 
-  send(e) {
+  addSubtask(e) {
     e.preventDefault();
     fetch(this.subtaskformTarget.action,{
       method: "POST",
@@ -31,4 +31,17 @@ export default class extends Controller {
         this.subtaskformTarget.outerHTML = data.form;
       });
   }
+
+  done() {
+    // this.doneformTarget.submit();
+    // console.log(new FormData(this.doneformTarget));
+    fetch(this.doneformTarget.action, {
+      method: 'PATCH',
+      header: {"Accept": 'text/html'},
+      body: new FormData(this.doneformTarget)
+    }).then((response) => console.log(response));
+
+  }
+
+
 }
