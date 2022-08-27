@@ -1,3 +1,8 @@
+.grid-members {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .card-product {
   overflow: hidden;
   height: 120px;
@@ -7,9 +12,9 @@
   display: flex;
   align-items: center;
   background-color: $medium-gray;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  padding-left: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-left: 4px;
   position: relative;
 }
 
@@ -21,14 +26,14 @@
 }
 
 .card-product h2 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0;
   color: $light-gray;
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -64,6 +69,6 @@
 .plus-btn {
   color: $bg-gray;
   position:absolute;
-  bottom:8px;
-  right:8px;
+  bottom:4px;
+  right:4px;
 }

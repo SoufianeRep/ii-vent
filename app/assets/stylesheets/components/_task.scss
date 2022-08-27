@@ -50,6 +50,15 @@
   color: #1e429f;
 }
 
+.task-members-small {
+  bottom: -11px;
+  right: 5px;
+  img {
+    height: 24px;
+    width: 24px;
+  }
+}
+
 // Task category badge
 
 .event-task-category-badge {
@@ -65,7 +74,7 @@
   color: #991a1b;
 }
 
-.event-task-category-badge.org {
+.event-task-category-badge.organization {
   background-color: #c3ddfd;
   border: 1.5px solid #1e429f;
   color: #1e429f;

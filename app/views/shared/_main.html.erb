@@ -1,11 +1,4 @@
 <div class="container-fluid">
-  <div class="banner" style="background-image: url('<%= event.poster_url %>')">
-    <div>
-      <h1><%= event.name %></h1>
-    </div>
-  </div>
-</div>
-<div class="container-fluid">
   <div class="container-main">
     <div class="element-main1">
       <h3><strong><%= event.start_date.strftime("%B #{event.start_date.day.ordinalize}")%></strong> <%= event.event_status.capitalize %> event</h3>
@@ -35,12 +28,12 @@
       <i class="far fa-user"></i>
     </div>
     <div class="info-card">
-      <div class="info-title"><%= event.tasks.pending.count %>/<%= event.tasks.count %></div>
+      <div class="info-title"><%= event.tasks.select{ |task| task.task == nil && task.status == "pending"}.count %>/<%= event.tasks.select{ |task| task.task == nil}.count %></div>
       <div class="info-sub-title">Tasks in progress</div>
       <i class="fa-solid fa-list-check"></i>
     </div>
     <div class="info-card">
-      <div class="info-title"><%= event.tasks.done.count + event.tasks.archived.count %>/<%= event.tasks.count %></div>
+      <div class="info-title"><%= event.tasks.select{ |task| task.task == nil && (task.status == "archived" || task.status == "done") }.count %>/<%= event.tasks.select{ |task| task.task == nil}.count %></div>
       <div class="info-sub-title">Tasks Completed</div>
       <i class="fas fa-bullseye"></i>
     </div>

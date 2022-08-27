@@ -1,4 +1,11 @@
 <%= render 'shared/create_member_modal' %>
+<div class="container-fluid">
+  <div class="banner" style="background-image: url('<%= @event.poster_url %>')">
+    <div>
+      <h1><%= @event.name %></h1>
+    </div>
+  </div>
+</div>
 <div data-controller="tab">
   <div class="container-fluid">
     <ul id="tabBorder" class="nav nav-pills nav-fill">
@@ -20,7 +27,7 @@
     <%= render "shared/main", event: @event %>
   </div>
   <div class="d-none" data-tab-target="pages pagesMembers">
-    <%= render "shared/members", event: @event, artists: @artists, staffs: @staffs, securities: @securities, event_member: @event_member %>
+    <%= render "shared/members", event: @event, artists: @artists, staffs: @staffs, securities: @securities, event_member: @event_member, tasks: @tasks %>
   </div>
   <div class="d-none" data-tab-target="pages pagesTasks">
     <%= render 'shared/event_tasks', tasks: @tasks, event: @event %>
