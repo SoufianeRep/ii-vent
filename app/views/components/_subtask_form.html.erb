@@ -1,0 +1,6 @@
+<%= simple_form_for([event, task, Task.new]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category, as: :hidden, input_html: {value: task.category} %>
+  <%= f.input :start, as: :hidden, input_html: {value: task.start} %>
+  <%= f.input :task, as: :hidden, input_html: {value: task} %>
+<% end %>
