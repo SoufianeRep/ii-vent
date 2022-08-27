@@ -6,14 +6,14 @@
       <%= f.input :name, label: 'Event Name:', input_html: { class: 'event-form-inputs mb-3', style: "background-color: #202938; border: 1px solid rgba(255,255,255,0.25);" } %>
       <%= f.input :location, input_html: { class: 'event-form-inputs mb-3', style: "background-color: #202938; border: 1px solid rgba(255,255,255,0.25);" } %>
       <div class="poster-upload-options-container">
-        <label class="d-block" for="">Upload Event Poster:</label>
+        <label class="d-block mb-3" for="">Upload Event Poster:</label>
         <label for="File">
           <input type="radio" id="File" name="option" data-action="change->poster-upload-options#changeInput" data-poster-upload-options-target="fileRadio" checked>
           File</label>
         <label for="URL">
           <input type="radio" id="URL" name="option" data-action="change->poster-upload-options#changeInput" data-poster-upload-options-target="urlRadio">
           URL</label>
-        <%= f.input :poster_url, as: :file, label: false, input_html: { class: 'my-3',"data-poster-upload-options-target": "file"} %>
+        <%= f.input :photo, as: :file, label: false, input_html: { class: 'my-3',"data-poster-upload-options-target": "file"} %>
         <%= f.input :poster_url, label: false, input_html: { class: 'event-form-inputs my-3 d-none', style: "background-color: #202938; border: 1px solid rgba(255,255,255,0.25);", "data-poster-upload-options-target": "url" } %>
       </div>
       <%= f.input :start_date, input_html: { class: 'event-form-inputs', style: "background-color: #202938; border: 1px solid rgba(255,255,255,0.25);" }, html5: true %>
