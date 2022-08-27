@@ -9,10 +9,14 @@ class TasksController < ApplicationController
     @task.task = @parent_task
     # Orgonizer auth
     authorize @event
-    if @task.save!
-      redirect_to event_path(@event, tab: 'tasks')
-    else
-      redirect_to event_path(@event, tab: 'tasks'), status: :unprocessed_entity
+    respond_to do |format|
+      if @task.save!
+        format.html { redirect_to event_path(@event, tab: 'tasks') }
+        format.json
+      else
+        format.html { redirect_to event_path(@event, tab: 'tasks'), status: :unprocessed_entity }
+        format.json
+      end
     end
   end
 
