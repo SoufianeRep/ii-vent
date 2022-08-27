@@ -28,12 +28,12 @@
       <i class="far fa-user"></i>
     </div>
     <div class="info-card">
-      <div class="info-title"><%= event.tasks.select{ |task| task.task == nil && task.status == "pending"}.count %>/<%= event.tasks.select{ |task| task.task == nil}.count %></div>
+      <div class="info-title"><%= event.tasks.select{ |task| task.task == nil && !task.done}.count %>/<%= event.tasks.select{ |task| task.task == nil}.count %></div>
       <div class="info-sub-title">Tasks in progress</div>
       <i class="fa-solid fa-list-check"></i>
     </div>
     <div class="info-card">
-      <div class="info-title"><%= event.tasks.select{ |task| task.task == nil && (task.status == "archived" || task.status == "done") }.count %>/<%= event.tasks.select{ |task| task.task == nil}.count %></div>
+      <div class="info-title"><%= event.tasks.select{ |task| task.task == nil && task.done }.count %>/<%= event.tasks.select{ |task| task.task == nil}.count %></div>
       <div class="info-sub-title">Tasks Completed</div>
       <i class="fas fa-bullseye"></i>
     </div>
