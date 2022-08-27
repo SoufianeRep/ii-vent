@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get "/dashboard", to: "users#dashboard", as: :dashboard
   resources :events, only: [:new, :create, :show] do
     resources :event_members, only: [:create]
-    resources :tasks, only: [:new, :create]
+    resources :tasks, only: [:new, :create] do
+      resources :tasks, only: [:create]
+    end
     resources :messages, only: [:index, :create]
   end
 

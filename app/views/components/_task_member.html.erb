@@ -1,0 +1,6 @@
+<%= image_tag member.user.avatar_url,
+  alt: "user-avatar",
+  class: 'event-member-avatar',
+  data: {bs_toggle: "tooltip", bs_placement: 'top'},
+  title: "#{member.user.first_name} #{member.user.last_name}"
+%>

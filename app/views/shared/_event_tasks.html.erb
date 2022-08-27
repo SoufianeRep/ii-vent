@@ -8,7 +8,7 @@
       <% end %></div>
     <div class="col-9 d-flex flex-column gap-3">
       <% tasks.each do |task| %>
-        <%= render 'shared/task', task: task %>
+        <%= render 'shared/task', event: event, task: task %>
       <% end %>
     </div>
     <div class="col-2"></div>
