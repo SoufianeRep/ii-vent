@@ -13,24 +13,21 @@
   padding-left: 10%;
 }
 
+.logo {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  width: 450px;
+  height: 300px;
+  cursor: pointer;
+}
+
 section {
   padding: 2rem 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
-}
-
-section .logo {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  color: $purple;
-  font-size: 3em;
-  font-weight: 700;
-  letter-spacing: 1px;
-  cursor: pointer;
-  z-index: 100;
 }
 
 section .bg {
