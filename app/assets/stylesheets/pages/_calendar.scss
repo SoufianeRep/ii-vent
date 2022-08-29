@@ -19,6 +19,8 @@
     .calendar-inner-container {
 
 
+
+
       .simple-calendar {
         table {
           min-height: 70vh;
@@ -42,6 +44,24 @@
         }
 
         .has-events {}
+
+        .calendar-next-previous-btn {
+          color: white;
+          border-color: white;
+
+          &:hover {
+            background-color: #403f44;
+          }
+        }
+
+        .create-event-btn-outline {
+          color: white;
+          border-color: $purple;
+
+          &:hover {
+            background-color: $purple;
+          }
+        }
       }
 
       .calendar-event {
