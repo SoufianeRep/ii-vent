@@ -1,0 +1,62 @@
+.calendar-page-container {
+  padding-bottom: 64px;
+  background-color: $dark-gray;
+
+
+  .calendar-container {
+    // height: 400px;
+    background-color: $medium-gray;
+    border-radius: 6px;
+    border: 1px solid rgba(181, 179, 179, 0.12);
+
+    .calendar-headers {
+
+      h2 {
+        color: #ECECEC;
+      }
+    }
+
+    .calendar-inner-container {
+
+
+      .simple-calendar {
+        table {
+          min-height: 70vh;
+          table-layout: fixed;
+          width: 100%;
+          background: linear-gradient(45deg, #5528cf3f, #151c24);
+
+        }
+
+
+        .prev-month {
+          background: linear-gradient(45deg, $dark-gray, #151c24);
+        }
+
+        .next-month {
+          background: linear-gradient(45deg, $dark-gray, #151c24);
+        }
+
+        .today {
+          background-color: $purple;
+        }
+
+        .has-events {}
+      }
+
+      .calendar-event {
+        color: white;
+        padding: 8px 24px;
+        border-radius: 4px;
+        flex-grow: 1;
+        // height: 32px;
+        // transition: background 0.3s ease;
+      }
+
+      .calendar-event:hover {
+        opacity: 0.7;
+      }
+
+    }
+  }
+}
