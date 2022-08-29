@@ -38,3 +38,32 @@
       color: $light-gray;
     }
 }
+
+#add-member-modal-event {
+  .form-select {
+    padding: 0.375rem 0.75rem;
+    background-color: #202938;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .ts-control {
+    background-color: #202938;
+    color: $light-gray;
+    padding: 4px;
+    border: none;
+  }
+
+  .ts-dropdown {
+    background-color: #202938;
+    color: $light-gray;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    }
+
+    .ts-wrapper.multi .ts-control>div {
+      font-size: 14px;
+      padding: 8px;
+      background-color: $bg-gray;
+      color: $light-gray;
+    }
+}

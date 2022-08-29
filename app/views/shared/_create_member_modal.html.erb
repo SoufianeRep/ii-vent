@@ -10,7 +10,7 @@
           <%= f.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}} %>
           <%= f.input :role, as: :select, collection: EventMember.roles.keys, label_method: :capitalize %>
           <%= f.input :permission, as: :hidden, input_html: {value: 'member'} %>
-          <%= f.submit class: "btn btn-dark" %>
+          <%= f.submit "Add Members" , class: "btn btn-dark" %>
         <% end %>
       </div>
       <div class="modal-footer">
