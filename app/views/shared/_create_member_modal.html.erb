@@ -1,13 +1,13 @@
 <div class="modal fade" id="addMemberModal" tabindex="-1">
   <div class="modal-dialog">
-    <div class="modal-content custom-modal">
+    <div class="modal-content custom-modal" id="add-member-modal">
       <div class="modal-header">
         <h5 class="modal-title">Add a member</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <%= simple_form_for([@event, @event_member]) do |f| %>
-          <%= f.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name %>
+          <%= f.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}} %>
           <%= f.input :role, as: :select, collection: EventMember.roles.keys, label_method: :capitalize %>
           <%= f.input :permission, as: :hidden, input_html: {value: 'member'} %>
           <%= f.submit class: "btn btn-dark" %>

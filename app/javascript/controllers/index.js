@@ -24,3 +24,6 @@ application.register("tab-members", TabMembersController)
 
 import TasksController from "./tasks_controller"
 application.register("tasks", TasksController)
+
+import TomSelectController from "./tom_select_controller"
+application.register("tom-select", TomSelectController)
