@@ -3,7 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="tab"
 export default class extends Controller {
   connect() {
-    console.log("hello");
     this.selectTab()
   }
   static targets = [ "tabTasks", "tabMembers", "tabMain", "tabMessages", "tab", "pagesMain", "pages", "pagesMembers", "pagesTasks", "pagesMessages" ]
