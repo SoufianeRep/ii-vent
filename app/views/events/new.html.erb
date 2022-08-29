@@ -18,6 +18,13 @@
       </div>
       <%= f.input :start_date, input_html: { class: 'event-form-inputs', style: "background-color: #202938; border: 1px solid rgba(255,255,255,0.25);" }, html5: true %>
       <%= f.input :end_date, input_html: { class: 'event-form-inputs mb-3', style: "background-color: #202938; border: 1px solid rgba(255,255,255,0.25);" }, html5: true %>
+      <div id="add-member-modal-event">
+        <%= f.simple_fields_for :event_members do |event_member_form| %>
+        <%= event_member_form.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}}, label: "Add Members" %>
+          <%= event_member_form.input :role, as: :select, collection: EventMember.roles.keys, label_method: :capitalize, required: false %>
+          <%= event_member_form.input :permission, as: :hidden, input_html: {value: 'member'} %>
+        <% end %>
+      </div>
       <div class="d-flex">
         <%= f.button :submit, class: "brand-btn btn-lg event-submit-button col-6 mx-auto" %>
       </div>

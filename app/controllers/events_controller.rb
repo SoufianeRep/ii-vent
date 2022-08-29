@@ -18,16 +18,21 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @users = User.all
+    @event.event_members.build
     authorize @event
   end
 
   def create
+    build_event_member_params
     @event = Event.new(event_params)
+    @users = User.all
     authorize @event
     if @event.save
-      @organizer = EventMember.create!(user: current_user, event: @event, permission: "organizer", role: "manager")
+      @organizer = EventMember.create(user: current_user, event: @event, permission: "organizer", role: "manager")
       redirect_to event_path(@event)
     else
+      raise
       render :new, status: :unprocessable_entity
     end
   end
@@ -35,6 +40,23 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :location, :start_date, :end_date, :photo, :poster_url)
+    params.require(:event).permit(:name, :location, :start_date, :end_date, :photo, :poster_url, event_members_attributes: [:permission, :role, :user_id])
+  end
+
+  def build_event_member_params
+    role = params[:event][:event_members_attributes]["0"][:role]
+    permission = params[:event][:event_members_attributes]["0"][:permission]
+    ids = params[:event][:event_members_attributes]["0"]["user_id"].reject(&:blank?)
+    if ids.any?
+      ids.each_with_index do |user_id, index|
+        params[:event][:event_members_attributes][index.to_s] = {
+          user_id: user_id,
+          role: role,
+          permission: permission,
+        }
+      end
+    else
+      params[:event][:event_members_attributes] = {}
+    end
   end
 end
