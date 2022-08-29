@@ -1,24 +1,5 @@
 <div class="dashboard-page-container container-fluid pt-3">
   <div class="row mx-3 justify-content-center  mb-3">
-    <div class="dashboard-calendar-container col-10 p-3">
-      <div class="dashboard-calendar-headers ps-3">
-        <h2>Calendar</h2>
-      </div>
-      <div class="dashboard-calendar-inner-container">
-        <%= month_calendar(events: @current_month_events) do |date, events| %>
-          <%= date %>
-          <% events.each do |event| %>
-            <%= link_to event_path(event), class: "text-decoration-none" do %>
-              <div class="dashboard-calendar-event"  style="background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('<%= event.photo.attached? ? cl_image_path(event.photo.key) : event.poster_url %>') center;">
-                <p><%= event.name %></p>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="row mx-3 justify-content-center  mb-3">
     <div class="dashboard-tasks-container col-10 p-3">
       <div class="dashboard-tasks-headers ps-3">
         <h2 class="">Tasks</h2>
