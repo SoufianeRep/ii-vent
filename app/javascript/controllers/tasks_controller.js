@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ['task', 'badge', 'members', 'subtaskform', 'subtasks', 'doneform'];
 
   connect() {
-    console.log('hello from tasks controller');
   }
 
   toggleDisplay() {

@@ -1,8 +1,11 @@
 <%= render 'shared/create_member_modal' %>
-<div class="container-fluid">
+<div class="container-fluid" data-controller='countdown'>
   <div class="banner" style="background-image: url('<%= @event.photo.attached? ? cl_image_path(@event.photo.key) : @event.poster_url %>')">
     <div>
       <h1><%= @event.name %></h1>
+      <%# countdozn here %>
+      <div class='countdown' data-countdown-target="counter"></div>
+      <span class="d-none" data-countdown-target="date"><%= @event.start_date.strftime("%Y-%m-%d") %></span>
     </div>
   </div>
 </div>
