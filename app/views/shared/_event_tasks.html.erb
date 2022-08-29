@@ -8,11 +8,13 @@
       <% end %></div>
     <div class="col-5 d-flex flex-column gap-3">
       <% tasks.select{|task| !task.done}.each do |task| %>
+        <%= render 'shared/new_member_form_modal', event_task: task %>
         <%= render 'shared/task', event: event, task: task %>
       <% end %>
     </div>
     <div class="col-5 d-flex flex-column gap-3">
       <% tasks.select{|task| task.done}.each do |task| %>
+        <%= render 'shared/new_member_form_modal', event_task: task %>
         <%= render 'shared/task', event: event, task: task %>
       <% end %>
     </div>
