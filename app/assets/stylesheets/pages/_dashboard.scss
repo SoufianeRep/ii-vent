@@ -2,6 +2,19 @@
   padding-bottom: 64px;
   background-color: $dark-gray;
 
+  .dashboard-calendar-container {
+    background-color: $medium-gray;
+    border-radius: 6px;
+    border: 1px solid rgba(181, 179, 179, 0.12);
+
+    .dashboard-calendar-headers {
+
+      h2 {
+        color: #ECECEC;
+      }
+    }
+  }
+
   .dashboard-tasks-container {
     height: 400px;
     background-color: $medium-gray;
