@@ -3,12 +3,14 @@ class TasksController < ApplicationController
 
   def create
     @event = Event.find(params[:event_id])
-    @parent_task = Task.find(params[:task_id])
     @task = Task.new(set_task_params)
+    if params[:task_id]
+      @parent_task = Task.find(params[:task_id])
+      @task.task = @parent_task
+    end
     @task.name.capitalize!
     @task.description&.capitalize!
     @task.event = @event
-    @task.task = @parent_task
     # Orgonizer auth
     authorize @event
     respond_to do |format|

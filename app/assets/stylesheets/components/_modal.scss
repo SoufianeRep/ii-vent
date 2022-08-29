@@ -12,3 +12,29 @@
     color: white;
   }
 }
+
+#add-member-modal {
+  .form-select {
+    padding: 0.375rem 0.75rem;
+  }
+  .ts-control {
+    background-color: $bg-gray;
+    color: $light-gray;
+    padding: 4px;
+    border: none;
+  }
+
+  .ts-dropdown {
+    background-color: $bg-gray;
+    color: $light-gray;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    }
+
+    .ts-wrapper.multi .ts-control>div {
+      font-size: 14px;
+      padding: 8px;
+      background-color: #202a36;
+      color: $light-gray;
+    }
+}

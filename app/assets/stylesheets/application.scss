@@ -7,6 +7,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
 @import "simple_calendar";
+@import "tom-select/dist/css/tom-select.min.css";
+
 
 // Your CSS partials
 @import "components/index";
@@ -20,3 +22,23 @@ body {
   margin: 0;
   background-color: $dark-gray;
 }
+
+
+* {
+
+  scrollbar-color: #999 $bg-gray;
+
+  &::-webkit-scrollbar {
+    width: 10px; /* Mostly for vertical scrollbars */
+    height: 10px; /* Mostly for horizontal scrollbars */
+  }
+
+  &::-webkit-scrollbar-thumb { /* Foreground */
+    background: #999;
+  }
+
+  &::-webkit-scrollbar-track { /* Background */
+    background: $bg-gray;
+  }
+}
+
