@@ -4,7 +4,7 @@
       <div class="dashboard-tasks-headers ps-3">
         <h2 class="">Tasks <span class="dashboard-tasks-count">(<%= @tasks.where(status: "pending").count %> remaining)</span></h2>
       </div>
-      <div class="dashboard-tasks-inner-container">
+      <div class="dashboard-tasks-inner-container" data-controller="dashboard-mark-task-as-done">
         <% @tasks.each do |task| %>
           <%= render 'dashboard_task', task: task %>
         <% end %>
