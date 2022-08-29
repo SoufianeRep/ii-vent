@@ -49,10 +49,8 @@
   }
 
   .task-status-badge.pending {
-    // background-color: #c3ddfd;
     background-color: #6D48D3;
     border: 1.5px solid #1e429f;
-    // color: #1e429f;
     color: #ECECEC;
   }
 
@@ -63,7 +61,6 @@
     flex-grow: 1;
     min-width: 160px;
     max-width: 160px;
-    // width: 160px;
   }
 
   .task-event-link-container {
@@ -72,7 +69,6 @@
 
   .task-event {
     height: 64px;
-    // background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg') center;
     width: 240px;
     margin: 0;
     padding: 0;
