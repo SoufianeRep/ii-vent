@@ -32,7 +32,6 @@ class EventsController < ApplicationController
       @organizer = EventMember.create(user: current_user, event: @event, permission: "organizer", role: "manager")
       redirect_to event_path(@event)
     else
-      raise
       render :new, status: :unprocessable_entity
     end
   end
