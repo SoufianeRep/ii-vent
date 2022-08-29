@@ -14,4 +14,8 @@ class Event < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :event_status, presence: true
   enum event_status: { upcoming: "upcoming", ongoing: "ongoing", finished: "finished" }
+
+  def start_time
+    self.start_date
+  end
 end

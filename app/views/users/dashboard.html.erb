@@ -3,6 +3,14 @@
     <div class="dashboard-calendar-container">
       <div class="dashboard-calendar-headers">
         <h2>Calendar</h2>
+        <%= month_calendar(events: @current_month_events) do |date, events| %>
+          <%= date %>
+          <% events.each do |event| %>
+            <div class="meeting">
+              <p><%= event.name %></p>
+            </div>
+          <% end %>
+        <% end %>
       </div>
       <div class="dashboard-calendar-inner-container">
       </div>
