@@ -1,0 +1,53 @@
+<%# we need an attractive chat page %>
+<div class="messages row"
+  data-controller="event-messages-subscription"
+  data-event-messages-subscription-event-id-value="<%= event.id %>">
+  <div class="side-panel col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">All Messages</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <a href="#"># General</a>
+          </li>
+          <li class="list-group-item">
+            <a href="#"># Artists</a>
+          </li>
+          <li class="list-group-item">
+            <a href="#"># Security</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="main-panel col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table class="table task-table" data-event-messages-subscription-target="messages">
+          <tbody>
+            <% event.messages.each do |message| %>
+              <tr>
+                <%= render "shared/event_message", message: message %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="message-form">
+          <%= simple_form_for [event, new_message],
+            html: { data: {
+              action: "turbo:submit-end->event-messages-subscriptions#resetForm"
+              } } do |f| %>
+            <div class="form-group">
+              <%= f.text_area :content, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.submit "Send", class: "brand-btn send-msg" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

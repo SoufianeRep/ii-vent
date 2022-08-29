@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :tasks, only: [:new, :create] do
       resources :tasks, only: [:create]
     end
-    resources :messages, only: [:index, :create]
+    resources :messages, only: [:show, :create]
   end
 
   resources :tasks, only: [:update, :edit] do

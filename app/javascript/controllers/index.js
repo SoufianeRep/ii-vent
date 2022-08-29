@@ -7,6 +7,9 @@ import { application } from "./application"
 import CountdownController from "./countdown_controller"
 application.register("countdown", CountdownController)
 
+import EventMessagesSubscriptionController from "./event_messages_subscription_controller"
+application.register("event-messages-subscription", EventMessagesSubscriptionController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

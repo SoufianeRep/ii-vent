@@ -2,7 +2,7 @@ class Event < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
-  has_many :messages, as: :room
+  has_many :messages, as: :room, dependent: :destroy
   has_many :tasks, dependent: :destroy
   has_many :event_members, dependent: :destroy
   has_many :users, through: :event_members

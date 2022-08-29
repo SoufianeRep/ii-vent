@@ -36,5 +36,6 @@
     <%= render 'shared/event_tasks', tasks: @tasks, event: @event %>
   </div>
   <div class="d-none" data-tab-target="pages pagesMessages">
+    <%= render 'shared/messages', new_message: @message, event: @event %>
   </div>
 </div>
