@@ -7,8 +7,6 @@
 .side-panel {
   margin-left: 24px;
   height: 58vh;
-  display: flex;
-  flex-direction: column;
   background: $medium-gray;
 }
 
@@ -17,11 +15,23 @@
   margin-right: 48px;
   height: 55vh;
   display: flex;
-  border-radius: 8px;
-  border: 1px solid $purple;
   flex-direction: column;
-  background: $something;
+  border-radius: 8px;
+  border: 1px solid $something;
+  background: $medium-gray;
   overflow: scroll;
+}
+
+.panel-body {
+  padding: 24px;
+}
+
+.message-form {
+  position: sticky;
+  bottom: 0;
+  background: $medium-gray;
+  padding: 1rem 0;
+  border-top: 1px solid #666;
 }
 
 .panel-title {
@@ -56,72 +66,39 @@
   }
 }
 
-.message-content {
-  margin-top: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+.message-row {
+  margin-bottom: 10px;
+  padding: 8px;
 }
 
-.table-text-username {
-  font-size: 12px;
-  color: $purple;
-  margin: 1rem 0;
+// To style the message itself
+.sender-style, .receiver-style {
+  width: 70%;
+  max-width: 400px;
+  border-radius: 4px;
+  padding: 8px;
+  min-height: 80px;
 }
 
-.table-text-content {
-  font-size: 16px;
-  color: $medium-gray;
-  margin: 1rem 0;
-}
-
-.table-text-time {
-  font-size: 12px;
-  color: #888;
-  margin: 1rem 0;
-}
-
-.message-form {
-  position: sticky;
-  bottom: 4px;
+.sender-style {
   background-color: $something;
-  width: 100%;
-  margin-top: 1rem;
+  color: $dark-gray;
+}
+
+.receiver-style {
+  background-color: $hovered-purple;
+  color: $white;
 }
 
 .form-group {
-  display: flex-wrap;
+  width: 100%;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin: 0 1rem;
 }
 
-.form-control {
-  margin: 1rem 0;
-  border: 1px solid $purple;
-  border-radius: 8px;
-  height: 48px;
-  width: 80%;
-  font-size: 16px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  background-color: #888;
-  padding: 0 1rem;
-}
-
-.form-control:focus {
-  outline: none;
-  background-color: $something;
-  color: #333;
-}
-
-.send-msg {
-  width: 15%;
-  // move up to the same row as the input
-  margin-top: -1.5rem;
-  margin-right: 1rem;
+.form-control-text {
+  width: 90%;
 }

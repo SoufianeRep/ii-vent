@@ -1,7 +1,7 @@
-<%# we need an attractive chat page %>
 <div class="messages row"
   data-controller="event-messages-subscription"
-  data-event-messages-subscription-event-id-value="<%= event.id %>">
+  data-event-messages-subscription-event-id-value="<%= event.id %>"
+  data-event-messages-subscription-current-user-id-value="<%= current_user.id %>">
   <div class="side-panel col-md-3">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -22,32 +22,30 @@
       </div>
     </div>
   </div>
-  <div class="main-panel col-md-8 col-md-offset-2">
+  <div class="main-panel col-md-8 col-md-offset-2" data-event-messages-subscription-target="panel">
     <div class="panel panel-default">
       <div class="panel-body">
         <table class="table task-table" data-event-messages-subscription-target="messages">
           <tbody>
             <% event.messages.each do |message| %>
-              <tr>
+            <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-start' : 'justify-content-end' %>">
+              <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
                 <%= render "shared/event_message", message: message %>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <div class="message-form">
-          <%= simple_form_for [event, new_message],
-            html: { data: {
-              action: "turbo:submit-end->event-messages-subscriptions#resetForm"
-              } } do |f| %>
-            <div class="form-group">
-              <%= f.text_area :content, class: "form-control" %>
-            </div>
-            <div class="form-group">
-              <%= f.submit "Send", class: "brand-btn send-msg" %>
+              </div>
             </div>
           <% end %>
-        </div>
+          </tbody>
+        </table>
       </div>
+    </div>
+    <div class="message-form">
+      <%= simple_form_for [event, new_message],
+        html: { data: { 'event-messages-subscription-target': "form", action: "turbo:submit-end->event-messages-subscription#resetForm" }, class: "d-flex" } do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content, class: "form-control-text" %>
+          <%= f.submit "Send", class: "brand-btn send-msg" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

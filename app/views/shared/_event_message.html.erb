@@ -1,5 +1,7 @@
-<div class="message-content">
-  <td class="table-text-content"><div><%= message.content %></div></td>
-  <td class="table-text-username"><div><strong><%= message.event_member.user.full_name %></strong></div></td>
-  <td class="table-text-time"><div><%= message.created_at %></div></td>
+<div id="message-<%= message.id %>">
+  <small>
+    <strong><%= message.event_member.user.full_name %></strong>
+    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  </small>
+  <p><%= message.content %></p>
 </div>
