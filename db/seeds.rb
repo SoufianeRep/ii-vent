@@ -104,7 +104,11 @@ users.last(11).each do |user|
   TaskMember.create!(task: Task.all.sample, event_member: event_member)
 end
 
-puts "Creating task memebr"
+puts "Creating task member"
+
+puts "---creating messages"
+Message.create!(content: "Hey guys, I'm looking for a local DJ to open the show. Any recommendations?", event_member: EventMember.all.first, room: event_one)
+Message.create!(content: "Hey - I think I know someone who can help...", event_member: EventMember.all.second, room: event_one)
 
 # Adding tasks and events to Kyle's user account for demo presentation
 # Refactor: Iterate over using arrays of locations, dates/times, etc.
