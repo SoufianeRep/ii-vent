@@ -13,8 +13,8 @@
       <li class="nav-item">
         <a class="nav-link" data-tab-members-target="tabStaff tab" data-action="click->tab-members#toggle">Staff</a>
       </li>
-    </ul>
-  </div> %>
+    </ul>%>
+  </div>
   <div class="container d-flex justify-content-end">
     <%= link_to event_event_members_path(event), data: {bs_toggle: "modal", bs_target: "#addMemberModal"} do %>
       <button type="button" class="add-btn"><i class="fa-solid fa-plus"></i> Add a member</button>
@@ -23,32 +23,32 @@
   <div class="" data-tab-members-target="pages pagesManager">
     <h2 class="text-white align-self-center p-3">Managers</h2>
     <div class="grid-members">
-    <% event.event_members.manager.each do |manager| %>
-      <div class="container-fluid">
-        <div class="card-product">
-          <% if manager.user.avatar_url.blank? %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
-          <% else %>
-            <img src="<%= manager.user.avatar_url %>" alt="">
-          <% end %>
-          <div class="card-product-infos">
-            <h2><%= manager.user.first_name %> <%= manager.user.last_name %></h2>
-            <% if manager.tasks.count == 0 %>
-              <p>Does not have tasks remaining.</p>
+      <% event.event_members.manager.each do |manager| %>
+        <div class="container-fluid">
+          <div class="card-product">
+            <% if manager.user.avatar_url.blank? %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
             <% else %>
-              <p>Has <%= pluralize(manager.tasks.count, "task") %> remaining...</p>
+              <img src="<%= manager.user.avatar_url %>" alt="">
             <% end %>
+            <div class="card-product-infos">
+              <h2><%= manager.user.first_name %> <%= manager.user.last_name %></h2>
+              <% if manager.tasks.count == 0 %>
+                <p>Does not have tasks remaining.</p>
+              <% else %>
+                <p>Has <%= pluralize(manager.tasks.count, "task") %> remaining...</p>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
   </div>
   <div class="" data-tab-members-target="pages pagesArtist">
     <h2 class="text-white align-self-center p-3">Artists</h2>
     <div class="grid-members">
-    <% event.event_members.artist.each do |artist|  %>
-      <div class="container-fluid">
+      <% event.event_members.artist.each do |artist|  %>
+        <div class="container-fluid">
           <div class="card-product">
             <% if artist.user.avatar_url.blank? %>
               <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
@@ -71,49 +71,49 @@
   <div class="" data-tab-members-target="pages pagesSecurity">
     <h2 class="text-white align-self-center p-3">Security</h2>
     <div class="grid-members">
-    <% event.event_members.security.each do |security|  %>
-      <div class="container-fluid">
-        <div class="card-product">
-          <% if security.user.avatar_url.blank? %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
-          <% else %>
-            <img src="<%= security.user.avatar_url %>" alt="">
-          <% end %>
-          <div class="card-product-infos">
-            <h2><%= security.user.first_name %> <%= security.user.last_name %></h2>
-            <% if security.tasks.count == 0 %>
-              <p>Does not have tasks remaining.</p>
+      <% event.event_members.security.each do |security|  %>
+        <div class="container-fluid">
+          <div class="card-product">
+            <% if security.user.avatar_url.blank? %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
             <% else %>
-              <p>Has <%= pluralize(security.tasks.count, "task") %> remaining...</p>
+              <img src="<%= security.user.avatar_url %>" alt="">
             <% end %>
+            <div class="card-product-infos">
+              <h2><%= security.user.first_name %> <%= security.user.last_name %></h2>
+              <% if security.tasks.count == 0 %>
+                <p>Does not have tasks remaining.</p>
+              <% else %>
+                <p>Has <%= pluralize(security.tasks.count, "task") %> remaining...</p>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
   </div>
   <div class="" data-tab-members-target="pages pagesStaff">
     <h2 class="text-white align-self-center p-3">Staff</h2>
     <div class="grid-members">
-    <% event.event_members.staff.each do |staff|  %>
-      <div class="container-fluid">
-        <div class="card-product">
-          <% if staff.user.avatar_url.blank? %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
-          <% else %>
-            <img src="<%= staff.user.avatar_url %>" alt="">
-          <% end %>
-          <div class="card-product-infos">
-            <h2><%= staff.user.first_name %> <%= staff.user.last_name %></h2>
-            <% if staff.tasks.count == 0 %>
-              <p>Does not have tasks remaining.</p>
+      <% event.event_members.staff.each do |staff|  %>
+        <div class="container-fluid">
+          <div class="card-product">
+            <% if staff.user.avatar_url.blank? %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
             <% else %>
-              <p>Has <%= pluralize(staff.tasks.count, "task") %> remaining...</p>
+              <img src="<%= staff.user.avatar_url %>" alt="">
             <% end %>
+            <div class="card-product-infos">
+              <h2><%= staff.user.first_name %> <%= staff.user.last_name %></h2>
+              <% if staff.tasks.count == 0 %>
+                <p>Does not have tasks remaining.</p>
+              <% else %>
+                <p>Has <%= pluralize(staff.tasks.count, "task") %> remaining...</p>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
   </div>
 </div>

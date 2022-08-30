@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-6 d-flex flex-column gap-3">
+    <h2 class="text-white align-self-center">Tasks Pending</h2>
+    <% tasks.select{|task| !task.done}.each do |task| %>
+      <%= render 'shared/task', event: event, task: task %>
+    <% end %>
+  </div>
+  <div class="col-6 d-flex flex-column gap-3">
+    <h2 class="text-white align-self-center">Tasks Completed</h2>
+    <% tasks.select{|task| task.done}.each do |task| %>
+      <%= render 'shared/task', event: event, task: task %>
+    <% end %>
+  </div>
+</div>
