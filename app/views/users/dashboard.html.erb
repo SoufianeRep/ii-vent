@@ -2,9 +2,9 @@
   <div class="row mx-3 justify-content-center  mb-3">
     <div class="dashboard-tasks-container col-10 p-3">
       <div class="dashboard-tasks-headers ps-3">
-        <h2 class="">Tasks</h2>
+        <h2 class="">Tasks <span class="dashboard-tasks-count">(<%= @tasks.where(status: "pending").count %> remaining)</span></h2>
       </div>
-      <div class="dashboard-tasks-inner-container">
+      <div class="dashboard-tasks-inner-container" data-controller="dashboard-mark-task-as-done">
         <% @tasks.each do |task| %>
           <%= render 'dashboard_task', task: task %>
         <% end %>
@@ -14,7 +14,7 @@
   <div class="row mx-3 justify-content-center">
     <div class="dashboard-events-container col-10 p-3">
       <div class="dashboard-events-headers pe-5 ps-4 py-3">
-        <h2 class="">Events</h2>
+        <h2 class="">Events <span class="dashboard-events-count">(<%= @events.where(event_status: "upcoming").count %> upcoming)</span></h2>
         <%= link_to 'Create Event', new_event_path, class: "brand-btn" %>
       </div>
       <div class="dashboard-events-inner-container">

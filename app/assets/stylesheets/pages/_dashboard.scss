@@ -13,6 +13,10 @@
 
       h2 {
         color: #ECECEC;
+
+        .dashboard-tasks-count {
+          font-size: 0.6em;
+        }
       }
     }
 
@@ -26,7 +30,7 @@
     text-decoration: none;
 
     &:hover {
-      opacity: 0.7;
+      filter: brightness(150%);
     }
   }
 
@@ -46,7 +50,13 @@
       h2 {
         color: #ECECEC;
         flex-grow: 1;
+
+        .dashboard-events-count {
+          font-size: 0.6em;
+        }
       }
+
+
     }
 
     .dashboard-events-inner-container {

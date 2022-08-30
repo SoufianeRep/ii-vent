@@ -9,7 +9,7 @@
   justify-content: space-between;
 
   &:hover {
-    opacity: 0.7;
+    filter: brightness(150%);
   }
 
   .task-checkbox {

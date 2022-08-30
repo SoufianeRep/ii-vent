@@ -1,11 +1,14 @@
-<div class="task-container m-3">
+<div class="task-container m-3 ">
   <div class="form-check task-checkbox">
-    <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault">
-    <label for="flexCheckDefault" class="form-check-label text-truncate" value=""><%= task.name %></label>
+    <%# <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" data-action="change->dashboard-mark-task-as-done#markAsDone"> %>
+    <%# <label for="flexCheckDefault" class="form-check-label text-truncate" value=""><%= task.name %>
+    <%= simple_form_for(task, remote: true, data: {dashboard_mark_task_as_done_target:"forms"}) do |f| %>
+      <%= f.input :done, label: task.name, class: "form-check-input mb-0" %>
+    <% end %>
     <p class="task-description text-truncate"><%= task.description %></p>
   </div>
   <div class="task-status px-3">
-    <p class="m-0 task-status-badge <%= task.status %>"><%= task.status.capitalize %></p>
+    <p class="m-0 task-status-badge <%= task.status %>" data-dashboard-mark-task-as-done-target="status"><%= task.status.capitalize %></p>
   </div>
   <div class="task-due-date px-3">
     <% if task.end %>

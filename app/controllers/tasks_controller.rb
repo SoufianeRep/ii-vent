@@ -27,7 +27,18 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     authorize @task
-    @task.update!(set_task_params)
+    if set_task_params[:done] == "1"
+      @task.status = "done"
+    else
+      @task.status = "pending"
+    end
+    # raise
+    respond_to do |format|
+      if @task.update!(set_task_params)
+        format.html { redirect_to dashboard_path}
+        format.json
+      end
+    end
     # keep working
   end
 
