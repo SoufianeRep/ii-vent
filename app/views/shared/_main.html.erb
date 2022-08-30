@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="container-main">
     <div class="element-main1">
-      <h3><strong><%= event.start_date.strftime("%B #{event.start_date.day.ordinalize}")%></strong> <%= event.event_status.capitalize %> event</h3>
-      <h3><strong><%= event.name %></strong></h3>
+      <h3> <%= event.event_status.capitalize %> event <strong><%= event.start_date.strftime("%B #{event.start_date.day.ordinalize}")%></strong></h3>
+      <h2><strong><%= event.name %></strong></h2>
     </div>
     <div class="element-main2">
       <h3><strong>Date and time</strong></h3>
@@ -36,6 +36,16 @@
       <div class="info-title"><%= event.tasks.select{ |task| task.task == nil && task.done }.count %>/<%= event.tasks.select{ |task| task.task == nil}.count %></div>
       <div class="info-sub-title">Tasks Completed</div>
       <i class="fas fa-bullseye"></i>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="info">
+    <div class="info-card">
+      <div class="info-sub-title">Set Times</div>
+    </div>
+    <div class="info-card">
+      <div class="info-sub-title">Prices</div>
     </div>
   </div>
 </div>
