@@ -35,10 +35,10 @@ export default class extends Controller {
     e.preventDefault();
     fetch(e.currentTarget.action, {
       method: 'PATCH',
-      header: {"Accept": 'text/html'},
+      headers: {"Accept": "text/html"},
       body: new FormData(e.currentTarget)
     }).then((response) => {
-      window.location.reload();
+      // window.location.reload();
       console.log(response);
     });
 

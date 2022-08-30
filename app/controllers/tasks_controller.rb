@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     authorize @event
     respond_to do |format|
       if @task.save!
-        format.html { redirect_to event_path(@event, tab: 'tasks') }
+        format.html { redirect_to event_path(@event, tab: 'tasks', subtab: @task.category) }
         format.json
       else
         format.html { redirect_to event_path(@event, tab: 'tasks'), status: :unprocessed_entity }
@@ -37,6 +37,7 @@ class TasksController < ApplicationController
       if @task.update!(set_task_params)
         format.html { redirect_to dashboard_path}
         format.json
+        # format.plain { redirect_to event_path(@task.event, tab: 'tasks', subtab: @task.category) }
       end
     end
     # keep working
