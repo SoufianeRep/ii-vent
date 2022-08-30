@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    build_event_member_params
+    params[:event][:event_members_attributes] = build_event_member_params
     @event = Event.new(event_params)
     @users = User.all
     authorize @event
@@ -44,19 +44,22 @@ class EventsController < ApplicationController
   end
 
   def build_event_member_params
-    role = params[:event][:event_members_attributes]["0"][:role]
-    permission = params[:event][:event_members_attributes]["0"][:permission]
-    ids = params[:event][:event_members_attributes]["0"]["user_id"].reject(&:blank?)
-    if ids.any?
-      ids.each_with_index do |user_id, index|
-        params[:event][:event_members_attributes][index.to_s] = {
-          user_id: user_id,
-          role: role,
-          permission: permission,
-        }
+    response = {}
+    (0..3).to_a.each do |num|
+      role = params[:event][:event_members_attributes][num.to_s][:role]
+      permission = params[:event][:event_members_attributes][num.to_s][:permission]
+      ids = params[:event][:event_members_attributes][num.to_s]["user_id"].reject(&:blank?)
+      if ids.any?
+        ids.each do |user_id|
+          next_index = response.keys.empty? ? 0 : response.keys.last.to_i + 1
+          response[next_index.to_s] = {
+            user_id: user_id,
+            role: role,
+            permission: permission,
+          }
+        end
       end
-    else
-      params[:event][:event_members_attributes] = {}
     end
+    return response
   end
 end
