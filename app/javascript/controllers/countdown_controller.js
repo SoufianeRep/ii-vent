@@ -5,12 +5,15 @@ export default class extends Controller {
   static targets = ['counter', 'date'];
 
   connect() {
-    // this.#countdownTimer();
-    // setInterval(this.#countdownTimer, 1000);
+    // this.counterTarget.innerHTML = 'something';
+    // console.log(this.counterTarget.innerHTML);
+    // this.#countdownTimer(this.counterTarget);
+    // setInterval(this.#countdownTimer(this.counterTarget), 1000);
   }
-  #countdownTimer() {
-    const difference = +new Date(this.dateTarget.innerHTML) - +new Date();
-    let remaining = "Time's up!";
+
+  #countdownTimer(counter) {
+    const difference = +new Date("2022-12-01") - +new Date();
+    let remaining = "Past the date";
 
     if (difference > 0) {
       const parts = {
@@ -25,7 +28,8 @@ export default class extends Controller {
         return `${parts[part]} ${part}`;
       }).join(" ");
     }
-    console.log(remaining, typeof remaining);
-    // this.counterTarget.innerHTML = `<p>${remaining}</p>`;
+    // console.log(this.counterTarget, '<================ COUNTER')
+    counter.innerHTML = `<p>${remaining}</p>`;
+    console.log(remaining, '<============ Remainung');
   }
 }
