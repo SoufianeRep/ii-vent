@@ -14,26 +14,23 @@ export default class extends Controller {
 
   addMember(e) {
     e.preventDefault();
-    // console.log(this.formInputTarget);
     const formData = new FormData(e.currentTarget);
-    for (let [key, value] of formData.entries()) {
-      console.log(key, ": ", value);
-    }
-    // console.log(formData.entries());
-    // console.log(formData);
+
+    this.currentTarget = e.currentTarget;
+
     fetch(this.addMemberFormTarget.action, {
       method: 'POST',
       headers: {
         "Accept": "text/html",
-    },
+      },
       body: formData,
     }).then((response) => {
-      console.log(response);
-      if (response.ok === true) {
-        console.log('submitted');
+      if (response.ok) {
+        this.currentTarget.classList.add('opacity-25');
+        this.currentTarget.classList.add('pe-none');
       }
-    }).then(() => {
-        // this.tickMemberTarget.classList.toggle('d-none');
-      });
+    });
   }
+
+
 }
