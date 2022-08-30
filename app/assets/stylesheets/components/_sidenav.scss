@@ -9,16 +9,16 @@
   a {
     text-decoration: none;
     color: inherit;
+
+    .logo {
+      height: 65px;
+      width: 250px;
+    }
   }
 
   p {
     margin: 0;
   }
-}
-
-.sidebar-logo {
-  margin: -50px 0;
-  margin-left: -80px;
 }
 
 .side-divider {
