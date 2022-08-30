@@ -21,7 +21,8 @@ class MessagesController < ApplicationController
     @message.save
     EventMessagesChannel.broadcast_to(
       @event,
-      render_to_string(partial: "shared/event_message", locals: { message: @message })
+      message: render_to_string(partial: "shared/event_message", locals: { message: @message }),
+      sender_id: @message.event_member.user.id
     )
     head :ok
   end

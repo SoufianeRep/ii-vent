@@ -5,4 +5,8 @@ class Message < ApplicationRecord
 
   # This is like the room_id for multiple rooms
   validates :room_type, presence: true, inclusion: { in: ['Task', 'Event'] }
+
+  def sender?(user)
+    user == event_member.user
+  end
 end
