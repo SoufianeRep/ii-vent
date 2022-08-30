@@ -13,7 +13,7 @@
       <h3><strong>Location</strong></h3>
       <p><%= event.location %></p>
     </div>
-    <div class="element-main4"style="width: 100%; height: auto; padding: 0; border-radius: 4px;"
+    <div class="element-main4"style="width: 100%; height: auto; padding: 0; border-radius: 4px; margin-top: 1px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

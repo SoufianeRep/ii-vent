@@ -20,7 +20,8 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @users = User.all
-    @event.event_members.build
+    # @event.event_members.build
+    build_event_members
     authorize @event
   end
 
@@ -33,7 +34,8 @@ class EventsController < ApplicationController
       @organizer = EventMember.create(user: current_user, event: @event, permission: "organizer", role: "manager")
       redirect_to event_path(@event)
     else
-      render :new, status: :unprocessable_entity
+      build_event_members
+      render :new
     end
   end
 
@@ -41,6 +43,12 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :location, :start_date, :end_date, :photo, :poster_url, event_members_attributes: [:permission, :role, :user_id])
+  end
+
+  def build_event_members
+    return if @event.event_members.present?
+
+    @event.event_members.build
   end
 
   def build_event_member_params

@@ -20,28 +20,28 @@
       <%= f.input :end_date, input_html: { class: 'event-form-inputs mb-3', style: "background-color: #202938; border: 1px solid rgba(255,255,255,0.25);" }, html5: true %>
       <div id="add-member-modal-event">
         <%= f.simple_fields_for :event_members do |event_member_form| %>
-        <%= event_member_form.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}}, label: "Add Managers" %>
+          <%= event_member_form.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}}, label: "Add Managers" %>
           <%= event_member_form.input :role, as: :hidden, input_html: {value: 'manager'} %>
           <%= event_member_form.input :permission, as: :hidden, input_html: {value: 'organizer'} %>
         <% end %>
       </div>
       <div id="add-member-modal-event">
         <%= f.simple_fields_for :event_members do |event_member_form| %>
-        <%= event_member_form.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}}, label: "Add Artists" %>
+          <%= event_member_form.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}}, label: "Add Artists" %>
           <%= event_member_form.input :role, as: :hidden, input_html: {value: 'artist'} %>
           <%= event_member_form.input :permission, as: :hidden, input_html: {value: 'member'} %>
         <% end %>
       </div>
       <div id="add-member-modal-event">
         <%= f.simple_fields_for :event_members do |event_member_form| %>
-        <%= event_member_form.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}}, label: "Add Staff" %>
+          <%= event_member_form.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}}, label: "Add Staff" %>
           <%= event_member_form.input :role, as: :hidden, input_html: {value: 'staff'} %>
           <%= event_member_form.input :permission, as: :hidden, input_html: {value: 'member'} %>
         <% end %>
       </div>
       <div id="add-member-modal-event">
         <%= f.simple_fields_for :event_members do |event_member_form| %>
-        <%= event_member_form.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}}, label: "Add Security" %>
+          <%= event_member_form.input :user_id, as: :select, collection: @users.order('last_name ASC'), label_method: :full_name, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}}, label: "Add Security" %>
           <%= event_member_form.input :role, as: :hidden, input_html: {value: 'security'} %>
           <%= event_member_form.input :permission, as: :hidden, input_html: {value: 'member'} %>
         <% end %>
