@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
 }
 
 .side-panel {
@@ -101,4 +102,13 @@
 
 .form-control-text {
   width: 90%;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid $something;
+  padding: 4px;
+  font-size: 16px;
+}
+
+.form-control-text:active {
+  border: 1px solid $something;
 }

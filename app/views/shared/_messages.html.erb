@@ -9,33 +9,53 @@
       </div>
       <div class="panel-body">
         <ul class="list-group">
-          <li class="list-group-item">
+          <li class="list-group-item"
+            data-event-messages-subscription-target="messagesTab messagesGeneral"
+            data-action="click->messagesTab#toggle">
             <a href="#"># General</a>
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item"
+            data-event-messages-subscription-target="messagesTab messagesArtists"
+            data-action="click->messagesTab#toggle">
             <a href="#"># Artists</a>
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item"
+            data-event-messages-subscription-target="messagesTab messagesSecurity"
+            data-action="click->messagesTab#toggle">
             <a href="#"># Security</a>
+          </li>
+          <li class="list-group-item"
+            data-event-messages-subscription-target="messagesTab messagesStaff"
+            data-action="click->messagesTab#toggle">
+            <a href="#"># Staff</a>
+          </li>
+          <li class="list-group-item"
+            data-event-messages-subscription-target="messagesTab messagesManagers"
+            data-action="click->messagesTab#toggle">
+            <a href="#"># Managers</a>
           </li>
         </ul>
       </div>
     </div>
   </div>
   <div class="main-panel col-md-8 col-md-offset-2" data-event-messages-subscription-target="panel">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <table class="table task-table" data-event-messages-subscription-target="messages">
-          <tbody>
-            <% event.messages.each do |message| %>
-            <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-start' : 'justify-content-end' %>">
-              <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-                <%= render "shared/event_message", message: message %>
-              </div>
-            </div>
-          <% end %>
-          </tbody>
-        </table>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="" data-event-messages-subscription-target="messagesPage messagesGeneral">
+        <%= render "messages/messages_general", new_message: @message, event: @event %>
+      </div>
+      <div class="d-none" data-event-messages-subscription-target="messagesPage messagesArtists">
+        <%= render "messages/messages_roles", new_message: @message, event: @event %>
+      </div>
+      <div class="d-none" data-event-messages-subscription-target="messagesPage messagesSecurity">
+        <%= render "messages/messages_roles", new_message: @message, event: @event %>
+      </div>
+      <div class="d-none" data-event-messages-subscription-target="messagesPage messagesStaff">
+        <%= render "messages/messages_roles", new_message: @message, event: @event %>
+      </div>
+      <div class="d-none" data-event-messages-subscription-target="messagesPage messagesManagers">
+        <%= render "messages/messages_roles", new_message: @message, event: @event %>
+      </div>
       </div>
     </div>
     <div class="message-form">
