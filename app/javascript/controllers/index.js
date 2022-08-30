@@ -12,6 +12,7 @@ application.register("countdown", CountdownController)
 
 
 import DashboardMarkTaskAsDoneController from "./dashboard_mark_task_as_done_controller"
+application.register("dashboard-mark-task-as-done", DashboardMarkTaskAsDoneController)
 
 import EventMessagesSubscriptionController from "./event_messages_subscription_controller"
 application.register("event-messages-subscription", EventMessagesSubscriptionController)
