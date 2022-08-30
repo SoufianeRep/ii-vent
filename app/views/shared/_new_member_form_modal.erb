@@ -8,7 +8,7 @@
       <div class="modal-body">
         <div class="container d-flex flex-wrap gap-2">
           <% if event_task.event.event_members.any? %>
-            <% event_task.event.event_members.each do |event_member| %>
+            <% (event_task.event.event_members - event_task.event_members).each do |event_member| %>
               <div class="add-member-form-container position-relative">
                 <div class='tick position-absolute d-none' data-add-member-to-task-target='tickMember'>
                   <i class="fa-solid fa-check"></i>
@@ -17,7 +17,7 @@
                   data: {
                     add_member_to_task_target: 'addMemberForm',
                     action: 'submit->add-member-to-task#addMember',
-                  }) do |f| %>
+                  }, html: {class: 'form-class'}) do |f| %>
                   <%= f.input :event_member_id, as: :hidden, input_html: {value: event_member.id }%>
                   <%= image_submit_tag(event_member.user.avatar_url,
                     class: 'event-member-avatar align-self-stretch',
