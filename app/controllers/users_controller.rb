@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     authorize @user
     if user_signed_in?
       @events = policy_scope(Event).order(start_date: :asc)
-      @tasks = policy_scope(Task).order(end: :asc)
+      @tasks = policy_scope(Task).where(done: false).order(end: :asc)
 
       # Scope your query to the dates being shown:
       start_date = params.fetch(:start_date, Date.today).to_date

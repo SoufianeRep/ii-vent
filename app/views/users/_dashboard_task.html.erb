@@ -2,8 +2,8 @@
   <div class="form-check task-checkbox">
     <%# <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" data-action="change->dashboard-mark-task-as-done#markAsDone"> %>
     <%# <label for="flexCheckDefault" class="form-check-label text-truncate" value=""><%= task.name %>
-    <%= simple_form_for(task, data: { action: "change->dashboard-mark-task-as-done#markAsDone"}) do |f| %>
-      <%= f.input :done, label: task.name, class: "form-check-input mb-0", data: { dashboard_mark_task_as_done_target:"input" } %>
+    <%= simple_form_for(task, remote: true, data: {dashboard_mark_task_as_done_target:"forms"}) do |f| %>
+      <%= f.input :done, label: task.name, class: "form-check-input mb-0" %>
     <% end %>
     <p class="task-description text-truncate"><%= task.description %></p>
   </div>
