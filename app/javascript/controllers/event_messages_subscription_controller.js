@@ -51,7 +51,6 @@ export default class extends Controller {
 
   // we need a reset form private method to clear the form after submit
   resetForm(event) {
-    console.log("hello")
     this.formTarget.reset()
   }
 }
