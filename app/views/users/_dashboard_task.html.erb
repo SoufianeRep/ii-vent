@@ -10,9 +10,9 @@
   </div>
   <div class="task-due-date px-3">
     <% if task.end %>
-      <p><%= task.end.localtime.strftime('%A') %></p>
-      <p><%= task.end.localtime.strftime('%B %d, %Y') %></p>
-      <p><%= task.end.localtime.strftime('%H:%M %Z') %> </p>
+      <p><%= task.end.strftime('%A') %></p>
+      <p><%= task.end.strftime('%B %d, %Y') %></p>
+      <p><%= task.end.strftime('%H:%M') %> JST</p>
     <% end %>
   </div>
   <%= link_to event_path(task.event), class: "text-decoration-none" do %>

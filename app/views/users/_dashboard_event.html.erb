@@ -5,9 +5,9 @@
       <p><%= event.location %></p>
     </div>
     <div class="right">
-      <p><%= event.start_date.localtime.strftime('%A') %></p>
-      <p><%= event.start_date.localtime.strftime('%B %d, %Y') %></p>
-      <p><%= event.start_date.localtime.strftime('%H:%M')%> - <%= event.end_date.localtime.strftime('%H:%M %Z') %></p>
+      <p><%= event.start_date.strftime('%A') %></p>
+      <p><%= event.start_date.strftime('%B %d, %Y') %></p>
+      <p><%= event.start_date.strftime('%H:%M')%> - <%= event.end_date.strftime('%H:%M') %> JST</p>
     </div>
   </div>
 <% end %>
