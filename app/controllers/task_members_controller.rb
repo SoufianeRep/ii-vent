@@ -1,15 +1,23 @@
 class TaskMembersController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def create
     task = Task.find(params[:task_id])
-    set_task_params[:event_member_id].reject(&:blank?).each do |event_member_id|
-      @task_member = TaskMember.create!(set_task_params.merge(task: task, event_member_id: event_member_id))
+    task_member = TaskMember.new(task_member_params)
+    task_member.task = task
+    event = task.event
+    authorize task_member
+    if task_member.save
+      redirect_to event_path(event, tab: 'tasks' )
+    else
+      p task_member.errors.messages
+      redirect_to event_path(event), status: :unprocessable_entity, alert: 'Could not add member to Task Try again'
     end
-    authorize @task_member
   end
 
   private
 
-  def set_task_params
-    params.require(:task_member).permit(event_member_id: [])
+  def task_member_params
+    params.require(:task_member).permit(:event_member_id)
   end
 end

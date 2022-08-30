@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="tasks"
 export default class extends Controller {
-  static targets = ['task', 'badge', 'members', 'subtaskform', 'subtasks', 'doneform', 'memberImage', 'addMemberForm', 'tickMember'];
+  static targets = ['task', 'badge', 'members', 'subtaskform', 'subtasks', 'doneform', 'memberImage', 'addMemberForm', 'tickMember', 'formInput'];
 
   connect() {
   }
@@ -43,17 +43,4 @@ export default class extends Controller {
     });
 
   }
-
-  addMember(e) {
-    e.preventDefault();
-    // fetch(this.addMemberFormTarget.action, {
-    //   method: 'POST',
-    //   body: new FormData(this.addMemberFormTarget)
-    // }).then(() => console.log('submitted'))
-    //   .then(() => {
-    //     this.tickMemberTarget.toggle('d-none');
-    //   }).catch(error => console.log(error, 'not submitted'));
-    console.log(new FormData(this.addMemberFormTarget));
-  }
-
 }
