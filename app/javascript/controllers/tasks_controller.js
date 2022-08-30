@@ -31,15 +31,15 @@ export default class extends Controller {
       });
   }
 
-  done() {
-    // this.doneformTarget.submit();
-    // console.log(new FormData(this.doneformTarget));
-    fetch(this.doneformTarget.action, {
+  done(e) {
+    e.preventDefault();
+    fetch(e.currentTarget.action, {
       method: 'PATCH',
       header: {"Accept": 'text/html'},
-      body: new FormData(this.doneformTarget)
-    }).then(() => {
-      console.log('done');
+      body: new FormData(e.currentTarget)
+    }).then((response) => {
+      window.location.reload();
+      console.log(response);
     });
 
   }
