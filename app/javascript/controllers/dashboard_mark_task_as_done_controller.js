@@ -6,10 +6,8 @@ export default class extends Controller {
 
   connect() {
     // console.log("Hello from the 'dashboard-mark-task-as-done' controller!");
-    console.log(this.formsTargets);
     // console.log(this.statusTarget);
     this.formsTargets.forEach(form => {
-      console.log(form);
       form.addEventListener("change", function (event) {
         event.currentTarget.submit()
       })
