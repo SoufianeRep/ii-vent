@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     @tasks = @event.tasks.where(task_id: nil).order(done: :asc)
     @event_member = EventMember.new
     @users = User.where.not(id: @event.users.map(&:id))
+    @message = Message.new
   end
 
   def new

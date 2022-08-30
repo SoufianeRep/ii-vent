@@ -17,6 +17,8 @@ export default class extends Controller {
       this.pagesMembersTarget.classList.remove("d-none");
     else if (event.currentTarget == this.tabTasksTarget)
       this.pagesTasksTarget.classList.remove("d-none");
+    else if (event.currentTarget == this.tabMessagesTarget)
+      this.pagesMessagesTarget.classList.remove("d-none");
   }
 
   selectTab() {
@@ -25,6 +27,8 @@ export default class extends Controller {
       this.tabMembersTarget.click()
     } else if (params.get("tab") === "tasks") {
       this.tabTasksTarget.click()
+    } else if (params.get("tab") === "messages") {
+      this.tabMessagesTarget.click()
     }
   }
 }
