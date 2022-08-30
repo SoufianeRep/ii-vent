@@ -1,4 +1,4 @@
-<div class="modal fade" id="addMembersModal<%= event_task.id %>" tabindex="-1">
+<div class="modal fade" id="addMembersModal<%= event_task.id %>" tabindex="-1" data-controller="add-member-to-task">
   <div class="modal-dialog">
     <div class="modal-content custom-modal">
       <div class="modal-header">
@@ -9,13 +9,26 @@
         <div class="container d-flex flex-wrap gap-2">
           <% if event_task.event.event_members.any? %>
             <% event_task.event.event_members.each do |event_member| %>
-              <%= simple_form_for([event_task, TaskMember.new]) do |f| %>
-                <%= f.input :event_member, as: :hidden, input_html: {value: event_member.id }%>
-                <%= image_submit_tag(event_member.user.avatar_url,
+              <div class="add-member-form-container position-relative">
+                <div class='tick position-absolute d-none' data-add-member-to-task-target='tickMember'>
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <%= simple_form_for([event_task, TaskMember.new],
+                  data: {
+                    add_member_to_task_target: 'addMemberForm',
+                    action: 'submit->add-member-to-task#addMember',
+                  }) do |f| %>
+                  <%= f.input :event_member_id, as: :hidden, input_html: {value: event_member.id }%>
+                  <%= image_submit_tag(event_member.user.avatar_url,
                     class: 'event-member-avatar align-self-stretch',
-                    data: {bs_toggle: "tooltip", bs_placement: 'top'},
+                    data: {
+                      bs_toggle: "tooltip",
+                      bs_placement: 'top',
+                      tasks_target: 'memberImage',
+                    },
                     title: "#{event_member.user.first_name} #{event_member.user.last_name}")%>
-              <% end %>
+                <% end %>
+              </div>
             <% end %>
           <% end %>
         </div>

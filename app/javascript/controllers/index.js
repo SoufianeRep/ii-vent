@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddMemberToTaskController from "./add_member_to_task_controller"
+application.register("add-member-to-task", AddMemberToTaskController)
+
 import CountdownController from "./countdown_controller"
 application.register("countdown", CountdownController)
 

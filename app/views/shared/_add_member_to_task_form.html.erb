@@ -1,0 +1,12 @@
+<%= simple_form_for([event_task, TaskMember.new]) do |f| %>
+  <%= f.association :event_member,
+    as: :check_boxes,
+    collection: event_task.event.event_members,
+    collection_wrapper_tag: 'div',
+    collection_wrapper_class: 'event-members',
+    item_wrapper_class: 'member-select',
+    label_method: lambda { |b| image_tag(b.user_avatar_url, for: 'hello', class: '')},
+    multiple: true,
+    value_method: :id %>
+  <%= f.submit %>
+<% end %>

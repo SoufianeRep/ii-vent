@@ -9,4 +9,8 @@ class EventMember < ApplicationRecord
   enum permission: { organizer: 'organizer', member: 'member' }
   validates :role, presence: true
   enum role: { manager: "manager", artist: "artist", security: "security", staff: "staff" }
+
+  def user_avatar_url
+    user.avatar_url
+  end
 end
