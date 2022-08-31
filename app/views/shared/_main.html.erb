@@ -51,7 +51,7 @@
         <%= render 'shared/main_gear', event: event, task: task %>
       <% end %>
     </div>
-    <div class="col-12 d-flex flex-column align-self-stretch flex-grow-1">
+    <div class="col-12">
       <% event.tasks.where(misc: true).each do |task| %>
         <%= render 'shared/main_misc', event: event, task: task %>
       <% end %>
