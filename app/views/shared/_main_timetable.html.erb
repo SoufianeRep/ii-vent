@@ -4,7 +4,7 @@
     <div class="card-body fs-4 d-flex align-items-center flex-grow-2">
       <%# <%= render 'components/update_task_form', event: event, task: task %>
       <%# <input type="checkbox" class="task-checkbox me-2" checked disabled> %>
-      <h5 data-action="click->tasks#toggleDisplay stretched-link"><%= task.name %></h5>
+      <h3 class="timetable-header" data-action="click->tasks#toggleDisplay stretched-link"><%= task.name %></h3>
     </div>
     <%# Small task members avatars %>
     <div class="task-members-small d-flex flex-wrap pe-3 gap-1" data-tasks-target='members'>
@@ -23,8 +23,8 @@
   <%# Task card expanded view %>
   <div class=" d-none d-flex flex-column card-content" data-tasks-target='task'>
     <hr>
-    <span class="mb-3 event-task-category-badge <%= task.category %>"><%= task.category %></span>
-    <p><%= task.description %></p>
+    <%# Deleted 'Category' badge  %>
+    <%# Deleted 'Description'  %>
     <%# Subtasks %>
     <%= render 'components/subtasks', task: task %>
     <%= render 'components/subtask_form', event: event, parent_task: task %>
