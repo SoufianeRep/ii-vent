@@ -67,7 +67,21 @@
     </div>
   </div>
 </div>
-<div class="contianer-fluid mb-5">
-  <div class="container-main">
+<div class="container-fluid">
+  <div class="container-files mb-3">
+    <div class="container-files-media">
+      <div class="event-file">
+      </div>
+      <div class="event-file">
+      </div>
+      <div class="event-file">
+      </div>
+    </div>
+    <div class="files-form-container">
+      <%= simple_form_for(event) do |f| %>
+        <%= f.input :files, label: "Upload Media Here:" %>
+        <%= f.button :submit, class: "brand-btn" %>
+      <% end %>
+    </div>
   </div>
 </div>

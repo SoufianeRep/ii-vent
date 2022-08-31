@@ -1,0 +1,32 @@
+.container-files {
+
+  background-color: $medium-gray;
+  border-radius: 4px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 16px;
+}
+
+.container-files-media {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  gap: 24px;
+  padding: 16px;
+}
+
+.event-file {
+  height: 320px;
+  background-color: $light-purple;
+}
+
+.files-form-container {
+  padding: 24px;
+  padding-top: 36px;
+  color: $light-purple;
+  // grid-column-start: 1;
+  // grid-column-end: span 2;
+  // grid-row-start: 1;
+  // grid-row-end: 1;
+  text-align: center;
+}

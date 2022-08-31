@@ -45,7 +45,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :location, :start_date, :end_date, :photo, :poster_url, event_members_attributes: [:permission, :role, :user_id])
+    params.require(:event).permit(:name, :location, :start_date, :end_date, :photo, :poster_url, event_members_attributes: [:permission, :role, :user_id], files: [])
   end
 
   def build_event_members
