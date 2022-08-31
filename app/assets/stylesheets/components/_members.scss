@@ -1,6 +1,13 @@
 .grid-members {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
+  h5 {
+    color: #F4F4F4;
+    opacity: .7;
+    padding-left: 16px;
+    padding-bottom: 12px;
+  }
 }
 
 .card-product {
