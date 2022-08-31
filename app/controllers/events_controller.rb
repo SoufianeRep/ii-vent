@@ -30,8 +30,12 @@ class EventsController < ApplicationController
     @users = User.all
     authorize @event
     if @event.save
+      @timetable = Task.new(name: "Timetable", description: "Set times for this event", category: "music", start: @event.start_date, end: @event.end_date, timetable: true)
+      @timetable.event = @event
+      @timetable.save
       @organizer = EventMember.create(user: current_user, event: @event, permission: "organizer", role: "manager")
       redirect_to event_path(@event)
+      # raise
     else
       build_event_members
       render :new

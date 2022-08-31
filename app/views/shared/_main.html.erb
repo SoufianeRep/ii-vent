@@ -39,13 +39,13 @@
     </div>
   </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid mb-5">
   <div class="info">
-    <div class="info-card">
-      <div class="info-sub-title">Set Times</div>
-    </div>
-    <div class="info-card">
-      <div class="info-sub-title">Prices</div>
+    <div class="col-12">
+      <%# <h2 class="text-white align-self-center">Timetable</h2> %>
+      <% event.tasks.where(timetable: true).each do |task| %>
+        <%= render 'shared/main_timetable', event: event, task: task %>
+      <% end %>
     </div>
   </div>
 </div>
