@@ -7,44 +7,44 @@
         </i>
       <% end %>
       <ul class="list-unstyled pt-4 text-white">
-        <li class="active-tab" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="all">
+        <li class="active-tab" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="all tasksTabs">
           <p>all</p>
         </li>
-        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="music">
+        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="music tasksTabs">
           <p>Music</p>
         </li>
-        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="security">
+        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="security tasksTabs">
           <p>Security</p>
         </li>
-        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="organization">
+        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="organization tasksTabs">
           <p>Organization</p>
         </li>
-        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="catering">
+        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="catering tasksTabs">
           <p>Catering</p>
         </li>
-        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="promotion">
+        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="promotion tasksTabs">
           <p>Promotion</p>
         </li>
       </ul>
     </div>
     <div class="col-10">
-      <div data-event-tasks-target="taskTab allTab" class="all-tasks">
+      <div data-event-tasks-target="pagesTabs allTab" class="all-tasks">
         <%= render 'shared/tasks', event: event, tasks: tasks %>
       </div>
-      <div data-event-tasks-target="taskTab musicTab" class="music-tasks d-none">
-        <%= render 'shared/tasks', event: event, tasks: tasks.select{|x| x.category == "music"} %>
+      <div data-event-tasks-target="pagesTabs musicTab" class="music-tasks d-none">
+        <%= render 'shared/tasks', event: event, tasks: tasks.music %>
       </div>
-      <div data-event-tasks-target="taskTab securityTab" class="security-tasks d-none">
-        <%= render 'shared/tasks', event: event, tasks: tasks.select{|x| x.category == "security"} %>
+      <div data-event-tasks-target="pagesTabs securityTab" class="security-tasks d-none">
+        <%= render 'shared/tasks', event: event, tasks: tasks.security %>
       </div>
-      <div data-event-tasks-target="taskTab organizationTab" class="organization-tasks d-none">
-        <%= render 'shared/tasks', event: event, tasks: tasks.select{|x| x.category == "organization"} %>
+      <div data-event-tasks-target="pagesTabs organizationTab" class="organization-tasks d-none">
+        <%= render 'shared/tasks', event: event, tasks: tasks.organization %>
       </div>
-      <div data-event-tasks-target="taskTab cateringTab" class="catering-tasks d-none">
-        <%= render 'shared/tasks', event: event, tasks: tasks.select{|x| x.category == "catering"} %>
+      <div data-event-tasks-target="pagesTabs cateringTab" class="catering-tasks d-none">
+        <%= render 'shared/tasks', event: event, tasks: tasks.catering %>
       </div>
       <div data-event-tasks-target="taskTab promotionTab" class="promotion-tasks d-none">
-        <%= render 'shared/tasks', event: event, tasks: tasks.select{|x| x.category == "promotion"} %>
+        <%= render 'shared/tasks', event: event, tasks: tasks.promotion %>
       </div>
     </div>
     <div class="col-1"></div>
