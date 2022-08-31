@@ -42,7 +42,6 @@
 <div class="container-fluid ">
   <div class="info">
     <div class="col-12">
-      <%# <h2 class="text-white align-self-center">Timetable</h2> %>
       <% event.tasks.where(timetable: true).each do |task| %>
         <%= render 'shared/main_timetable', event: event, task: task %>
       <% end %>
@@ -51,55 +50,42 @@
       <% event.tasks.where(gear: true).each do |task| %>
         <%= render 'shared/main_gear', event: event, task: task %>
       <% end %>
-      <%# <div> %>
-      <%# Gear Card  %>
-      <%# <h2 class="event-task-container d-flex flex-column align-self-stretch">GEAR</h2>
-        <hr>
-        <p>
-          ▶︎3F(2ブース)<br>
-          DJM900nxs2<br>
-          CDJ2000nxs×4<br>
-          Z2<br>
-          SL1200MK3D×2<br>
-          ▶︎4F<br>
-          DJM900nxs<br>
-          CDJ2000×2<br>
-          PLX1000×2<br>
-        </p>
-      </div> %>
     </div>
     <div class="col-12">
-      <div>
+      <% event.tasks.where(misc: true).each do |task| %>
+        <%= render 'shared/main_misc', event: event, task: task %>
+      <% end %>
+      <%# <div>
         <h2 class="event-task-container d-flex flex-column align-self-stretch">MISC</h2>
         <hr>
         <p>
-          ≪≪LIVEPAINT≫≫<br>
-          YSK<br>
-          KSK<br>
-          拓磨クワン<br>
-          AKIKO ASANO<br>
-          <br>
-          ≪VJ≫<br>
-          鎖国ちゃん<br>
-          <br>
-          ≪DECORATION≫<br>
-          FOREHEAD凸<br>
-          <br>
-          ≪LASERS≫<br>
-          前髪野瑠璃子<br>
-          <br>
-          ≪FOOD≫<br>
-          日の出タコス<br>
-          共振異空間住居阿波座ハウス<br>
-          たんぽぽ食堂<br>
+          ≪≪LIVEPAINT≫≫
+          YSK
+          KSK
+          拓磨クワン
+          AKIKO ASANO
+
+          ≪VJ≫
+          鎖国ちゃん
+
+          ≪DECORATION≫
+          FOREHEAD凸
+
+          ≪LASERS≫
+          前髪野瑠璃子
+
+          ≪FOOD≫
+          日の出タコス
+          共振異空間住居阿波座ハウス
+          たんぽぽ食堂
         </p>
-      </div>
+      </div> %>
     </div>
   </div>
 </div>
 <div class="container-fluid">
   <div class="container-files mb-3">
-    <h2 class="">PROMOTIONAL MATERIALS</h2>
+    <h2 class="text-light">PROMOTIONAL MATERIALS</h2>
     <div class="container-files-media">
       <% if event.files.attached? %>
         <% event.files.each do |file| %>

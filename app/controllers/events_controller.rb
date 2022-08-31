@@ -36,8 +36,8 @@ class EventsController < ApplicationController
       @gear = Task.new(name: "Gear", description: "Gear available for this event", category: "music", start: @event.start_date, end: @event.end_date, gear: true)
       @gear.event = @event
       @gear.save
-      # raise
       @organizer = EventMember.create(user: current_user, event: @event, permission: "organizer", role: "manager")
+      # raise
       redirect_to event_path(@event)
     else
       build_event_members
