@@ -38,7 +38,7 @@ class EventsController < ApplicationController
       # raise
     else
       build_event_members
-      render :new
+      redirect_to new_event_path, alert: "Missing field input"
     end
   end
 
