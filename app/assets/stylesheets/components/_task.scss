@@ -5,6 +5,13 @@
   color: $light-gray;
   background-color: $medium-gray;
   padding: 16px;
+  transition: all 0.5s ease;
+}
+
+div.event-task-container:hover {
+  background-color: #212c38;
+  cursor: pointer;
+  border: 1px solid #202938;
 }
 
 
@@ -15,7 +22,18 @@
   width: 45px;
 }
 
-.task-checkbox {}
+
+.was-validated .form-check-input:valid:checked, .form-check-input.is-valid:checked {
+  background-color: $hovered-purple;
+}
+
+.was-validated .form-check-input:valid, .form-check-input.is-valid {
+  border-color: $hovered-purple;
+}
+
+.was-validated .form-check-input:valid:focus, .form-check-input.is-valid:focus {
+  box-shadow: none;
+}
 
 .card-content {
   transition: 1s;
