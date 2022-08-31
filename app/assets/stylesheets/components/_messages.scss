@@ -3,11 +3,11 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  overflow: hidden;
 }
 
 .side-panel {
   margin-left: 24px;
-  height: 58vh;
   background: $medium-gray;
 }
 
