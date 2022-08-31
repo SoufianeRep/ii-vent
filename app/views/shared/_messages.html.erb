@@ -1,50 +1,49 @@
-<div class="messages row"
+<div class="container">
+  <div class="messages row h-100"
   data-controller="event-messages-subscription"
   data-event-messages-subscription-event-id-value="<%= event.id %>"
   data-event-messages-subscription-current-user-id-value="<%= current_user.id %>">
-  <div class="side-panel col-md-3">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">All Messages</h3>
-      </div>
-      <div class="panel-body">
-        <ul class="list-group">
-          <li class="list-group-item"
+    <div class="side-panel col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">All Messages</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item"
             data-event-messages-subscription-target="messagesTab messagesGeneral"
             data-action="click->messagesTab#toggle">
-            <a href="#"># General</a>
-          </li>
-          <li class="list-group-item"
+              <a href="#"># General</a>
+            </li>
+            <li class="list-group-item"
             data-event-messages-subscription-target="messagesTab messagesArtists"
             data-action="click->messagesTab#toggle">
-            <a href="#"># Artists</a>
-          </li>
-          <li class="list-group-item"
+              <a href="#"># Artists</a>
+            </li>
+            <li class="list-group-item"
             data-event-messages-subscription-target="messagesTab messagesSecurity"
             data-action="click->messagesTab#toggle">
-            <a href="#"># Security</a>
-          </li>
-          <li class="list-group-item"
+              <a href="#"># Security</a>
+            </li>
+            <li class="list-group-item"
             data-event-messages-subscription-target="messagesTab messagesStaff"
             data-action="click->messagesTab#toggle">
-            <a href="#"># Staff</a>
-          </li>
-          <li class="list-group-item"
+              <a href="#"># Staff</a>
+            </li>
+            <li class="list-group-item"
             data-event-messages-subscription-target="messagesTab messagesManagers"
             data-action="click->messagesTab#toggle">
-            <a href="#"># Managers</a>
-          </li>
-        </ul>
+              <a href="#"># Managers</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="main-panel col-md-8 col-md-offset-2" data-event-messages-subscription-target="panel">
-    <div class="panel panel-default">
-      <div class="panel-body">
+    <div class="main-panel col-md-8 col-md-offset-2" data-event-messages-subscription-target="panel">
+      <div class="panel-body h-75 overflow-auto">
         <div class="" data-event-messages-subscription-target="messagesPage messagesGeneral">
           <%= render "messages/messages_general", new_message: @message, event: @event %>
         </div>
-        <!--
         <div class="d-none" data-event-messages-subscription-target="messagesPage messagesArtists">
           <%= render "messages/messages_roles", new_message: @message, event: @event %>
         </div>
@@ -57,17 +56,16 @@
         <div class="d-none" data-event-messages-subscription-target="messagesPage messagesManagers">
           <%= render "messages/messages_roles", new_message: @message, event: @event %>
         </div>
-        -->
       </div>
-    </div>
-    <div class="message-form">
-      <%= simple_form_for [event, new_message],
+      <div class="message-form">
+        <%= simple_form_for [event, new_message],
         html: { data: { 'event-messages-subscription-target': "form", action: "turbo:submit-end->event-messages-subscription#resetForm" }, class: "" } do |f| %>
-        <div class="message-form-input d-flex align-items-center">
-          <%= f.text_area :content, class: "form-control-text align-self-stretch" %>
-          <%= f.submit "Send", class: "brand-btn send-msg" %>
-        </div>
-      <% end %>
+          <div class="message-form-input d-flex align-items-center">
+            <%= f.text_area :content, class: "form-control-text align-self-stretch" %>
+            <%= f.submit "Send", class: "brand-btn send-msg" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
