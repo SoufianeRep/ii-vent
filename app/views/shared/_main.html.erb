@@ -51,35 +51,10 @@
         <%= render 'shared/main_gear', event: event, task: task %>
       <% end %>
     </div>
-    <div class="col-12">
+    <div class="col-12 d-flex flex-column align-self-stretch flex-grow-1">
       <% event.tasks.where(misc: true).each do |task| %>
         <%= render 'shared/main_misc', event: event, task: task %>
       <% end %>
-      <%# <div>
-        <h2 class="event-task-container d-flex flex-column align-self-stretch">MISC</h2>
-        <hr>
-        <p>
-          ≪≪LIVEPAINT≫≫
-          YSK
-          KSK
-          拓磨クワン
-          AKIKO ASANO
-
-          ≪VJ≫
-          鎖国ちゃん
-
-          ≪DECORATION≫
-          FOREHEAD凸
-
-          ≪LASERS≫
-          前髪野瑠璃子
-
-          ≪FOOD≫
-          日の出タコス
-          共振異空間住居阿波座ハウス
-          たんぽぽ食堂
-        </p>
-      </div> %>
     </div>
   </div>
 </div>
