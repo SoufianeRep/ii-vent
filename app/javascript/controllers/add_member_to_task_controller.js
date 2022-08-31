@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="add-member-to-task"
 export default class extends Controller {
-  static targets = ['addMemberForm', 'tickMember']
+  static targets = ['addMemberForm', 'tickMember', 'memberImage']
 
   connect() {
   }
@@ -25,7 +25,7 @@ export default class extends Controller {
       body: formData,
     }).then((response) => {
       if (response.ok) {
-        this.currentTarget.classList.add('opacity-25', 'pe-none');
+        this.currentTarget.querySelector('#member-avatar').classList.add('border', 'border-success', 'border-3');
       }
     });
   }
