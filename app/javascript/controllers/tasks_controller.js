@@ -30,17 +30,4 @@ export default class extends Controller {
         this.subtaskformTarget.outerHTML = data.form;
       });
   }
-
-  done(e) {
-    e.preventDefault();
-    fetch(e.currentTarget.action, {
-      method: 'PATCH',
-      headers: {"Accept": "text/html"},
-      body: new FormData(e.currentTarget)
-    }).then((response) => {
-      // window.location.reload();
-      console.log(response);
-    });
-
-  }
 }

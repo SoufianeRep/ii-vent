@@ -7,9 +7,6 @@ import { application } from "./application"
 import AddMemberToTaskController from "./add_member_to_task_controller"
 application.register("add-member-to-task", AddMemberToTaskController)
 
-import CountdownController from "./countdown_controller"
-application.register("countdown", CountdownController)
-
 import DashboardMarkTaskAsDoneController from "./dashboard_mark_task_as_done_controller"
 application.register("dashboard-mark-task-as-done", DashboardMarkTaskAsDoneController)
 
@@ -39,3 +36,6 @@ application.register("tasks", TasksController)
 
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)
+
+import UpdateTasksController from "./update_tasks_controller"
+application.register("update-tasks", UpdateTasksController)
