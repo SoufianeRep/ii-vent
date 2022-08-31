@@ -48,9 +48,12 @@
       <% end %>
     </div>
     <div class="col-12">
-      <div>
-        <%# Gear Card  %>
-        <h2 class="event-task-container d-flex flex-column align-self-stretch">GEAR</h2>
+      <% event.tasks.where(gear: true).each do |task| %>
+        <%= render 'shared/main_gear', event: event, task: task %>
+      <% end %>
+      <%# <div> %>
+      <%# Gear Card  %>
+      <%# <h2 class="event-task-container d-flex flex-column align-self-stretch">GEAR</h2>
         <hr>
         <p>
           ▶︎3F(2ブース)<br>
@@ -63,7 +66,7 @@
           CDJ2000×2<br>
           PLX1000×2<br>
         </p>
-      </div>
+      </div> %>
     </div>
     <div class="col-12">
       <div>
