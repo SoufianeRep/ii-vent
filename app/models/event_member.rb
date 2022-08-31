@@ -3,6 +3,7 @@ class EventMember < ApplicationRecord
   belongs_to :event
   has_many :task_members
   has_many :tasks, through: :task_members
+  has_many :messages, dependant: :destroy
 
   validates :user_id, uniqueness: { scope: :event_id, message: "Cannot have multiples of the same user in an event" }
   validates :permission, presence: true

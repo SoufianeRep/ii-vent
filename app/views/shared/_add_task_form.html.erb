@@ -8,11 +8,10 @@
       <div class="modal-body">
         <div class="container">
           <%= simple_form_for([event, Task.new]) do |f| %>
-            <%= f.input :name, placeholder: 'Task name' %>
-            <%= f.input :description, placeholder: 'Task desctiption'%>
+            <%= f.input :name, label: "Task name", placeholder: 'Task name' %>
+            <%= f.input :description, label_method: :capitalize, placeholder: 'Task desctiption'%>
             <%= f.input :category, collection: Task.categories.keys, label_method: :capitalize, selected: 1%>
-            <%= f.input :start, html5: true %>
-            <%= f.input :end, html5: true %>
+            <%= f.input :end, label: "Due Date", html5: true %>
             <%= f.submit class: 'btn btn-dark' %>
           <% end %>
         </div>

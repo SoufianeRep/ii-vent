@@ -9,7 +9,7 @@ class Task < ApplicationRecord
   validates :name, presence: true
   validates :category, presence: true
   validates :status, presence: true
-  validates :start, presence: true
+  validates :end, presence: true
   enum category: {music: "music", security: "security", promotion: "promotion", catering: "catering", organization: "organization"}
   enum status: { pending: "pending", done: "done", archived: "archived" }
 end
