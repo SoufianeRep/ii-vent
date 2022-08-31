@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="event-tasks"
 export default class extends Controller {
   static targets = [
-    "taskTab",
+    "pagesTabs", "tasksTabs",
     "allTab", "all",
     "musicTab", "music",
     "securityTab", "security",
@@ -17,19 +17,21 @@ export default class extends Controller {
   }
 
   toggleDisplay(e) {
-    this.taskTabTargets.forEach(tab => tab.classList.add('d-none'))
+    this.tasksTabsTargets.forEach(tab => tab.classList.remove('active-tab'));
+    e.currentTarget.classList.add('active-tab')
+    this.pagesTabsTargets.forEach(tab => tab.classList.add('d-none'));
     if (e.currentTarget == this.allTarget) {
-      this.allTabTarget.classList.remove("d-none")
+      this.allTabTarget.classList.remove("d-none");
     } else if (e.currentTarget == this.musicTarget) {
-      this.musicTabTarget.classList.remove("d-none")
+      this.musicTabTarget.classList.remove("d-none");
     } else if (e.currentTarget == this.securityTarget) {
-      this.securityTabTarget.classList.remove("d-none")
+      this.securityTabTarget.classList.remove("d-none");
     } else if (e.currentTarget == this.organizationTarget) {
-      this.organizationTabTarget.classList.remove("d-none")
+      this.organizationTabTarget.classList.remove("d-none");
     } else if (e.currentTarget == this.cateringTarget) {
-      this.cateringTabTarget.classList.remove("d-none")
+      this.cateringTabTarget.classList.remove("d-none");
     } else if (e.currentTarget == this.promotionTarget) {
-      this.promotionTabTarget.classList.remove("d-none")
+      this.promotionTabTarget.classList.remove("d-none");
     }
   }
 

@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="tasks"
 export default class extends Controller {
-  static targets = ['task', 'badge', 'members', 'subtaskform', 'subtasks', 'doneform', 'memberImage', 'addMemberForm', 'tickMember', 'formInput'];
+  static targets = ['task', 'badge', 'members', 'subtaskform', 'subtasks', 'memberImage', 'addMemberForm', 'tickMember', 'formInput'];
 
   connect() {
   }

@@ -18,7 +18,7 @@ class TasksController < ApplicationController
         format.html { redirect_to event_path(@event, tab: 'tasks', subtab: @task.category) }
         format.json
       else
-        format.html { redirect_to event_path(@event, tab: 'tasks'), status: :unprocessed_entity }
+        format.html { redirect_to event_path(@event, tab: 'tasks'), status: :unprocessable_entity }
         format.json
       end
     end
@@ -26,7 +26,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @tasks = @task.event.tasks.select { |task| task.task.nil? }
+    @tasks = @task.event.tasks.where(task_id: nil)
     authorize @task
     if set_task_params[:done] == "1"
       @task.status = "done"
@@ -36,7 +36,7 @@ class TasksController < ApplicationController
     # raise
     respond_to do |format|
       if @task.update!(set_task_params)
-        format.text { render partial: 'shared/event_tasks', locals: { tasks: @tasks, event: @task.event }, formats: [:html]}
+        format.text { render partial: 'shared/event_tasks', locals: { tasks: @tasks, event: @task.event }, formats: [:html] }
         format.html { redirect_to dashboard_path }
         format.json
         # format.plain { redirect_to event_path(@task.event, tab: 'tasks', subtab: @task.category) }

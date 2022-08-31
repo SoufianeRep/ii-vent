@@ -5,13 +5,11 @@ export default class extends Controller {
   static targets = ['tasksPage', 'doneform'];
 
   connect() {
-    console.log('update tasks controller HELLO');
-    console.log(this.tasksPageTarget, '<== tasks page');
-    console.log(this.doneformTarget, '<== tasks page');
   }
 
   done(e) {
     e.preventDefault();
+    console.log(e.currentTarget);
     fetch(e.currentTarget.action, {
       method: 'PATCH',
       headers: {"Accept": "text/plain"},
