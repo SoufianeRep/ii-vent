@@ -15,9 +15,18 @@
   padding: 16px;
 }
 
-.event-file {
+.event-file-container {
   height: 320px;
-  background-color: $light-purple;
+  background-color: $dark-gray;
+  border-radius: 5px;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.event-file {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .files-form-container {
