@@ -59,42 +59,40 @@
   justify-content: center;
 }
 
-.info-card
-{
-  position:relative;
-  width:100%;
-  height:180px;
+.info-card {
+  position: relative;
+  width: 100%;
+  height: 180px;
   background-color: $medium-gray;
-  padding:10px;
+  padding: 10px;
   padding-left: 24px;
-  margin:10px 0;
+  margin: 10px 0;
   font-family: 'Roboto';
   overflow: hidden;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
   border-radius: 6px;
 
   i {
-    position:absolute;
-    font-size:80px;
-    zoom:2;
-    top:35%;
-    right:0;
-    opacity:0.1;
+    position: absolute;
+    font-size: 80px;
+    zoom: 2;
+    top: 35%;
+    right: 0;
+    opacity: 0.1;
   }
 }
 
-.info-title
-{
-  font-size:32pt;
+.info-title {
+  font-size: 32pt;
   color: $light-gray;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
-.info-sub-title{
+.info-sub-title {
 
-  font-size:18pt;
-  color:#999;
-  text-transform:uppercase;
+  font-size: 18pt;
+  color: #999;
+  text-transform: uppercase;
 }
 
 .tab-bar {
