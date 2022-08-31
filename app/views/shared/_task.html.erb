@@ -4,7 +4,7 @@
     <div class="card-body fs-4 d-flex align-items-center flex-grow-2">
       <%= render 'components/update_task_form', event: event, task: task %>
       <%# <input type="checkbox" class="task-checkbox me-2" checked disabled> %>
-      <h5 data-action="click->tasks#toggleDisplay stretched-link"><%= task.name %></h5>
+      <h5 data-action="click->tasks#toggleDisplay stretched-link"><%= task.name.capitalize! %></h5>
     </div>
     <%# Small task members avatars %>
     <div class="task-members-small d-flex flex-wrap pe-3 gap-1" data-tasks-target='members'>

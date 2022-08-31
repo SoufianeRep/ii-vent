@@ -8,7 +8,6 @@ class TasksController < ApplicationController
       @parent_task = Task.find(params[:task_id])
       @task.task = @parent_task
     end
-    @task.name.capitalize!
     @task.description&.capitalize!
     @task.event = @event
     # Orgonizer auth
