@@ -39,30 +39,32 @@
     </div>
   </div>
   <div class="main-panel col-md-8 col-md-offset-2" data-event-messages-subscription-target="panel">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="" data-event-messages-subscription-target="messagesPage messagesGeneral">
-        <%= render "messages/messages_general", new_message: @message, event: @event %>
-      </div>
-      <div class="d-none" data-event-messages-subscription-target="messagesPage messagesArtists">
-        <%= render "messages/messages_roles", new_message: @message, event: @event %>
-      </div>
-      <div class="d-none" data-event-messages-subscription-target="messagesPage messagesSecurity">
-        <%= render "messages/messages_roles", new_message: @message, event: @event %>
-      </div>
-      <div class="d-none" data-event-messages-subscription-target="messagesPage messagesStaff">
-        <%= render "messages/messages_roles", new_message: @message, event: @event %>
-      </div>
-      <div class="d-none" data-event-messages-subscription-target="messagesPage messagesManagers">
-        <%= render "messages/messages_roles", new_message: @message, event: @event %>
-      </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="" data-event-messages-subscription-target="messagesPage messagesGeneral">
+          <%= render "messages/messages_general", new_message: @message, event: @event %>
+        </div>
+        <!--
+        <div class="d-none" data-event-messages-subscription-target="messagesPage messagesArtists">
+          <%= render "messages/messages_roles", new_message: @message, event: @event %>
+        </div>
+        <div class="d-none" data-event-messages-subscription-target="messagesPage messagesSecurity">
+          <%= render "messages/messages_roles", new_message: @message, event: @event %>
+        </div>
+        <div class="d-none" data-event-messages-subscription-target="messagesPage messagesStaff">
+          <%= render "messages/messages_roles", new_message: @message, event: @event %>
+        </div>
+        <div class="d-none" data-event-messages-subscription-target="messagesPage messagesManagers">
+          <%= render "messages/messages_roles", new_message: @message, event: @event %>
+        </div>
+        -->
       </div>
     </div>
     <div class="message-form">
       <%= simple_form_for [event, new_message],
-        html: { data: { 'event-messages-subscription-target': "form", action: "turbo:submit-end->event-messages-subscription#resetForm" }, class: "d-flex" } do |f| %>
-        <div class="form-group">
-          <%= f.text_area :content, class: "form-control-text" %>
+        html: { data: { 'event-messages-subscription-target': "form", action: "turbo:submit-end->event-messages-subscription#resetForm" }, class: "" } do |f| %>
+        <div class="message-form-input d-flex align-items-center">
+          <%= f.text_area :content, class: "form-control-text align-self-stretch" %>
           <%= f.submit "Send", class: "brand-btn send-msg" %>
         </div>
       <% end %>
