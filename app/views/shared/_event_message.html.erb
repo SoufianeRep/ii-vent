@@ -1,7 +1,10 @@
 <div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.event_member.user.full_name %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  <small class="d-flex gap-2 align-items-center mb-1">
+    <div class="message-header d-flex align-items-center gap-1">
+      <%= image_tag message.event_member.user.avatar_url, alt: "text" %>
+      <strong><%= message.event_member.user.full_name %></strong>
+    </div>
+    <span class="fs-8 fw-lignter fst-italic"><%= message.created_at.strftime("%b %e at %l:%M %p") %></span>
   </small>
   <p><%= message.content %></p>
 </div>

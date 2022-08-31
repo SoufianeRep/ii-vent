@@ -3,24 +3,32 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  overflow: hidden;
+}
+
+.message-header {
+  img {
+    width: 28px;
+    height: 28px;
+    border: 1px solid grey;
+    border-radius: 55px;
+  }
 }
 
 .side-panel {
   margin-left: 24px;
-  height: 58vh;
   background: $medium-gray;
 }
 
 .main-panel {
   margin-top: 16px;
   margin-right: 48px;
-  height: 55vh;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
+  justify-content: end;
   border: 1px solid $something;
   background: $medium-gray;
-  overflow: scroll;
 }
 
 .panel-body {
@@ -77,8 +85,12 @@
   width: 70%;
   max-width: 400px;
   border-radius: 4px;
-  padding: 8px;
+  padding: 4px 8px 0px;
   min-height: 80px;
+
+  p {
+    margin: 0;
+  }
 }
 
 .sender-style {
@@ -91,12 +103,8 @@
   color: $white;
 }
 
-.form-group {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+.message-form-input {
+  gap: 15px;
   margin: 0 1rem;
 }
 
