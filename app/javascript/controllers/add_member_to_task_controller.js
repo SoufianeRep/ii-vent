@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ['addMemberForm', 'tickMember']
 
   connect() {
-    console.log('add member to task controller connected');
   }
 
   submit() {
@@ -26,8 +25,7 @@ export default class extends Controller {
       body: formData,
     }).then((response) => {
       if (response.ok) {
-        this.currentTarget.classList.add('opacity-25');
-        this.currentTarget.classList.add('pe-none');
+        this.currentTarget.classList.add('opacity-25', 'pe-none');
       }
     });
   }
