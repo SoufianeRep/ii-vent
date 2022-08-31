@@ -1,0 +1,16 @@
+current directory: /home/mounb/code/SoufianeRep/ii-vent/vendor/cache/ruby/3.1.0/gems/strscan-3.0.4/ext/strscan
+/home/mounb/.rbenv/versions/3.1.2/bin/ruby -I /home/mounb/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20220831-9619-rhj1ta.rb extconf.rb
+checking for onig_region_memsize() in ruby.h... yes
+creating Makefile
+
+current directory: /home/mounb/code/SoufianeRep/ii-vent/vendor/cache/ruby/3.1.0/gems/strscan-3.0.4/ext/strscan
+make DESTDIR\= clean
+
+current directory: /home/mounb/code/SoufianeRep/ii-vent/vendor/cache/ruby/3.1.0/gems/strscan-3.0.4/ext/strscan
+make DESTDIR\=
+compiling strscan.c
+linking shared-object strscan.so
+
+current directory: /home/mounb/code/SoufianeRep/ii-vent/vendor/cache/ruby/3.1.0/gems/strscan-3.0.4/ext/strscan
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 strscan.so ./.gem.20220831-9619-y4k83d

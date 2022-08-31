@@ -1,0 +1,15 @@
+current directory: /home/mounb/code/SoufianeRep/ii-vent/vendor/cache/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+/home/mounb/.rbenv/versions/3.1.2/bin/ruby -I /home/mounb/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20220831-9619-1kuyr6.rb extconf.rb
+creating Makefile
+
+current directory: /home/mounb/code/SoufianeRep/ii-vent/vendor/cache/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /home/mounb/code/SoufianeRep/ii-vent/vendor/cache/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/mounb/code/SoufianeRep/ii-vent/vendor/cache/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20220831-9619-wsuwj5/bootsnap

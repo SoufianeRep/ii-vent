@@ -1,20 +1,4 @@
 <div data-controller="tab-members">
-  <div class="container-fluid">
-    <%# <ul class="nav nav-pills nav-fill">
-      <li class="nav-item">
-        <a class="nav-link active" data-tab-members-target="tabManager tab" data-action="click->tab-members#toggle">Managers</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-tab-members-target="tabArtist tab" data-action="click->tab-members#toggle">Artists</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-tab-members-target="tabSecurity tab" data-action="click->tab-members#toggle">Security</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-tab-members-target="tabStaff tab" data-action="click->tab-members#toggle">Staff</a>
-      </li>
-    </ul>%>
-  </div>
   <div class="container d-flex justify-content-end">
     <%= link_to event_event_members_path(event), data: {bs_toggle: "modal", bs_target: "#addMemberModal"} do %>
       <button type="button" class="add-btn"><i class="fa-solid fa-plus"></i> Add a member</button>
@@ -23,6 +7,7 @@
   <div class="" data-tab-members-target="pages pagesManager">
     <h2 class="text-white align-self-center p-3">Managers</h2>
     <div class="grid-members">
+      <% if event.event_members.manager.present?  %>
       <% event.event_members.manager.each do |manager| %>
         <div class="container-fluid">
           <div class="card-product">
@@ -42,11 +27,15 @@
           </div>
         </div>
       <% end %>
+      <% else %>
+        <h3 class="fst-italic align-self-center">No managers yet...</h3>
+      <% end %>
     </div>
   </div>
   <div class="" data-tab-members-target="pages pagesArtist">
     <h2 class="text-white align-self-center p-3">Artists</h2>
     <div class="grid-members">
+      <% if event.event_members.artist.present?  %>
       <% event.event_members.artist.each do |artist|  %>
         <div class="container-fluid">
           <div class="card-product">
@@ -66,11 +55,15 @@
           </div>
         </div>
       <% end %>
+      <% else %>
+        <h5 class="fst-italic align-self-center">No artists yet...</h5>
+      <% end %>
     </div>
   </div>
   <div class="" data-tab-members-target="pages pagesSecurity">
     <h2 class="text-white align-self-center p-3">Security</h2>
     <div class="grid-members">
+      <% if event.event_members.security.present?  %>
       <% event.event_members.security.each do |security|  %>
         <div class="container-fluid">
           <div class="card-product">
@@ -90,11 +83,15 @@
           </div>
         </div>
       <% end %>
+      <% else %>
+        <h5 class="fst-italic align-self-center">No security members yet...</h5>
+      <% end %>
     </div>
   </div>
   <div class="" data-tab-members-target="pages pagesStaff">
     <h2 class="text-white align-self-center p-3">Staff</h2>
     <div class="grid-members">
+      <% if event.event_members.staff.present?  %>
       <% event.event_members.staff.each do |staff|  %>
         <div class="container-fluid">
           <div class="card-product">
@@ -113,6 +110,9 @@
             </div>
           </div>
         </div>
+      <% end %>
+      <% else %>
+        <h5 class="fst-italic align-self-center mb-4">No staff members yet...</h5>
       <% end %>
     </div>
   </div>
