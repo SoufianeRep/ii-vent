@@ -1,11 +1,8 @@
 <%= render 'shared/create_member_modal' %>
-<div class="container-fluid" data-controller='countdown'>
+<div class="container-fluid">
   <div class="banner" style="background-image: url('<%= @event.photo.attached? ? cl_image_path(@event.photo.key) : @event.poster_url %>')">
     <div>
       <h1><%= @event.name %></h1>
-      <%# countdozn here %>
-      <div class='countdown' data-countdown-target="counter"></div>
-      <span class="d-none" data-countdown-target="date"><%= @event.start_date.strftime("%Y-%m-%d") %></span>
     </div>
   </div>
 </div>
@@ -26,16 +23,18 @@
       </li>
     </ul>
   </div>
-  <div class="" data-tab-target="pages pagesMain">
-    <%= render "shared/main", event: @event %>
-  </div>
-  <div class="d-none" data-tab-target="pages pagesMembers">
-    <%= render "shared/members", event: @event, artists: @artists, staffs: @staffs, securities: @securities, event_member: @event_member, tasks: @tasks %>
-  </div>
-  <div class="d-none" data-tab-target="pages pagesTasks">
-    <%= render 'shared/event_tasks', tasks: @tasks, event: @event %>
-  </div>
-  <div class="d-none" data-tab-target="pages pagesMessages">
-    <%= render 'shared/messages', new_message: @message, event: @event %>
+  <div data-controller="update-tasks">
+    <div class="" data-tab-target="pages pagesMain">
+      <%= render "shared/main", event: @event %>
+    </div>
+    <div class="d-none" data-tab-target="pages pagesMembers">
+      <%= render "shared/members", event: @event, artists: @artists, staffs: @staffs, securities: @securities, event_member: @event_member, tasks: @tasks %>
+    </div>
+    <div class="d-none" data-tab-target="pages pagesTasks" data-update-tasks-target="tasksPage">
+      <%= render 'shared/event_tasks', tasks: @tasks, event: @event %>
+    </div>
+    <div class="d-none" data-tab-target="pages pagesMessages">
+      <%= render 'shared/messages', new_message: @message, event: @event %>
+    </div>
   </div>
 </div>

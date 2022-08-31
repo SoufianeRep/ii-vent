@@ -26,6 +26,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
+    @tasks = @task.event.tasks.select { |task| task.task.nil? }
     authorize @task
     if set_task_params[:done] == "1"
       @task.status = "done"
@@ -35,7 +36,8 @@ class TasksController < ApplicationController
     # raise
     respond_to do |format|
       if @task.update!(set_task_params)
-        format.html { redirect_to dashboard_path}
+        format.text { render partial: 'shared/event_tasks', locals: { tasks: @tasks, event: @task.event }, formats: [:html]}
+        format.html { redirect_to dashboard_path }
         format.json
         # format.plain { redirect_to event_path(@task.event, tab: 'tasks', subtab: @task.category) }
       end
