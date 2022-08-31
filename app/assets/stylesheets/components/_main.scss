@@ -94,3 +94,8 @@
   color: #999;
   text-transform: uppercase;
 }
+
+// To turn off hover effects on the Timetable, Gear, etc.
+.noHover {
+  pointer-events: none;
+}
