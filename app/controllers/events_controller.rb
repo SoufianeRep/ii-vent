@@ -42,10 +42,17 @@ class EventsController < ApplicationController
     end
   end
 
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    authorize @event
+    redirect_to event_path(@event)
+  end
+
   private
 
   def event_params
-    params.require(:event).permit(:name, :location, :start_date, :end_date, :photo, :poster_url, event_members_attributes: [:permission, :role, :user_id])
+    params.require(:event).permit(:name, :location, :start_date, :end_date, :photo, :poster_url, event_members_attributes: [:permission, :role, :user_id], files: [])
   end
 
   def build_event_members

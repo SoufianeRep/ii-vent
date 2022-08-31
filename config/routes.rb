@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "users#dashboard", as: :dashboard
   get "/calendar", to: "users#calendar", as: :calendar
-  resources :events, only: [:new, :create, :show] do
+  resources :events, only: [:new, :create, :show, :update] do
     resources :event_members, only: [:create]
     resources :tasks, only: [:new, :create] do
       resources :tasks, only: [:create]

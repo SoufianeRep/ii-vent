@@ -18,4 +18,8 @@ class EventPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def update?
+    record.event_members.find_by(user: user)
+  end
 end

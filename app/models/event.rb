@@ -8,6 +8,7 @@ class Event < ApplicationRecord
   accepts_nested_attributes_for :event_members
   has_many :users, through: :event_members
   has_one_attached :photo
+  has_many_attached :files
 
   validates :location, presence: true
   validates :start_date, presence: true
