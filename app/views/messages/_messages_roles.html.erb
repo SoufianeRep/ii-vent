@@ -1,0 +1,11 @@
+<table class="table task-table" data-event-messages-subscription-target="messages">
+  <tbody>
+    <% event.messages.each do |message| %>
+    <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-start' : 'justify-content-end' %>">
+      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+        <%= render "shared/event_message", message: message %>
+      </div>
+    </div>
+  <% end %>
+  </tbody>
+</table>

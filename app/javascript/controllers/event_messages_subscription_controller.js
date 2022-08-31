@@ -3,7 +3,7 @@ import { createConsumer } from "@rails/actioncable"
 
 // Connects to data-controller="event-messages-subscription"
 export default class extends Controller {
-  static targets = [ "messages", "form", "panel" ]
+  static targets = [ "messages", "form", "panel", "messagesTab", "messagesPage", "messagesGeneral", "messagesArtists", "messagesSecurity", "messagesStaff", "messagesManagers" ]
   static values = { eventId: Number, currentUserId: Number } // string?
 
   connect() {
@@ -20,13 +20,8 @@ export default class extends Controller {
 
   // Private methods
   #insertMessageAndScrollDown(data) {
-    // Logic to know if the sender is the current_user
     const currentUserIsSender = this.currentUserIdValue === data.sender_id
-
-    // Creating the whole message from the `data.message` String
     const messageElement = this.#buildMessageElement(currentUserIsSender, data.message)
-
-    // Inserting the `message` in the DOM
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
     this.panelTarget.scrollTo(0, this.panelTarget.scrollHeight)
   }
@@ -49,8 +44,26 @@ export default class extends Controller {
     return currentUserIsSender ? "sender-style" : "receiver-style"
   }
 
-  // we need a reset form private method to clear the form after submit
   resetForm(event) {
     this.formTarget.reset()
+  }
+
+  changeRoom(event) {
+    console.log("hello")
+    this.messagesTarget.innerHTML = ""
+    this.messagesPageTarget.value = 1
+    this.messagesGeneralTarget.classList.remove("active")
+    this.messagesArtistsTarget.classList.remove("active")
+    this.messagesSecurityTarget.classList.remove("active")
+    this.messagesStaffTarget.classList.remove("active")
+    this.messagesManagersTarget.classList.remove("active")
+    event.currentTarget.classList.add("active")
+    this.messagesTabTarget.value = event.currentTarget.dataset.room
+    this.messagesTarget.innerHTML = ""
+    this.messagesPageTarget.value = 1
+    this.messagesTarget.insertAdjacentHTML("beforeend", `<div class="spinner-border text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>`)
+    this.fetchMessages()
   }
 }
