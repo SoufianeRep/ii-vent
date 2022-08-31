@@ -1,3 +1,19 @@
-.active-tab {
-  background-color: white;
+
+.tasks-nav {
+  .active-tab {
+    color: #202939;
+    background-color: $light-gray;
+  }
+
+  div {
+    border: 1px solid #202939;
+    border-radius: 6px;
+    padding: 8px 16px;
+    background: #202939;
+    color: $light-gray;
+
+    p {
+      margin: 0;
+    }
+  }
 }
