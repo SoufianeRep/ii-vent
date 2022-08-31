@@ -1,22 +1,51 @@
-<div class="mt-5 mx-5">
+<div class="mt-5 mx-5" data-controller="event-tasks">
   <%= render 'shared/add_task_form', event: event  %>
   <div class="row">
     <div class="col-1">
       <%= link_to event_tasks_path(event), data: {bs_toggle: 'modal', bs_target: '#addTaskForm'} do  %>
         <i class="fa-solid fa-square-plus fs-1 text-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Add a Task">
         </i>
-      <% end %></div>
-    <div class="col-5 d-flex flex-column gap-3">
-      <h2 class="text-white align-self-center">Tasks Pending</h2>
-      <% tasks.select{|task| !task.done}.each do |task| %>
-        <%= render 'shared/task', event: event, task: task %>
       <% end %>
+      <ul class="list-unstyled pt-4 text-white">
+        <li class="active-tab" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="all">
+          <p>all</p>
+        </li>
+        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="music">
+          <p>Music</p>
+        </li>
+        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="security">
+          <p>Security</p>
+        </li>
+        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="organization">
+          <p>Organization</p>
+        </li>
+        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="catering">
+          <p>Catering</p>
+        </li>
+        <li class="" data-action="click->event-tasks#toggleDisplay" data-event-tasks-target="promotion">
+          <p>Promotion</p>
+        </li>
+      </ul>
     </div>
-    <div class="col-5 d-flex flex-column gap-3">
-      <h2 class="text-white align-self-center">Tasks Completed</h2>
-      <% tasks.select{|task| task.done}.each do |task| %>
-        <%= render 'shared/task', event: event, task: task %>
-      <% end %>
+    <div class="col-10">
+      <div data-event-tasks-target="taskTab allTab" class="all-tasks">
+        <%= render 'shared/tasks', event: event, tasks: tasks %>
+      </div>
+      <div data-event-tasks-target="taskTab musicTab" class="music-tasks d-none">
+        <%= render 'shared/tasks', event: event, tasks: tasks.select{|x| x.category == "music"} %>
+      </div>
+      <div data-event-tasks-target="taskTab securityTab" class="security-tasks d-none">
+        <%= render 'shared/tasks', event: event, tasks: tasks.select{|x| x.category == "security"} %>
+      </div>
+      <div data-event-tasks-target="taskTab organizationTab" class="organization-tasks d-none">
+        <%= render 'shared/tasks', event: event, tasks: tasks.select{|x| x.category == "organization"} %>
+      </div>
+      <div data-event-tasks-target="taskTab cateringTab" class="catering-tasks d-none">
+        <%= render 'shared/tasks', event: event, tasks: tasks.select{|x| x.category == "catering"} %>
+      </div>
+      <div data-event-tasks-target="taskTab promotionTab" class="promotion-tasks d-none">
+        <%= render 'shared/tasks', event: event, tasks: tasks.select{|x| x.category == "promotion"} %>
+      </div>
     </div>
     <div class="col-1"></div>
   </div>

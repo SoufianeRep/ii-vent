@@ -11,7 +11,7 @@ class EventsController < ApplicationController
         lng: @event.longitude
       }
     ]
-    @tasks = @event.tasks.where(task_id: nil).order(done: :asc)
+    @tasks = @event.tasks.where(task_id: nil).order(updated_at: :desc)
     @event_member = EventMember.new
     @users = User.where.not(id: @event.users.map(&:id))
     @message = Message.new
@@ -20,7 +20,6 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @users = User.all
-    # @event.event_members.build
     build_event_members
     authorize @event
   end

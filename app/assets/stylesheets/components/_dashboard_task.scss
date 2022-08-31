@@ -1,5 +1,5 @@
 .task-container {
-  height: 64px;
+  height: 80px;
   display: flex;
   align-items: center;
   color: #ECECEC;
@@ -18,9 +18,24 @@
     max-width: 480px;
     flex-grow: 1;
 
+    input[type=checkbox] {
+      transform: scale(1.5);
+
+    }
+
+    .dashboard-task-input {
+      margin-right: 8px;
+    }
+
+    label {
+      padding-left: 16px;
+      font-size: 16px;
+    }
+
     .task-description {
       color: #A2A0A2;
-      font-size: 12px;
+      font-size: 16px;
+      margin-left: 16px;
     }
   }
 
@@ -30,7 +45,7 @@
 
   // task status states
   .task-status-badge {
-    font-size: 12px;
+    font-size: 16px;
     border-radius: 55px;
     padding: 0 8px;
 
@@ -55,12 +70,12 @@
   }
 
   .task-due-date {
-    font-size: 12px;
+    font-size: 16px;
     margin: 0;
     text-align: right;
     flex-grow: 1;
     min-width: 160px;
-    max-width: 160px;
+    max-width: 200px;
   }
 
   .task-event-link-container {
@@ -68,7 +83,7 @@
   }
 
   .task-event {
-    height: 64px;
+    height: 80px;
     width: 240px;
     margin: 0;
     padding: 0;
@@ -80,6 +95,7 @@
     h5 {
       align-self: center;
       color: #ECECEC;
+      text-shadow: 1px 1px #151c24;
     }
   }
 
