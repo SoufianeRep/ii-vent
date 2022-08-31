@@ -16,7 +16,7 @@ div.event-task-container:hover {
 
 
 .event-member-avatar {
-  border: 2px solid $white;
+  border: 0.5px solid $white;
   border-radius: 55px;
   height: 45px;
   width: 45px;
@@ -122,4 +122,9 @@ div.event-task-container:hover {
   font-size: larger;
   top: 0;
   right: 0;
+}
+
+.chosen {
+  border: 2px solid white;
+  border-radius: 55px;
 }
