@@ -72,21 +72,25 @@
 </div>
 <div class="container-fluid">
   <div class="container-files mb-3">
-    <h2 class="text-light">PROMOTIONAL MATERIALS</h2>
+    <h2 class="text-light promotion-title">PROMOTIONAL MATERIALS</h2>
     <div class="container-files-media">
       <% if event.files.attached? %>
         <% event.files.each do |file| %>
           <div class="event-file-container">
             <%= cl_image_tag(file.key, class: "event-file")  %>
-            <i class="fa-solid fa-cloud-arrow-down"></i>
+            <i class="fa-solid fa-cloud-arrow-down" id="cloud"></i>
           </div>
         <% end %>
       <% end %>
     </div>
     <div class="files-form-container">
       <%= simple_form_for(event) do |f| %>
-        <%= f.input :files, label: "Choose files to upload:", input_html: {multiple: true, class: "text-light"} %>
-        <%= f.button :submit, 'Upload', class: "brand-btn col-12" %>
+        <div class="row">
+          <%= f.input :files, label: "Choose files to upload:", input_html: {multiple: true, class: "text-light col-3"} %>
+          <div class="margin-left-add">
+            <%= f.button :submit, 'Upload', class: "brand-btn col-3" %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

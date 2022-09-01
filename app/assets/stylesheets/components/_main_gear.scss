@@ -1,0 +1,30 @@
+.gear-time-misc-container {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  border-radius: 6px;
+  border: 1px solid rgba(181, 179, 179, 0.12);
+  color: $light-gray;
+  background-color: $medium-gray;
+  padding: 16px;
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+
+  .gear-time-misc-members {
+    height: 45px;
+  }
+
+  .gear-time-date-start {
+    color: #666;
+    position: absolute;
+    top: 100px;
+  }
+
+  .gear-time-date-end {
+    color: #666;
+    position: absolute;
+    top: 120px;
+  }
+}

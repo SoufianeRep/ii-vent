@@ -69,7 +69,7 @@
   position: relative;
   width: 100%;
   height: 180px;
-  background-color: $medium-gray;
+  background: linear-gradient(45deg, $medium-gray, $purple);
   padding: 10px;
   padding-left: 24px;
   margin: 10px 0;
@@ -89,7 +89,7 @@
 }
 
 .info-title {
-  font-size: 32pt;
+  font-size: 32px;
   color: $light-gray;
   margin-top: 10px;
 }
