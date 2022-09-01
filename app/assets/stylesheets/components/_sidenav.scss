@@ -10,6 +10,14 @@
     text-decoration: none;
     color: inherit;
 
+    &:hover {
+      color: $light-purple;
+    }
+
+    &:active {
+      color: $light-purple;
+    }
+
     .logo {
       height: auto;
       width: 100%;
