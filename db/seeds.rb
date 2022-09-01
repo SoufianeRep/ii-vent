@@ -78,7 +78,11 @@ Task.create!(name: 'Lighting/Visuals', description: 'Provide space and access to
 
 Task.all.each do |task|
   rand(3..7).times do
+<<<<<<< Updated upstream
     Task.create!(name: 'Subtask...', event: Event.all.first, category: task.category, task: task, start: DateTime.now, end: task.end)
+=======
+    Task.create!(name: 'Subtask...', event: Event.all.first, category: task.category, task: task, end: task.end)
+>>>>>>> Stashed changes
   end
 end
 
