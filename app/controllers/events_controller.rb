@@ -8,7 +8,8 @@ class EventsController < ApplicationController
     @markers = [
       {
         lat: @event.latitude,
-        lng: @event.longitude
+        lng: @event.longitude,
+        image_url: helpers.asset_url("purple-map-logo.png")
       }
     ]
     @tasks = @event.tasks.where(task_id: nil).order(updated_at: :desc)
