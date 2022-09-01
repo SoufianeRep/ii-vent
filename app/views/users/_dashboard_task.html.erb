@@ -16,7 +16,7 @@
     <% end %>
   </div>
   <%= link_to event_path(task.event), class: "text-decoration-none" do %>
-    <div class="container task-event" style="background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('<%= task.event.photo.attached? ? cl_image_path(task.event.photo.key) : task.event.poster_url %>') center;">
+    <div class="container task-event" style="background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('<%= task.event.photo.attached? ? cl_image_path(task.event.photo.key, :flags=>"ignore_aspect_ratio", :height=>80, :width=>240, :crop=>"scale") : task.event.poster_url %>') center center;">
       <h5><%= task.event.name %></h5>
     </div>
   <% end %>

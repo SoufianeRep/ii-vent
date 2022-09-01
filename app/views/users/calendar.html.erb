@@ -9,7 +9,7 @@
           <%= date %>
           <% events.each do |event| %>
             <%= link_to event_path(event), class: "text-decoration-none" do %>
-              <div class="calendar-event d-flex justify-content-center align-items-center"  style="background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('<%= event.photo.attached? ? cl_image_path(event.photo.key) : event.poster_url %>') center;">
+              <div class="calendar-event d-flex justify-content-center align-items-center"  style="background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('<%= event.photo.attached? ? cl_image_path(event.photo.key, :flags=>"ignore_aspect_ratio", :height=>62, :width=>150, :crop=>"scale") : event.poster_url %>') center;">
                 <p><%= event.name %></p>
               </div>
             <% end %>
