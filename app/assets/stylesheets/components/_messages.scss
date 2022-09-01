@@ -18,6 +18,9 @@
 .side-panel {
   margin-left: 24px;
   background: $medium-gray;
+  border-radius: 8px;
+  // very subtle border
+  border: 1px solid rgba(255, 255, 255, 0.259);
 }
 
 .main-panel {
@@ -48,7 +51,7 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: $something;
-  margin: 1rem 0;
+  margin: 2rem 1rem;
 }
 
 .list-group {
@@ -63,15 +66,31 @@
 
 .list-group-item {
   text-decoration: none;
-  background-color: $dark-gray;
+  background-color: $medium-gray;
+  color: #666;
   padding: 0.5rem 0;
   margin: 0.5rem 0;
+  border-radius: 8px;
+  border: none;
+
+  #general-chatroom {
+    color: $something;
+  }
 
   a {
-    color: $something;
+    color: #888;
     text-decoration: none;
     margin-left: 1rem;
     font-size: 24px;
+    transition: all 0.3s ease-in-out;
+
+  }
+
+  &:hover {
+    a {
+      color: $something;
+      transform: translateX(15px);
+    }
   }
 }
 
