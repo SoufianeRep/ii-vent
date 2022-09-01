@@ -1,7 +1,7 @@
 <%= simple_form_for([event, parent_task, Task.new],
   data: {tasks_target: "subtaskform", action: "submit->tasks#addSubtask"}
 ) do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, label: false, placeholder: 'Add a subtask', class: 'text-white bg-dark' %>
   <%= f.input :category, as: :hidden, input_html: {value: parent_task.category} %>
   <%= f.input :end, as: :hidden, input_html: {value: parent_task.start} %>
   <%= f.input :task, as: :hidden, input_html: {value: parent_task.task} %>

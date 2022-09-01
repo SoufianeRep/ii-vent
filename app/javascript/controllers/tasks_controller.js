@@ -9,8 +9,8 @@ export default class extends Controller {
 
   toggleDisplay() {
     this.taskTarget.classList.toggle('d-none');
-    this.badgeTarget.classList.toggle('d-none');
     this.membersTarget.classList.toggle('d-none');
+    this.badgeTargets.forEach(badge => badge.classList.toggle('d-none'));
   }
 
   addSubtask(e) {
@@ -24,7 +24,10 @@ export default class extends Controller {
         console.log(data);
         if (data.inserted_item) {
           this.subtasksTarget.insertAdjacentHTML('beforeend',
-            `<p class="ms-5">↪ ${data.inserted_item.locals.task.name}</p>`
+            `<div class="ms-4 d-flex gap-2 align-items-center">
+              <i class="fa-solid fa-circle subtask-icon"></i>
+              <p class="text-secondary m-0">${data.inserted_item.locals.task.name}</p>
+            </div>`
           );
         }
         this.subtaskformTarget.outerHTML = data.form;
