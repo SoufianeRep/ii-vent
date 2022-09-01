@@ -8,7 +8,7 @@
     </button>    -->
     <div class="nav-time-date mt-2 d-flex">
       <h4 class="nav-date pe-3"><%= DateTime.now.strftime("%A, %B %d") %></h4>
-      <h6 class="nav-time"><%= DateTime.now.strftime("%H:%M %p JST") %></h6>
+      <h6 class="nav-time"><%= DateTime.now.strftime("%H:%M %p JST").in_time_zone("Tokyo") %></h6>
     </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="d-flex me-auto list-unstyled align-items-center gap-3 m-0">
