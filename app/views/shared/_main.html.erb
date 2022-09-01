@@ -66,6 +66,7 @@
         <% event.files.each do |file| %>
           <div class="event-file-container">
             <%= cl_image_tag(file.key, class: "event-file")  %>
+            <i class="fa-solid fa-cloud-arrow-down"></i>
           </div>
         <% end %>
       <% end %>
