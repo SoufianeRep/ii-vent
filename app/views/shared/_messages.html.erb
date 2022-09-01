@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="messages row h-100"
+<div class="container mb-5">
+  <div class="messages row"
   data-controller="event-messages-subscription"
   data-event-messages-subscription-event-id-value="<%= event.id %>"
   data-event-messages-subscription-current-user-id-value="<%= current_user.id %>">
@@ -39,8 +39,8 @@
         </div>
       </div>
     </div>
-    <div class="main-panel col-md-8 col-md-offset-2" data-event-messages-subscription-target="panel">
-      <div class="panel-body h-75 overflow-auto">
+    <div class="main-panel col-md-8 col-md-offset-2 flex-grow-0" data-event-messages-subscription-target="panel">
+      <div class="panel-body overflow-auto" style="height: 50vh;">
         <div class="" data-event-messages-subscription-target="messagesPage messagesGeneral">
           <%= render "messages/messages_general", new_message: @message, event: @event %>
         </div>
