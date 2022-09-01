@@ -48,8 +48,6 @@ puts "Creating events"
 
 Event.create!(location: 'Tokyo', start_date: DateTime.now + 1.month, end_date: DateTime.now + 2.month, name: 'Power Base', poster_url: 'https://www.6amgroup.com/wp-content/uploads/2016/12/The-right-DJ-can-improve-an-event.jpg')
 Event.create!(location: 'Osaka', start_date: DateTime.now + rand(1..2).month, end_date: DateTime.now + rand(3..4).month, name: 'Tomorrowland', poster_url: 'https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg?w=2000&t=st=1661319012~exp=1661319612~hmac=6fe528e19dbfdb3bb1e1ff9dc23e6eb06fdcbb003cd436174c8084346804be97')
-Event.create!(location: 'Kyoto', start_date: DateTime.now + rand(1..2).month, end_date: DateTime.now + rand(3..4).month, name: 'Mario & Luigi', poster_url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/12b6cf90105865.5e0df9f1b7f73.png')
-Event.create!(location: 'Nagoya', start_date: DateTime.now + rand(1..2).month, end_date: DateTime.now + rand(3..4).month, name: 'Lafouine feat Booba le Petit Ourson', poster_url: 'https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/218290032_1217610138651984_3186298974796388059_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=e3f864&_nc_ohc=69bkw4gJDSsAX84IIfs&_nc_ht=scontent-nrt1-1.xx&oh=00_AT_q9koQafbBRCuJ9w0BiKAesNZsy3CDNcGZ0jLUcSMe2Q&oe=630A05C8')
 
 puts "Creating Tasks"
 task = ['music', 'security', 'promotion', 'catering', 'organization']
@@ -84,15 +82,19 @@ Task.all.each do |task|
 end
 
 puts "creating Event memeber"
+puts "Creating System event memeber"
+EventMember.create!(user: User.first, event: event_one, permission: 'organizer')
+EventMember.create!(user: User.first, event: event_two, permission: 'organizer')
+
 puts "organizers"
-User.all.first(4).each do |member|
+(User.all.first(5) - [User.first]).each do |member|
   EventMember.create!(user: member, event: event_one, permission: 'organizer', role: 'manager')
   EventMember.create!(user: member, event: event_two, permission: 'organizer', role: 'manager')
 end
 
 puts "creating event members"
 
-users = User.all - User.all.first(4)
+users = User.all - User.all.first(5)
 roles = ["artist", "security", "staff"]
 users.first(15).each do |user|
   event_member = EventMember.create!(user: user, event: Event.all.first(2)[1], permission: "member", role: roles.sample)
@@ -108,8 +110,8 @@ end
 puts "Creating task member"
 
 puts "---creating messages"
-Message.create!(content: "Hey guys, I'm looking for a local DJ to open the show. Any recommendations?", event_member: EventMember.all.first, room: event_one)
-Message.create!(content: "Hey - I think I know someone who can help...", event_member: EventMember.all.second, room: event_one)
+Message.create!(content: "Hey guys, I'm looking for a local DJ to open the show. Any recommendations?", event_member: EventMember.last, room: event_one)
+Message.create!(content: "Hey - I think I know someone who can help...", event_member: EventMember.all[-4], room: event_one)
 
 # Adding tasks and events to Kyle's user account for demo presentation
 # Refactor: Iterate over using arrays of locations, dates/times, etc.
