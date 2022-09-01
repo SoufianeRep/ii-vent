@@ -17,6 +17,7 @@ EventMember.destroy_all
 roles = ['staff', 'artist', 'security']
 puts "Creating organizers..."
 
+User.create!(email: 'system@iivent.com', password: 'password', first_name: 'System', last_name: 'System', nickname: 'System', phone_number: '08043565676', line_id: 'kryp01', location: 'Tokyo, Japan', role: 'organizer', avatar_url: 'favicon-logo.png')
 User.create!(email: 'soufiane@iivent.com', password: 'password', first_name: 'Soufiane', last_name: 'Ezzine', nickname: 'Kryp', phone_number: '08043565676', line_id: 'kryp01', location: 'Tokyo, Japan', role: 'organizer', avatar_url: 'https://avatars.githubusercontent.com/u/59670612?v=4')
 User.create!(email: 'mounir@iivent.com', password: 'password', first_name: 'Mounir', last_name: 'Jamghili', nickname: 'MounB', phone_number: '08023454543', line_id: 'mounb', location: 'Tokyo, Japan', role: 'organizer', avatar_url: 'https://avatars.githubusercontent.com/u/107523103?v=4')
 User.create!(email: 'kyle@iivent.com', password: 'password', first_name: 'Kyle', last_name: 'Jeffrey', nickname: 'kylejeffrey', phone_number: '08123456754', line_id: 'kyleJ', location: 'Osaka, Japan', role: 'organizer', avatar_url: 'https://avatars.githubusercontent.com/u/76161172?v=4')

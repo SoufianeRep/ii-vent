@@ -40,6 +40,7 @@ class EventsController < ApplicationController
       @misc.event = @event
       @misc.save
       @organizer = EventMember.create(user: current_user, event: @event, permission: "organizer", role: "manager")
+      @system = EventMember.create(user: User.first, event: @event, permission: "organizer")
       redirect_to event_path(@event)
     else
       build_event_members
