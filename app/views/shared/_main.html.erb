@@ -5,13 +5,24 @@
       <h2><strong><%= event.name %></strong></h2>
     </div>
     <div class="element-main2">
-      <h3><strong>Date and time</strong></h3>
-      <p><%= event.start_date.strftime("%d %b %Y %H:%M") %></p>
-      <p><%= event.end_date.strftime("%d %b %Y %H:%M") %></p>
+      <i class="fa-solid fa-calendar-days fa-xs"></i>
+      <div>
+        <h4><strong> Date and time</strong></h4>
+        <p><%= event.start_date.strftime("%d %b %Y %H:%M") %></p>
+        <p><%= event.end_date.strftime("%d %b %Y %H:%M") %></p>
+      </div>
     </div>
     <div class="element-main3">
-      <h3><strong>Location</strong></h3>
-      <p><%= event.location %></p>
+      <i class="fa-solid fa-location-dot fa-xs"></i>
+      <div>
+        <h4><strong> Location</strong></h4>
+        <p><%= event.location %></p>
+      </div>
+      <i class="fa-solid fa-money-bill fa-xs"></i>
+      <div>
+        <h4><strong> Price</strong></h4>
+        <p>¥1500</p>
+      </div>
     </div>
     <div class="element-main4"style="width: 100%; height: auto; padding: 0; border-radius: 4px; margin-top: 1px;"
     data-controller="map"
