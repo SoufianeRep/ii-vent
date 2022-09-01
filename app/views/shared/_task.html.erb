@@ -1,10 +1,15 @@
 <div class="event-task-container d-flex flex-column align-self-stretch position-relative" data-controller="tasks">
   <%= render 'shared/new_member_form_modal', event_task: task %>
   <div class="event-task-header d-flex justify-content-between align-items-center">
-    <div class="card-body fs-4 d-flex align-items-center flex-grow-2">
-      <%= render 'components/update_task_form', event: event, task: task %>
+    <div class="card-body fs-4 d-flex flex-column justify-content-start flex-grow-2">
       <%# <input type="checkbox" class="task-checkbox me-2" checked disabled> %>
-      <h5 data-action="click->tasks#toggleDisplay stretched-link"><%= task.name.capitalize %></h5>
+      <div class="d-flex align-items-center">
+        <%= render 'components/update_task_form', event: event, task: task %>
+        <h5 class="me-1 mb-1" data-action="click->tasks#toggleDisplay stretched-link"><%= task.name.capitalize %></h5>
+      </div>
+      <% if !task.done %>
+        <span class="event-task-category-badge align-self-start security due-date" data-tasks-target='badge'>Due in <%=pluralize((task.end.to_datetime - DateTime.now).to_i, "day") %></span>
+      <% end %>
     </div>
     <%# Small task members avatars %>
     <div class="task-members-small d-flex flex-wrap pe-3 gap-1" data-tasks-target='members'>
@@ -23,16 +28,25 @@
   <%# Task card expanded view %>
   <div class=" d-none d-flex flex-column card-content" data-tasks-target='task'>
     <hr>
-    <span class="mb-3 event-task-category-badge <%= task.category %>"><%= task.category %></span>
+    <div class="d-flex gap-2">
+      <span class="mb-3 event-task-category-badge <%= task.category %>"><%= task.category %></span>
+      <% if !task.done  %>
+        <span class="mb-3 event-task-category-badge security">Due in <%=pluralize((task.end.to_datetime - DateTime.now).to_i, "day") %></span>
+      <% end %>
+    </div>
     <p><%= task.description %></p>
     <%# Subtasks %>
-    <%= render 'components/subtasks', task: task %>
-    <%= render 'components/subtask_form', event: event, parent_task: task %>
+    <div class="subtasks">
+      <%= render 'components/subtasks', task: task %>
+      <%= render 'components/subtask_form', event: event, parent_task: task %>
+    </div>
     <%# Subtasks end %>
+    <!--
     <% if  task.start %>
       <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>From: <%= task.start.strftime("%d.%m.%Y") %></p>
     <% end %>
-    <% if  task.end %>
+    -->
+    <% if task.end %>
       <p class='m-0 task-date'><i class="fa-solid fa-calendar-days me-1"></i>Due on: <%= task.end.strftime("%d.%m.%Y") %></p>
     <% end %>
     <hr>

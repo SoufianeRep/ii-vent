@@ -1,5 +1,8 @@
-<div class="subtask-container" data-tasks-target="subtasks">
-  <% task.tasks.each do |task| %>
-    <p class="ms-5">↪ <%= task.name %></p>
+<div class="subtask-container mb-2" data-tasks-target="subtasks">
+  <% task.tasks.order(created_at: :asc).each do |task| %>
+    <div class="ms-4 d-flex gap-2 align-items-center">
+      <i class="fa-solid fa-circle subtask-icon"></i>
+      <p class="text-secondary m-0"><%= task.name %></p>
+    </div>
   <% end %>
 </div>

@@ -4,7 +4,7 @@
   border: 1px solid rgba(181, 179, 179, 0.12);
   color: $light-gray;
   background-color: $medium-gray;
-  padding: 16px;
+  padding: 8px;
   transition: all 0.5s ease;
 }
 
@@ -127,4 +127,26 @@ div.event-task-container:hover {
 .chosen {
   border: 2px solid white;
   border-radius: 55px;
+}
+
+.subtask-icon {
+  color: $hovered-purple;
+  font-size: 8px;
+}
+
+.due-date {
+  font-size: 9px;
+  margin-left: 35px;
+}
+
+#update-task-form > fieldset {
+  margin-bottom: 0.7rem !important;
+}
+
+.subtasks input {
+  color: white;
+}
+
+.subtasks input:focus {
+  color: white;
 }
