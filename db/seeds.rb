@@ -78,7 +78,7 @@ Task.create!(name: 'Lighting/Visuals', description: 'Provide space and access to
 
 Task.all.each do |task|
   rand(3..7).times do
-    Task.create!(name: 'Subtask...', event: Event.all.first, category: task.category, task: task, start: DateTime.now)
+    Task.create!(name: 'Subtask...', event: Event.all.first, category: task.category, task: task, start: DateTime.now, end: task.end)
   end
 end
 
