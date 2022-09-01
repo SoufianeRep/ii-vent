@@ -2,7 +2,11 @@
   <small class="d-flex gap-2 align-items-center mb-1">
     <div class="message-header d-flex align-items-center gap-1">
       <%= image_tag message.event_member.user.avatar_url, alt: "text" %>
-      <strong><%= message.event_member.user.full_name %></strong>
+      <% if message.event_member.user.first_name == 'System' %>
+        <strong><%= message.event_member.user.first_name %></strong>
+      <% else %>
+        <strong><%= "#{message.event_member.user.first_name} #{message.event_member.user.last_name}"%></strong>
+      <% end %>
     </div>
     <span class="fs-8 fw-lignter fst-italic"><%= message.created_at.strftime("%b %e at %l:%M %p") %></span>
   </small>
@@ -10,7 +14,7 @@
     <p><%= message.content %></p>
   <% else %>
     <p><strong><%= message.content.split('|')[0]%></strong></p>
-    <p style="color: #6D48D2;"><strong><%= message.content.split('|')[1].capitalize%></strong></p>
+    <p style="color: white;"><strong><%= message.content.split('|')[1].capitalize%></strong></p>
     <p><em><%= message.content.split('|')[2]%></em></p>
   <% end %>
 </div>

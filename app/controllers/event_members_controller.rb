@@ -13,7 +13,7 @@ class EventMembersController < ApplicationController
     elsif @event_member.security?
       redirect_to event_path(@event, tab: "members", sub_tab: "security")
     else
-      redirect_to event_path(@event, tab: "members")
+      redirect_to event_path(@event, tab: "members"), notice: 'Role must be present'
     end
   end
 

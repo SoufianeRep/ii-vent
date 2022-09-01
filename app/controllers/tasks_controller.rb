@@ -16,7 +16,7 @@ class TasksController < ApplicationController
       if @task.save!
         @message = Message.new(content: "A NEW TASK HAS BEEN CREATED:|#{@task.name}|by: #{current_user.full_name}")
         @message.room = @event
-        @message.event_member = @event.event_members.find_by(user: current_user)
+        @message.event_member = @event.event_members.find_by(user: User.first)
         @message.save
         format.html { redirect_to event_path(@event, tab: 'tasks', subtab: @task.category) }
         format.json
