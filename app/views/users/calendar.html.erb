@@ -5,7 +5,7 @@
         <h2>Calendar</h2>
       </div> %>
       <div class="calendar-inner-container">
-        <%= month_calendar(events: @current_month_events) do |date, events| %>
+        <%= month_calendar(end_attribute: :start_date, events: @current_month_events) do |date, events| %>
           <%= date %>
           <% events.each do |event| %>
             <%= link_to event_path(event), class: "text-decoration-none" do %>
