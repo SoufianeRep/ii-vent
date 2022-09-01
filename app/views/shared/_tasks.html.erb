@@ -3,7 +3,7 @@
     <h2 class="text-white align-self-center">Tasks Pending</h2>
     <% if tasks.where(done: false).any? %>
       <% tasks.where(done: false).each do |task| %>
-        <%= render 'shared/task', due_on: task.end, event: event, task: task%>
+        <%= render 'shared/task', event: event, task: task%>
       <% end %>
     <% else %>
       <p class="fs-5 text-secondary mt-3 text-center">No pending tasks</p>

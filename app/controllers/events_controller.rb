@@ -31,13 +31,13 @@ class EventsController < ApplicationController
     @users = User.all
     authorize @event
     if @event.save
-      @timetable = Task.new(name: "Timetable", description: "Set times for this event", category: "music", start: @event.start_date, end: @event.end_date, timetable: true)
+      @timetable = Task.new(name: "Timetable", description: "Set times for this event", category: "music", end: @event.end_date, timetable: true)
       @timetable.event = @event
       @timetable.save
-      @gear = Task.new(name: "Gear", description: "Gear available for this event", category: "music", start: @event.start_date, end: @event.end_date, gear: true)
+      @gear = Task.new(name: "Gear", description: "Gear available for this event", category: "music", end: @event.end_date, gear: true)
       @gear.event = @event
       @gear.save
-      @misc = Task.new(name: "Misc", description: "Miscellaneous event contributors", category: "organization", start: @event.start_date, end: @event.end_date, misc: true)
+      @misc = Task.new(name: "Misc", description: "Miscellaneous event contributors", category: "organization", end: @event.end_date, misc: true)
       @misc.event = @event
       @misc.save
       @organizer = EventMember.create(user: current_user, event: @event, permission: "organizer", role: "manager")
@@ -64,7 +64,6 @@ class EventsController < ApplicationController
 
   def build_event_members
     return if @event.event_members.present?
-
     @event.event_members.build
   end
 
