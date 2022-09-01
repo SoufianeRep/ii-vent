@@ -91,3 +91,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "noticed", "~> 1.5"
