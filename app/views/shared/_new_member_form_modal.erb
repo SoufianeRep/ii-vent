@@ -9,7 +9,7 @@
         <div class="container d-flex flex-wrap gap-2">
           <% if event_task.event.event_members.any? %>
             <% if (event_task.event.event_members - event_task.event_members).any? %>
-              <% (event_task.event.event_members - event_task.event_members).each do |event_member| %>
+              <% ((event_task.event.event_members  - event_task.event_members.where(user: User.first))- event_task.event_members).each do |event_member| %>
                 <div class="add-member-form-container position-relative">
                   <div class='tick position-absolute d-none' data-add-member-to-task-target='tickMember'>
                     <i class="fa-solid fa-check"></i>
@@ -38,6 +38,10 @@
             <% end %>
           <% end %>
         </div>
+      </div>
+      <div class="modal-footer">
+        <%= link_to 'Confirm', event_path(@event || event, tab: 'tasks', subtab: 'all'), class: 'btn brand-btn' %>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
