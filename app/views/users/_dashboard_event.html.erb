@@ -5,9 +5,12 @@
       <p><%= event.location %></p>
     </div>
     <div class="right">
-      <p><%= event.start_date.strftime('%A') %></p>
-      <p><%= event.start_date.strftime('%B %d, %Y') %></p>
-      <p><%= event.start_date.strftime('%H:%M')%> - <%= event.end_date.strftime('%H:%M') %> JST</p>
+    <p><strong><%= event.event_members.where(user_id: current_user).first.role.capitalize %></strong></p>
+      <div>
+        <p><%= event.start_date.strftime('%A') %></p>
+        <p><%= event.start_date.strftime('%B %d, %Y') %></p>
+        <p><%= event.start_date.strftime('%H:%M')%> - <%= event.end_date.strftime('%H:%M') %> JST</p>
+      </div>
     </div>
   </div>
 <% end %>
