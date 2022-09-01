@@ -8,10 +8,22 @@
   margin-top: 8px;
 }
 
-.element-main1 {
+.element-main1, .element-main2, .element-main3 {
   padding: 24px;
   padding-top: 36px;
   color: $light-gray;
+}
+
+.element-main2, .element-main3 {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  padding-top: 0;
+  i {
+    margin-top: 14px;
+  }
+}
+
+.element-main1 {
   grid-column-start: 1;
   grid-column-end: span 2;
   grid-row-start: 1;
@@ -20,9 +32,6 @@
 }
 
 .element-main2 {
-  padding: 24px;
-  padding-top: 36px;
-  color: $light-gray;
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
@@ -30,9 +39,6 @@
 }
 
 .element-main3 {
-  padding: 24px;
-  padding-top: 36px;
-  color: $light-gray;
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 2;
@@ -94,6 +100,25 @@
   color: #999;
   text-transform: uppercase;
 }
+
+@media (max-width: 767.98px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // To turn off hover effects on the Timetable, Gear, etc.
 // .noHover {
