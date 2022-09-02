@@ -9,7 +9,7 @@
         <div class="container d-flex flex-wrap gap-2">
           <% if event_task.event.event_members.any? %>
             <% if (event_task.event.event_members - event_task.event_members).any? %>
-              <% ((event_task.event.event_members  - event_task.event_members.where(user: User.first))- event_task.event_members).each do |event_member| %>
+              <% (event_task.event.event_members- event_task.event_members).each do |event_member| %>
                 <div class="add-member-form-container position-relative">
                   <div class='tick position-absolute d-none' data-add-member-to-task-target='tickMember'>
                     <i class="fa-solid fa-check"></i>
