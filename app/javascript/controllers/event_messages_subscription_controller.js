@@ -7,7 +7,7 @@ export default class extends Controller {
   static values = { eventId: Number, currentUserId: Number } // string?
 
   connect() {
-    this.panelTarget.scrollTo(0, this.panelTarget.offsetHeight);
+    this.panelTarget.scrollTo(0, this.panelTarget.scrollHeight)
     createConsumer().subscriptions.create(
       { channel: "EventMessagesChannel", id: this.eventIdValue },
       {
@@ -23,7 +23,7 @@ export default class extends Controller {
     const currentUserIsSender = this.currentUserIdValue === data.sender_id
     const messageElement = this.#buildMessageElement(currentUserIsSender, data.message)
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
-    this.panelTarget.scrollTo(0, this.panelTarget.offsetHeight)
+    this.panelTarget.scrollTo(0, this.panelTarget.scrollHeight)
   }
 
   #buildMessageElement(currentUserIsSender, message) {
