@@ -1,6 +1,6 @@
 <%= render 'shared/create_member_modal' %>
 <div class="container-fluid">
-  <div class="banner" style="background-image: url('<%= @event.photo.attached? ? cl_image_path(@event.photo.key) : @event.poster_url %>')">
+  <div class="banner" style="background-image: url('<%= @event.photo.attached? ? cl_image_path(@event.photo.key, :flags=>"ignore_aspect_ratio", :height=>160, :crop=>"scale") : @event.poster_url %>')">
     <div>
       <h1><%= @event.name %></h1>
     </div>

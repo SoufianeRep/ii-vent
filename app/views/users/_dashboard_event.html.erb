@@ -1,11 +1,11 @@
 <%= link_to event_path(event), class: "event-link-container" do %>
-  <div class="event-container m-3" style="background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('<%= event.photo.attached? ? cl_image_path(event.photo.key) : event.poster_url %>') center;">
+  <div class="event-container m-3" style="background: linear-gradient(45deg, rgba(8, 42, 82, 0.3), rgba(8, 42, 82, 0.8)), url('<%= event.photo.attached? ? cl_image_path(event.photo.key, :flags=>"ignore_aspect_ratio", :width=>1145, :height=>160, :crop=>"scale") : event.poster_url %>')  center no-repeat">
     <div class="left">
       <h3><%= event.name %></h3>
       <p><%= event.location %></p>
     </div>
     <div class="right">
-    <p><strong><%= event.event_members.where(user_id: current_user).first.role.capitalize %></strong></p>
+      <p><strong><%= event.event_members.where(user_id: current_user).first.role.capitalize %></strong></p>
       <div>
         <p><%= event.start_date.strftime('%A') %></p>
         <p><%= event.start_date.strftime('%B %d, %Y') %></p>
