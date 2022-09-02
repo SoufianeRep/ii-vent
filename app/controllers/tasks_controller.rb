@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     authorize @event
     respond_to do |format|
       if @task.save!
-        unless @task.task.nil?
+        if @task.task.nil?
           @message = Message.new(content: "A NEW TASK HAS BEEN CREATED:|#{@task.name}|by: #{current_user.full_name}")
           @message.room = @event
           @message.event_member = @event.event_members.find_by(user: User.first)
