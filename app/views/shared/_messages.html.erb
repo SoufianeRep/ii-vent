@@ -39,11 +39,12 @@
         </div>
       </div>
     </div>
-    <div class="main-panel col-md-8 col-md-offset-2 flex-grow-0" data-event-messages-subscription-target="panel">
-      <div class="panel-body overflow-auto" style="height: 50vh;">
+    <div class="main-panel col-md-8 col-md-offset-2 flex-grow-0" >
+      <div class="panel-body overflow-auto" style="height: 50vh;" data-event-messages-subscription-target="panel">
         <div class="" data-event-messages-subscription-target="messagesPage messagesGeneral">
           <%= render "messages/messages_general", new_message: @message, event: @event %>
         </div>
+        <!--
         <div class="d-none" data-event-messages-subscription-target="messagesPage messagesArtists">
           <%= render "messages/messages_roles", new_message: @message, event: @event %>
         </div>
@@ -56,6 +57,7 @@
         <div class="d-none" data-event-messages-subscription-target="messagesPage messagesManagers">
           <%= render "messages/messages_roles", new_message: @message, event: @event %>
         </div>
+        -->
       </div>
       <div class="message-form">
         <%= simple_form_for [event, new_message],
