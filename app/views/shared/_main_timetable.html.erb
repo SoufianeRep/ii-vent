@@ -13,7 +13,7 @@
       <%= link_to new_task_task_member_path(task),
                 data: {bs_toggle: "modal", bs_target: "#addMembersModal#{task.id}"},
                 class: 'me-2' do %>
-        <i class="fa-solid fa-square-plus fs-4 text-light" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign Member"></i>
+        <i class="fa-solid fa-square-plus fs-4 text-light align-item-center" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign Member"></i>
       <% end %>
       <% if task.event_members.any? %>
         <% task.event_members.each do |event_member| %>

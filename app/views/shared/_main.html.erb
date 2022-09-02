@@ -86,9 +86,12 @@
     <div class="files-form-container">
       <%= simple_form_for(event) do |f| %>
         <div class="row">
-          <%= f.input :files, label: "Choose files to upload:", input_html: {multiple: true, class: "text-light col-3"} %>
-          <div class="margin-left-add">
-            <%= f.button :submit, 'Upload', class: "brand-btn col-3" %>
+          <div class="upload-form">
+            <%= f.label :files, "Choose files to upload:" %>
+            <div class="d-flex gap-3">
+              <%= f.input :files, label: false, input_html: {multiple: true, class: "text-light col-3"} %>
+              <%= f.button :submit, 'Upload', class: "brand-btn col-3" %>
+            </div>
           </div>
         </div>
       <% end %>
