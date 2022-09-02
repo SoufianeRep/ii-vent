@@ -20,9 +20,9 @@ class TasksController < ApplicationController
           @message.room = @event
           @message.event_member = @event.event_members.find_by(user: User.first)
           @message.save
-          format.html { redirect_to event_path(@event, tab: 'tasks', subtab: @task.category) }
-          format.json
         end
+        format.html { redirect_to event_path(@event, tab: 'tasks', subtab: @task.category) }
+        format.json
       else
         format.html { redirect_to event_path(@event, tab: 'tasks'), status: :unprocessable_entity }
         format.json
