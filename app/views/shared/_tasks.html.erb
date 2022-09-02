@@ -3,7 +3,7 @@
     <h2 class="text-white align-self-center">Tasks Pending</h2>
     <% if tasks.where(done: false).any? %>
       <% tasks.where(done: false).each do |task| %>
-        <%= render 'shared/task', event: event, task: task%>
+        <%= render 'shared/task', event: event, task: task %>
       <% end %>
     <% else %>
       <p class="fs-5 text-secondary mt-3 text-center">No pending tasks</p>
@@ -13,7 +13,7 @@
     <h2 class="text-white align-self-center">Tasks Completed</h2>
     <% if tasks.where(done: true).any? %>
       <% tasks.where(done: true).each do |task| %>
-        <%= render 'shared/task', event: event, task: task %>
+        <%= render 'shared/task', event: event, task: task, category: category %>
       <% end %>
     <% else %>
       <p class="fs-5 text-secondary mt-3 text-center">No task has been completed yet...</p>
