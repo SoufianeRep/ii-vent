@@ -52,7 +52,7 @@
     <hr>
     <div class="task-members d-flex gap-1 justify-content-end align-items-center">
       <%= link_to new_task_task_member_path(task),
-                data: {bs_toggle: "modal", bs_target: "#addMembersModal#{task.id}"},
+                data: {bs_toggle: "modal", bs_target: "#addMembersModal#{task.id}#{}"},
                 class: 'me-2' do %>
         <i class="fa-solid fa-square-plus fs-4 text-light" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign Member"></i>
       <% end %>

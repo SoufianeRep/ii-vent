@@ -8,18 +8,5 @@
   <div class="d-flex flex-column gear-time-misc-members-container-card-content" data-tasks-target='task'>
     <%= render 'components/timetable_set', task: task %>
     <%= render 'components/timetable_set_form', event: event, parent_task: task %>
-    <hr>
-    <div class="gear-time-misc-members d-flex gap-1 justify-content-end align-items-center">
-      <%= link_to new_task_task_member_path(task),
-                data: {bs_toggle: "modal", bs_target: "#addMembersModal#{task.id}"},
-                class: 'me-2' do %>
-        <i class="fa-solid fa-square-plus fs-4 text-light align-item-center" data-bs-toggle="tooltip" data-bs-placement="left" title="Assign Member"></i>
-      <% end %>
-      <% if task.event_members.any? %>
-        <% task.event_members.each do |event_member| %>
-          <%= render "components/task_member", member: event_member %>
-        <% end %>
-      <% end %>
-    </div>
   </div>
 </div>

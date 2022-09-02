@@ -7,6 +7,7 @@ class TasksController < ApplicationController
     if params[:task_id]
       @parent_task = Task.find(params[:task_id])
       @task.task = @parent_task
+      @task.end = @parent_task.end
     end
     @task.description&.capitalize!
     @task.event = @event
@@ -14,12 +15,14 @@ class TasksController < ApplicationController
     authorize @event
     respond_to do |format|
       if @task.save!
-        @message = Message.new(content: "A NEW TASK HAS BEEN CREATED:|#{@task.name}|by: #{current_user.full_name}")
-        @message.room = @event
-        @message.event_member = @event.event_members.find_by(user: User.first)
-        @message.save
-        format.html { redirect_to event_path(@event, tab: 'tasks', subtab: @task.category) }
-        format.json
+        unless @task.task.nil?
+          @message = Message.new(content: "A NEW TASK HAS BEEN CREATED:|#{@task.name}|by: #{current_user.full_name}")
+          @message.room = @event
+          @message.event_member = @event.event_members.find_by(user: User.first)
+          @message.save
+          format.html { redirect_to event_path(@event, tab: 'tasks', subtab: @task.category) }
+          format.json
+        end
       else
         format.html { redirect_to event_path(@event, tab: 'tasks'), status: :unprocessable_entity }
         format.json

@@ -32,19 +32,19 @@
         <%= render 'shared/tasks', event: event, tasks: tasks %>
       </div>
       <div data-event-tasks-target="pagesTabs musicTab" class="music-tasks d-none">
-        <%= render 'shared/tasks', event: event, tasks: tasks.where(category: 'music') %>
+        <%= render 'shared/tasks', event: event, tasks: tasks.where(category: 'music'), category: 'music' %>
       </div>
       <div data-event-tasks-target="pagesTabs securityTab" class="security-tasks d-none">
-        <%= render 'shared/tasks', event: event, tasks: tasks.where(category: 'security') %>
+        <%= render 'shared/tasks', event: event, tasks: tasks.where(category: 'security'), category: 'security' %>
       </div>
       <div data-event-tasks-target="pagesTabs organizationTab" class="organization-tasks d-none">
-        <%= render 'shared/tasks', event: event, tasks: tasks.where(category: 'organization') %>
+        <%= render 'shared/tasks', event: event, tasks: tasks.where(category: 'organization'), category: 'organization' %>
       </div>
       <div data-event-tasks-target="pagesTabs cateringTab" class="catering-tasks d-none">
-        <%= render 'shared/tasks', event: event, tasks: tasks.where(category: 'catering') %>
+        <%= render 'shared/tasks', event: event, tasks: tasks.where(category: 'catering'), category: 'catering' %>
       </div>
       <div data-event-tasks-target="pagesTabs promotionTab" class="promotion-tasks d-none">
-        <%= render 'shared/tasks', event: event, tasks: tasks.where(category: 'promotion') %>
+        <%= render 'shared/tasks', event: event, tasks: tasks.where(category: 'promotion'), category: 'promotion' %>
       </div>
     </div>
   </div>
