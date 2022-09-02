@@ -5,7 +5,7 @@
       <p><%= event.location %></p>
     </div>
     <div class="right">
-      <p><strong><%= event.event_members.where(user_id: current_user).first.role.capitalize %></strong></p>
+      <p class="dashboard-event-role text-center"><strong><%= event.event_members.where(user_id: current_user).first.role.capitalize %></strong></p>
       <div>
         <p><%= event.start_date.strftime('%A') %></p>
         <p><%= event.start_date.strftime('%B %d, %Y') %></p>
